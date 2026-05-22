@@ -9,12 +9,12 @@ export const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) =
   return (
     <div className={`flex items-center gap-3 group select-none ${className}`}>
       {/* Stylized "IH" SVG Logo Icon */}
-      <div className="relative w-12 h-12 flex-shrink-0">
+      <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/95 dark:bg-slate-50 rounded-xl border border-white/60 dark:border-slate-100 shadow-sm p-1.5 transition-all duration-300 group-hover:scale-[1.05] group-hover:shadow-md">
         <svg
           viewBox="0 0 100 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-[0_2px_8px_rgba(0,82,255,0.15)]"
+          className="w-full h-full drop-shadow-[0_2px_6px_rgba(0,82,255,0.12)]"
         >
           <defs>
             {/* The mask that cuts a clean sweeping arc through the letters */}
