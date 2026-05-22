@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-slate-50 dark:bg-dark-bg transition-colors duration-300">
       {/* Dynamic Ambient Background Blobs */}
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent/10 blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-red/8 blur-[100px] pointer-events-none"></div>
 
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] pointer-events-none"></div>
@@ -45,8 +45,8 @@ export const Hero: React.FC = () => {
             {/* Top Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-accent border border-primary/20 text-xs font-bold uppercase tracking-wider animate-float">
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary dark:bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary dark:bg-accent"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
               </span>
               The Global Visa Expert
             </div>
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
             {/* Glowing Headline Option 1 & 2 combined beautifully */}
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-slate-900 dark:text-white leading-[1.1] transition-colors">
               Studying and Settling Abroad Made Easy by{' '}
-              <span className="text-gradient-primary">IMMIGRATION HUB</span>
+              <span className="text-gradient-brand">IMMIGRATION HUB</span>
             </h1>
 
             {/* Dynamic, supportive context paragraph */}
@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#forms-hub"
-                className="px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 flex items-center gap-2 group hover:scale-[1.02]"
+                className="px-6 py-3.5 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 flex items-center gap-2 group hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book 1:1 Free Counselling</span>

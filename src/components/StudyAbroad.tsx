@@ -107,9 +107,9 @@ export const StudyAbroad: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
-            Study Abroad <span className="text-gradient-primary">Destinations</span>
+            Study Abroad <span className="text-gradient-brand">Destinations</span>
           </h2>
-          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
+          <div className="h-1.5 w-20 bg-gradient-brand mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
             We offer study opportunities in high-ranking destinations. We help you choose the right country, best courses, and ideal career pathways with comprehensive expert support.
           </p>
@@ -191,7 +191,7 @@ export const StudyAbroad: React.FC = () => {
               <div className="p-6 pt-0">
                 <button
                   onClick={() => handleCountryShortcut(country.name)}
-                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-white dark:bg-slate-800 dark:hover:bg-primary text-slate-700 dark:text-slate-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1"
+                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-red hover:text-white dark:bg-slate-800 dark:hover:bg-brand-red text-slate-700 dark:text-slate-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1"
                 >
                   <span>Select Destination</span>
                   <ArrowUpRight className="w-4 h-4" />

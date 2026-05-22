@@ -65,9 +65,9 @@ export const QuickEnquiry: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => { setIsOpen(true); setSuccess(false); setError(null); }}
-          className="fixed right-0 top-[40%] z-40 bg-primary hover:bg-primary-dark text-white py-3.5 px-3 rounded-l-2xl shadow-2xl flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 hover:pr-4 group animate-float border-y border-l border-white/20"
+          className="fixed right-0 top-[40%] z-40 bg-[#E51937] hover:bg-[#b81026] text-white py-3.5 px-3 rounded-l-2xl shadow-2xl flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 hover:pr-4 group animate-float border-y border-l border-white/20"
         >
-          <Zap className="w-5 h-5 animate-pulse text-accent" />
+          <Zap className="w-5 h-5 animate-pulse text-yellow-300" />
           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest [writing-mode:vertical-lr] rotate-180">
             Quick Enquiry
           </span>
@@ -200,7 +200,7 @@ export const QuickEnquiry: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-primary/10 hover:shadow-primary/20 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed mt-2"
+                  className="w-full py-3 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-brand-red/10 hover:shadow-brand-red/20 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed mt-2"
                 >
                   {loading ? (
                     <>

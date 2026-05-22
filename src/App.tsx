@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Logo } from './components/Logo';
@@ -13,21 +13,10 @@ import { FloatingBubbles } from './components/FloatingBubbles';
 import { ShieldCheck } from 'lucide-react';
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    // Check local storage or defaults to true for that rich, dark obsidian look!
-    const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true;
-  });
-
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   // Scroll Reveal Intersection Observer
   useEffect(() => {
@@ -54,9 +43,9 @@ function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen text-slate-800 dark:text-slate-200 transition-colors duration-300 bg-slate-50 dark:bg-dark-bg`}>
+    <div className="min-h-screen text-slate-800 bg-[#F8FAFC]">
       {/* 1. Navigation bar */}
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar />
 
       {/* 2. Hero Section */}
       <Hero />

@@ -123,9 +123,9 @@ export const VisasNZ: React.FC = () => {
             <ShieldCheck className="w-4 h-4" /> Licensed LIA Expertise
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
-            New Zealand <span className="text-gradient-primary">Visas Hub</span>
+            New Zealand <span className="text-gradient-brand">Visas Hub</span>
           </h2>
-          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
+          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
             Providing fully compliant, government-licensed visa advice under the strict guidance of our LIA Director. Explore the right pathway for your settlement goals.
           </p>
@@ -141,7 +141,7 @@ export const VisasNZ: React.FC = () => {
                 onClick={() => setActiveTab(visa.id)}
                 className={`w-full p-4 rounded-xl flex items-center justify-between transition-all duration-300 text-left ${
                   activeTab === visa.id
-                    ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-[1.01]'
+                    ? 'bg-gradient-brand text-white shadow-lg shadow-primary/20 scale-[1.01]'
                     : 'bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary/30 hover:bg-slate-50 dark:hover:bg-slate-900/50'
                 }`}
               >

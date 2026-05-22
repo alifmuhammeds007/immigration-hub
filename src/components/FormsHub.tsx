@@ -181,9 +181,9 @@ export const FormsHub: React.FC = () => {
             <CalendarRange className="w-4 h-4" /> Gateway to your future
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
-            Consultation & <span className="text-gradient-primary">Assessment</span>
+            Consultation & <span className="text-gradient-brand">Assessment</span>
           </h2>
-          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
+          <div className="h-1.5 w-20 bg-gradient-brand mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-sm sm:text-base font-light">
             Take your first solid step. Fill out our detailed profile questionnaires, and receive a professional evaluation from our team completely free.
           </p>
@@ -195,7 +195,7 @@ export const FormsHub: React.FC = () => {
             onClick={() => { setActiveTab('assessment'); setSuccess(null); setError(null); }}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition-all ${
               activeTab === 'assessment'
-                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                ? 'bg-gradient-brand text-white shadow-md shadow-primary/20'
                 : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
@@ -205,7 +205,7 @@ export const FormsHub: React.FC = () => {
             onClick={() => { setActiveTab('counselling'); setSuccess(null); setError(null); }}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition-all ${
               activeTab === 'counselling'
-                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                ? 'bg-gradient-brand text-white shadow-md shadow-primary/20'
                 : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
@@ -400,7 +400,7 @@ export const FormsHub: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
@@ -589,7 +589,7 @@ export const FormsHub: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>

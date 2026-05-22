@@ -27,9 +27,9 @@ export const AboutUs: React.FC = () => {
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
-            About <span className="text-gradient-primary">Immigration Hub</span>
+            About <span className="text-gradient-brand">Immigration Hub</span>
           </h2>
-          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
+          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
             We are a New Zealand based Study and Immigration consultant operating in NZ and Kerala. 
             We specialize in guiding applicants toward their absolute best career and settlement pathways.

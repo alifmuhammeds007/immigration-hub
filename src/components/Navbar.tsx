@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, ShieldCheck } from 'lucide-react';
+import { Menu, X, ShieldCheck } from 'lucide-react';
 import { Logo } from './Logo';
 
-interface NavbarProps {
-  darkMode: boolean;
-  setDarkMode: (dark: boolean) => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
+export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -71,35 +66,17 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 <span>Licensed NZ LIA Guidance</span>
               </div>
 
-              {/* Theme Toggle */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                aria-label="Toggle Theme"
-              >
-                {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </button>
-
               {/* Quick Action Button */}
               <a
                 href="#forms-hub"
-                className="px-4 py-2 rounded-lg bg-[#0052FF] hover:bg-[#003DB3] text-white font-semibold text-xs tracking-wider uppercase transition-all shadow-md shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-95 duration-200"
+                className="px-4 py-2 rounded-lg bg-[#E51937] hover:bg-[#b81026] text-white font-semibold text-xs tracking-wider uppercase transition-all shadow-md shadow-brand-red/10 hover:shadow-brand-red/20 hover:scale-105 active:scale-95 duration-200"
               >
                 Free Assessment
               </a>
             </div>
 
-            {/* Mobile Menu & Theme Button */}
+            {/* Mobile Menu & Action Button */}
             <div className="flex md:hidden items-center gap-2">
-              {/* Theme Toggle Mobile */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                aria-label="Toggle Theme"
-              >
-                {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </button>
-
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -157,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <a
               href="#forms-hub"
               onClick={() => setIsOpen(false)}
-              className="block w-full py-4 text-center rounded-xl bg-[#0052FF] text-white font-bold tracking-wider uppercase transition-all shadow-md shadow-primary/10 hover:shadow-primary/20"
+              className="block w-full py-4 text-center rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-bold tracking-wider uppercase transition-all shadow-md shadow-brand-red/10 hover:shadow-brand-red/20"
             >
               Free Assessment
             </a>
