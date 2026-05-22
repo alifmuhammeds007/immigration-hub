@@ -1,0 +1,611 @@
+import React, { useState, useRef } from 'react';
+import { Upload, CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
+
+export const FormsHub: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'assessment' | 'counselling'>('assessment');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  // Free Assessment State
+  const [assessmentForm, setAssessmentForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    contactNumber: '',
+    purpose: 'Study Abroad',
+    destination: '',
+    qualification: '',
+    experience: '0',
+    message: ''
+  });
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Counselling State
+  const [counsellingForm, setCounsellingForm] = useState({
+    firstName: '',
+    secondName: '',
+    phone: '',
+    email: '',
+    city: '',
+    qualification: '',
+    experience: '0',
+    degreeType: 'Diploma',
+    courses: '',
+    priorities: 'Good University',
+    budget: '',
+    queries: ''
+  });
+
+  const resetForms = () => {
+    setAssessmentForm({
+      firstName: '',
+      lastName: '',
+      email: '',
+      contactNumber: '',
+      purpose: 'Study Abroad',
+      destination: '',
+      qualification: '',
+      experience: '0',
+      message: ''
+    });
+    setCvFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+
+    setCounsellingForm({
+      firstName: '',
+      secondName: '',
+      phone: '',
+      email: '',
+      city: '',
+      qualification: '',
+      experience: '0',
+      degreeType: 'Diploma',
+      courses: '',
+      priorities: 'Good University',
+      budget: '',
+      queries: ''
+    });
+  };
+
+  const handleAssessmentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('first_name', assessmentForm.firstName);
+      formData.append('last_name', assessmentForm.lastName);
+      formData.append('email', assessmentForm.email);
+      formData.append('contact_number', assessmentForm.contactNumber);
+      formData.append('purpose', assessmentForm.purpose);
+      formData.append('destination', assessmentForm.destination);
+      formData.append('highest_qualification', assessmentForm.qualification);
+      formData.append('work_experience', assessmentForm.experience);
+      formData.append('message', assessmentForm.message);
+      
+      if (cvFile) {
+        formData.append('cv', cvFile);
+      }
+
+      // API URL for FastAPI backend
+      const response = await fetch('/api/assessment', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
+        setSuccess('Your Free Visa Assessment has been received! Our Licensed Immigration Adviser or Senior Counsellor will review your CV and get in touch with you shortly.');
+        resetForms();
+      } else {
+        throw new Error(resData.detail || 'Failed to submit assessment.');
+      }
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please check your network connection.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCounsellingSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      // Map frontend fields to backend schema
+      const payload = {
+        first_name: counsellingForm.firstName,
+        last_name: counsellingForm.secondName,
+        phone_number: counsellingForm.phone,
+        email: counsellingForm.email,
+        city: counsellingForm.city,
+        highest_qualification: counsellingForm.qualification,
+        work_experience: counsellingForm.experience,
+        degree_type: counsellingForm.degreeType,
+        interested_courses: counsellingForm.courses,
+        priorities: counsellingForm.priorities,
+        budget: counsellingForm.budget,
+        queries: counsellingForm.queries
+      };
+
+      const response = await fetch('/api/counselling', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
+        setSuccess('1:1 Free Counselling booked successfully! Our Senior Counsellor will schedule a session with you and reach out via phone/email.');
+        resetForms();
+      } else {
+        throw new Error(resData.detail || 'Failed to book session.');
+      }
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please check your network connection.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const selected = e.target.files[0];
+      if (selected.size > 5 * 1024 * 1024) {
+        setError('Resume/CV file size must be less than 5MB.');
+        setCvFile(null);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        return;
+      }
+      setCvFile(selected);
+      setError(null);
+    }
+  };
+
+  return (
+    <section id="forms-hub" className="py-20 bg-slate-50 dark:bg-dark-bg transition-colors duration-300 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-accent border border-primary/20 text-xs font-bold uppercase tracking-wider mb-3">
+            <CalendarRange className="w-4 h-4" /> Gateway to your future
+          </div>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
+            Consultation & <span className="text-gradient-primary">Assessment</span>
+          </h2>
+          <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
+          <p className="text-slate-600 dark:text-slate-400 mt-6 text-sm sm:text-base font-light">
+            Take your first solid step. Fill out our detailed profile questionnaires, and receive a professional evaluation from our team completely free.
+          </p>
+        </div>
+
+        {/* Form Selector Tab Buttons */}
+        <div className="flex rounded-2xl bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 p-2 max-w-lg mx-auto mb-8 shadow-sm">
+          <button
+            onClick={() => { setActiveTab('assessment'); setSuccess(null); setError(null); }}
+            className={`flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition-all ${
+              activeTab === 'assessment'
+                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
+            }`}
+          >
+            📋 Free Visa Assessment
+          </button>
+          <button
+            onClick={() => { setActiveTab('counselling'); setSuccess(null); setError(null); }}
+            className={`flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition-all ${
+              activeTab === 'counselling'
+                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
+            }`}
+          >
+            🎓 Book 1:1 Counselling
+          </button>
+        </div>
+
+        {/* Global Notifications */}
+        {success && (
+          <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-400 text-sm flex gap-3 text-left">
+            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-500" />
+            <span className="font-light">{success}</span>
+          </div>
+        )}
+        {error && (
+          <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-800 dark:text-rose-400 text-sm flex gap-3 text-left">
+            <AlertTriangle className="w-5 h-5 shrink-0 text-rose-500" />
+            <span className="font-light">{error}</span>
+          </div>
+        )}
+
+        {/* Tab 1: Free Visa Assessment Form */}
+        {activeTab === 'assessment' && (
+          <form onSubmit={handleAssessmentSubmit} className="glassmorphism rounded-3xl border border-white/20 dark:border-white/5 bg-white/60 dark:bg-dark-card/65 p-6 sm:p-10 shadow-xl electric-glow text-left space-y-6">
+            <h3 className="font-heading font-extrabold text-xl text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-800/80 pb-3 flex items-center justify-between">
+              <span>Detailed Visa Evaluation Form</span>
+              <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Free</span>
+            </h3>
+
+            {/* Row 1: First/Last Names */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">First Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Anjali"
+                  value={assessmentForm.firstName}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, firstName: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Last Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Nair"
+                  value={assessmentForm.lastName}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, lastName: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 2: Email & Phone */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Email Address *</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="e.g. name@domain.com"
+                  value={assessmentForm.email}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Contact Number *</label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="e.g. +91 96330 62888"
+                  value={assessmentForm.contactNumber}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, contactNumber: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 3: Inquiry Purpose & Destination */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Purpose of Inquiry *</label>
+                <select
+                  id="purpose-inquiry"
+                  value={assessmentForm.purpose}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, purpose: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                >
+                  <option value="Study Abroad">🎓 Study Abroad Opportunity</option>
+                  <option value="Immigration Services to New Zealand">🇳🇿 NZ Visa/Immigration Pathway</option>
+                </select>
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Preferred Destination Country *</label>
+                <input
+                  type="text"
+                  required
+                  id="preferred-country"
+                  placeholder="e.g. New Zealand, UK, France"
+                  value={assessmentForm.destination}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, destination: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 4: Qualification & Experience */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Highest Qualification *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. B.Tech CS, B.Com, Plus Two"
+                  value={assessmentForm.qualification}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, qualification: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Years of Work Experience *</label>
+                <select
+                  value={assessmentForm.experience}
+                  onChange={(e) => setAssessmentForm({ ...assessmentForm, experience: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                >
+                  <option value="0">Fresh Graduate / No Experience</option>
+                  <option value="1">1 Year</option>
+                  <option value="2">2 Years</option>
+                  <option value="3">3 Years</option>
+                  <option value="4">4 Years</option>
+                  <option value="5+">5+ Years</option>
+                </select>
+              </div>
+            </div>
+
+            {/* File Upload CV Area */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Upload Your CV / Resume (Optional)</label>
+              <div
+                onClick={() => fileInputRef.current?.click()}
+                className="group border-2 border-dashed border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 rounded-2xl p-6 text-center cursor-pointer bg-slate-50/50 dark:bg-slate-900/40 hover:bg-slate-100/50 dark:hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center gap-2"
+              >
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  accept=".pdf,.doc,.docx"
+                  className="hidden"
+                />
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-primary flex items-center justify-center transition-colors">
+                  <Upload className="w-5 h-5" />
+                </div>
+                {cvFile ? (
+                  <div>
+                    <p className="text-xs font-semibold text-emerald-500">📎 {cvFile.name}</p>
+                    <p className="text-[10px] text-slate-400">Click or drag again to replace (Max 5MB)</p>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Click to select files or drag-and-drop</p>
+                    <p className="text-[10px] text-slate-400">Supports PDF, DOC, DOCX files up to 5MB</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Assisted Queries */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">How Can We Assist You?</label>
+              <textarea
+                rows={3}
+                placeholder="Mention specific course preferences, immigration history, family companion needs, or custom constraints..."
+                value={assessmentForm.message}
+                onChange={(e) => setAssessmentForm({ ...assessmentForm, message: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+              />
+            </div>
+
+            {/* Compliance Banner */}
+            <div className="p-3.5 rounded-xl bg-slate-100/60 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2.5">
+              <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
+              <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-tight">
+                <strong>LIA Privacy Pledge</strong>: All uploaded resumes and profiles are securely analyzed strictly under the privacy policy rules of the Immigration Advisers Authority (IAA).
+              </p>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Processing Submission...</span>
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  <span>Submit Assessment Request</span>
+                </>
+              )}
+            </button>
+          </form>
+        )}
+
+        {/* Tab 2: Book 1:1 Counselling Form */}
+        {activeTab === 'counselling' && (
+          <form onSubmit={handleCounsellingSubmit} className="glassmorphism rounded-3xl border border-white/20 dark:border-white/5 bg-white/60 dark:bg-dark-card/65 p-6 sm:p-10 shadow-xl electric-glow text-left space-y-6">
+            <h3 className="font-heading font-extrabold text-xl text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-800/80 pb-3 flex items-center justify-between">
+              <span>Book Your Free 1:1 Counselling Session</span>
+              <span className="text-[10px] font-bold text-primary dark:text-accent uppercase tracking-widest bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">Senior Counsellor</span>
+            </h3>
+
+            {/* Row 1: Names */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">First Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Rahul"
+                  value={counsellingForm.firstName}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, firstName: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Second Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Kurup"
+                  value={counsellingForm.secondName}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, secondName: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 2: Phone & Email */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Phone Number *</label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="e.g. +91 96330 69888"
+                  value={counsellingForm.phone}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Email ID *</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="e.g. name@domain.com"
+                  value={counsellingForm.email}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 3: City & Qualification */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">City of Living *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Kochi, Kottayam, Trivandrum"
+                  value={counsellingForm.city}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, city: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Highest Educational Qualification *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. B.Tech CS, MBA, Plus Two"
+                  value={counsellingForm.qualification}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, qualification: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Row 4: Experience & Degree Level looking for */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Number of Years of Work Experience</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="30"
+                  required
+                  placeholder="e.g. 2"
+                  value={counsellingForm.experience}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, experience: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Looking for study level *</label>
+                <select
+                  value={counsellingForm.degreeType}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, degreeType: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                >
+                  <option value="Diploma">Diploma / Advanced Diploma</option>
+                  <option value="PG Diploma">PG Diploma / Post Graduate Certificate</option>
+                  <option value="Bachelors">Bachelors Degree</option>
+                  <option value="Masters">Masters Degree / PhD</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Row 5: Course interests & Priorities */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Interested Courses *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Information Technology, Hospitality, Nursing"
+                  value={counsellingForm.courses}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, courses: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Top Priorities *</label>
+                <select
+                  value={counsellingForm.priorities}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, priorities: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                >
+                  <option value="Good University">🏫 Good Tier-1 University ranking</option>
+                  <option value="Specific Course">📖 Highly specific academic course matching</option>
+                  <option value="Specific Country">🗺 Specific Country settlement options</option>
+                  <option value="Within Budget">💰 Keeping costs low & within budget</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Row 6: Budget & Queries */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Budget for Studying Abroad (Optional)</label>
+                <input
+                  type="text"
+                  placeholder="e.g. Under 15 Lakhs INR, 15-25 Lakhs, No bar"
+                  value={counsellingForm.budget}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, budget: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Additional Queries</label>
+                <input
+                  type="text"
+                  placeholder="Spouse work visa options, post-study residency timeline..."
+                  value={counsellingForm.queries}
+                  onChange={(e) => setCounsellingForm({ ...counsellingForm, queries: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Booking Session...</span>
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  <span>Book Free 1:1 Session Now</span>
+                </>
+              )}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+};

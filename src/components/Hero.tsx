@@ -1,0 +1,156 @@
+import React from 'react';
+import { ArrowRight, Calendar, Compass, GraduationCap, ShieldCheck, Landmark } from 'lucide-react';
+
+export const Hero: React.FC = () => {
+  const stats = [
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+      value: "LIA Licensed",
+      label: "Director-led NZ visa counsel",
+      desc: "Licensed Immigration Adviser expert support"
+    },
+    {
+      icon: <GraduationCap className="w-6 h-6 text-primary" />,
+      value: "10+ Years",
+      label: "CEO's NZ experience",
+      desc: "Direct guidance based on studying & working in NZ"
+    },
+    {
+      icon: <Landmark className="w-6 h-6 text-accent" />,
+      value: "6+ Destinations",
+      label: "Global study destinations",
+      desc: "Study options in NZ, UK, Dubai, France, Malta, Spain"
+    },
+    {
+      icon: <Compass className="w-6 h-6 text-indigo-500" />,
+      value: "End-to-End",
+      label: "Pre & Post Landing Care",
+      desc: " Kerala & NZ offices for continuous student support"
+    }
+  ];
+
+  return (
+    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-slate-50 dark:bg-dark-bg transition-colors duration-300">
+      {/* Dynamic Ambient Background Blobs */}
+      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent/10 blur-[100px] pointer-events-none"></div>
+
+      {/* Grid Pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Text Content Area */}
+          <div className="lg:col-span-7 space-y-6 text-left animate-fade-in-up">
+            {/* Top Tagline Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-accent border border-primary/20 text-xs font-bold uppercase tracking-wider animate-float">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary dark:bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary dark:bg-accent"></span>
+              </span>
+              The Global Visa Expert
+            </div>
+
+            {/* Glowing Headline Option 1 & 2 combined beautifully */}
+            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-slate-900 dark:text-white leading-[1.1] transition-colors">
+              Studying and Settling Abroad Made Easy by{' '}
+              <span className="text-gradient-primary">IMMIGRATION HUB</span>
+            </h1>
+
+            {/* Dynamic, supportive context paragraph */}
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-light">
+              Explore genuine New Zealand visa and study pathways with the expert guidance of a{' '}
+              <strong className="font-bold text-slate-800 dark:text-white border-b-2 border-emerald-500/30">
+                Licensed Immigration Adviser (LIA)
+              </strong>{' '}
+              in New Zealand, while also unlocking exciting study abroad opportunities in destinations like the{' '}
+              <strong className="font-bold text-slate-800 dark:text-white border-b-2 border-primary/30">
+                UK, Dubai, France, Malta, Spain
+              </strong>{' '}
+              and more.
+            </p>
+
+            {/* Action CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#forms-hub"
+                className="px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 flex items-center gap-2 group hover:scale-[1.02]"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book 1:1 Free Counselling</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href="#visas"
+                className="px-6 py-3.5 rounded-xl glassmorphism text-slate-800 dark:text-white font-bold text-sm tracking-wide uppercase transition-all border border-slate-200 dark:border-slate-800 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 flex items-center gap-2 hover:scale-[1.02]"
+              >
+                Explore NZ Visas
+              </a>
+            </div>
+
+            {/* Micro assurance */}
+            <div className="flex items-center gap-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <div className="flex items-center gap-1.5">
+                <span className="text-emerald-500">✔</span> Zero Consultation Fee for Students
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-emerald-500">✔</span> 100% Transparency Guaranteed
+              </div>
+            </div>
+          </div>
+
+          {/* Graphical Dashboard Feature Widget */}
+          <div className="lg:col-span-5 relative animate-scale-up">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 rounded-3xl blur-2xl pointer-events-none"></div>
+
+            {/* The Visual Dashboard Card */}
+            <div className="relative glassmorphism rounded-3xl border border-white/20 dark:border-white/5 p-6 sm:p-8 electric-glow dark:bg-dark-card/90">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
+                <div className="flex items-center gap-2">
+                  <span className="w-3.5 h-3.5 rounded-full bg-red-400"></span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-yellow-400"></span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-emerald-400"></span>
+                </div>
+                <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                  Trust Indicators
+                </div>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-white/50 dark:bg-slate-900/60 border border-slate-100/80 dark:border-slate-800 hover:border-primary/20 hover:bg-white/80 dark:hover:bg-slate-900 transition-all duration-300 group"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                      {stat.icon}
+                    </div>
+                    <div className="font-heading font-extrabold text-xl text-slate-900 dark:text-white leading-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs font-bold text-primary dark:text-accent mt-0.5">
+                      {stat.label}
+                    </div>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-normal mt-1">
+                      {stat.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CEO NZ Experience highlight */}
+              <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
+                <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
+                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">New Zealand</span> provide post-landing services like airport pickup & job hunting guidance!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
