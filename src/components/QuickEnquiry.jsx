@@ -67,19 +67,17 @@ export const QuickEnquiry = () => {
     }
   };
 
-  const triggerWhatsAppManual = () => {
-    if (!lastSubmitted) return;
+  const getWhatsAppUrl = () => {
+    if (!lastSubmitted) return '#';
     const waMsg = `Hello Immigration Hub,\n\nI have submitted a Quick Enquiry:\n- Name: ${lastSubmitted.name}\n- Phone: ${lastSubmitted.phone}\n- Email: ${lastSubmitted.email}\n- City: ${lastSubmitted.city}\n- Country Interested: ${lastSubmitted.country}\n\nPlease advise me.`;
-    const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
-    window.open(waUrl, '_blank');
+    return `https://wa.me/919633062888?text=${encodeURIComponent(waMsg)}`;
   };
 
-  const triggerEmailManual = () => {
-    if (!lastSubmitted) return;
+  const getEmailUrl = () => {
+    if (!lastSubmitted) return '#';
     const emailSubject = `Quick Enquiry - ${lastSubmitted.name}`;
     const emailBody = `Hello Immigration Hub,\n\nI have submitted a Quick Enquiry:\n- Name: ${lastSubmitted.name}\n- Phone: ${lastSubmitted.phone}\n- Email: ${lastSubmitted.email}\n- City: ${lastSubmitted.city}\n- Country Interested: ${lastSubmitted.country}\n\nPlease advise me.`;
-    const mailUrl = `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    window.open(mailUrl, '_blank');
+    return `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   };
 
   return (
@@ -136,18 +134,20 @@ export const QuickEnquiry = () => {
                 </p>
 
                 <div className="space-y-2.5 w-full pt-2">
-                  <button
-                    onClick={triggerWhatsAppManual}
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-[#25D366]/20 flex items-center justify-center gap-2 hover:scale-[1.02]"
                   >
                     <span>💬 Send on WhatsApp</span>
-                  </button>
-                  <button
-                    onClick={triggerEmailManual}
+                  </a>
+                  <a
+                    href={getEmailUrl()}
                     className="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.02]"
                   >
                     <span>✉ Send via Email</span>
-                  </button>
+                  </a>
                 </div>
 
                 <button

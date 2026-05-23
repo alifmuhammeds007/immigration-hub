@@ -76,8 +76,8 @@ export const FormsHub = () => {
 
   const [lastSubmittedAssessment, setLastSubmittedAssessment] = useState(null);
 
-  const triggerAssessmentWhatsApp = (details) => {
-    if (!details) return;
+  const getWhatsAppUrl = (details) => {
+    if (!details) return '#';
     let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
     
     if (details.cvName) {
@@ -85,12 +85,11 @@ export const FormsHub = () => {
     }
     
     waMsg += `\n\nPlease evaluate my profile.`;
-    const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
-    window.open(waUrl, '_blank');
+    return `https://wa.me/919633062888?text=${encodeURIComponent(waMsg)}`;
   };
 
-  const triggerAssessmentEmail = (details) => {
-    if (!details) return;
+  const getEmailUrl = (details) => {
+    if (!details) return '#';
     const emailSubject = `Detailed Visa Assessment - ${details.firstName} ${details.lastName}`;
     let emailBody = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
     
@@ -99,8 +98,7 @@ export const FormsHub = () => {
     }
     
     emailBody += `\n\nPlease evaluate my profile.`;
-    const mailUrl = `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    window.open(mailUrl, '_blank');
+    return `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   };
 
   const handleAssessmentSubmit = async (e) => {
@@ -257,20 +255,20 @@ export const FormsHub = () => {
             </div>
             {lastSubmittedAssessment && (
               <div className="flex flex-wrap gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => triggerAssessmentWhatsApp(lastSubmittedAssessment)}
+                <a
+                  href={getWhatsAppUrl(lastSubmittedAssessment)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-[#25D366]/20 flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
                 >
                   <span>💬 Send details on WhatsApp</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => triggerAssessmentEmail(lastSubmittedAssessment)}
+                </a>
+                <a
+                  href={getEmailUrl(lastSubmittedAssessment)}
                   className="px-5 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
                 >
                   <span>✉ Send details via Email</span>
-                </button>
+                </a>
               </div>
             )}
           </div>
