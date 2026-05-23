@@ -46,7 +46,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-transparent transition-colors duration-300">
+    <section id="home" className="relative min-h-screen pt-28 pb-10 md:pb-16 flex items-center overflow-hidden bg-transparent transition-colors duration-300">
       {/* Background Slideshow (Desktop Only) */}
       <div className="hidden lg:block absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {slides.map((slide, idx) => (

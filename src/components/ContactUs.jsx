@@ -30,7 +30,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-transparent transition-colors duration-300 relative">
+    <section id="contact" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

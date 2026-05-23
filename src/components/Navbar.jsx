@@ -30,16 +30,19 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-8 pointer-events-none"
+        className={`fixed top-0 left-0 w-full z-50 pointer-events-none transition-all duration-300 ${
+          scrolled ? 'pt-3 sm:pt-4 lg:pt-0 px-4 sm:px-6 lg:px-0' : 'pt-0 px-0'
+        }`}
+        style={{ transform: 'translateZ(0)' }}
       >
         <div
-          className={`mx-auto w-full transition-all duration-500 ease-out pointer-events-auto ${
+          className={`mx-auto w-full transition-all duration-300 ease-out pointer-events-auto will-change-auto ${
             scrolled
-              ? 'max-w-6xl mt-3 rounded-2xl border border-white/10 border-t-white/20 bg-gradient-to-b from-[#112544]/95 to-[#0A172C]/95 backdrop-blur-xl shadow-2xl shadow-slate-950/80 px-4 sm:px-6 py-2.5'
-              : 'max-w-7xl mt-0 rounded-none border-b border-white/10 bg-gradient-to-b from-[#0A172C]/85 to-[#0A172C]/70 backdrop-blur-lg px-4 sm:px-6 py-3.5'
+              ? 'max-w-6xl lg:max-w-full rounded-2xl lg:rounded-none border lg:border-x-0 lg:border-t-0 border-white/10 border-t-white/20 bg-gradient-to-b from-[#112544]/95 lg:from-[#0A172C]/95 to-[#0A172C]/95 lg:to-[#0A172C]/85 backdrop-blur-xl lg:backdrop-blur-lg shadow-2xl lg:shadow-none shadow-slate-950/80 px-4 sm:px-6 lg:px-8 py-2.5 lg:py-4'
+              : 'max-w-full rounded-none border-b border-white/10 bg-gradient-to-b from-[#0A172C]/95 to-[#0A172C]/85 backdrop-blur-lg px-4 sm:px-6 lg:px-8 py-4'
           }`}
         >
-          <div className="flex items-center justify-between">
+          <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
             {/* Logo */}
             <a href="#home" className="flex items-center">
               <Logo />

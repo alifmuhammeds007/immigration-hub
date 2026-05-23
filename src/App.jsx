@@ -14,8 +14,32 @@ import { ShieldCheck } from 'lucide-react';
 
 function App() {
   useEffect(() => {
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const updateTheme = (e) => {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    };
+
+    updateTheme(mediaQuery);
+    mediaQuery.addEventListener('change', updateTheme);
+    return () => mediaQuery.removeEventListener('change', updateTheme);
+  }, []);
+
+  // Force scroll to top on load/refresh and clear hash
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      window.history.replaceState(null, null, window.location.pathname);
+    }
   }, []);
 
   // Scroll Reveal Intersection Observer
@@ -25,6 +49,7 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -38,7 +63,7 @@ function App() {
     elements.forEach((el) => observer.observe(el));
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
     };
   }, []);
 

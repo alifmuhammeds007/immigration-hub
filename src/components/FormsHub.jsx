@@ -1,5 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { Upload, CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
+import ReactPhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+
+const PhoneInput = ReactPhoneInput.default || ReactPhoneInput;
+
 
 export const FormsHub = () => {
   const [activeTab, setActiveTab] = useState('assessment');
@@ -220,7 +225,7 @@ export const FormsHub = () => {
   };
 
   return (
-    <section id="forms-hub" className="py-20 bg-transparent transition-colors duration-300 relative">
+    <section id="forms-hub" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -346,13 +351,19 @@ export const FormsHub = () => {
               </div>
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Contact Number *</label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="Enter your phone number"
+                <PhoneInput
+                  country={'in'}
+                  countryCodeEditable={false}
                   value={assessmentForm.contactNumber}
-                  onChange={(e) => setAssessmentForm({ ...assessmentForm, contactNumber: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  onChange={phone => setAssessmentForm({ ...assessmentForm, contactNumber: phone })}
+                  inputProps={{
+                    name: 'phone',
+                    required: true,
+                  }}
+                  containerClass="w-full"
+                  inputClass="!w-full !px-4 !py-3 !pl-[48px] !rounded-xl !text-sm focus:!outline-none focus:!ring-2 focus:!ring-primary/50 transition-all"
+                  buttonClass="!bg-transparent !border-0 !rounded-l-xl !pl-2"
+                  dropdownClass="!bg-white dark:!bg-slate-900 !text-slate-800 dark:!text-white !border-slate-200 dark:!border-slate-800"
                 />
               </div>
             </div>
@@ -426,7 +437,7 @@ export const FormsHub = () => {
                   type="file"
                   ref={fileInputRef}
                   onChange={handleFileChange}
-                  accept=".pdf,.doc,.docx"
+                  accept=".pdf,.doc,.docx,.rtf,.txt,.png,.jpg,.jpeg"
                   className="hidden"
                 />
                 <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-primary flex items-center justify-center transition-colors">
@@ -440,7 +451,7 @@ export const FormsHub = () => {
                 ) : (
                   <div>
                     <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Click to select files or drag-and-drop</p>
-                    <p className="text-[10px] text-slate-400">Supports PDF, DOC, DOCX files up to 5MB</p>
+                    <p className="text-[10px] text-slate-400">Supports PDF, DOCX, TXT, Images up to 5MB</p>
                   </div>
                 )}
               </div>
@@ -525,13 +536,19 @@ export const FormsHub = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="e.g. +91 96330 69888"
+                <PhoneInput
+                  country={'in'}
+                  countryCodeEditable={false}
                   value={counsellingForm.phone}
-                  onChange={(e) => setCounsellingForm({ ...counsellingForm, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  onChange={phone => setCounsellingForm({ ...counsellingForm, phone: phone })}
+                  inputProps={{
+                    name: 'counselling_phone',
+                    required: true,
+                  }}
+                  containerClass="w-full"
+                  inputClass="!w-full !px-4 !py-3 !pl-[48px] !rounded-xl !border !border-slate-200 dark:!border-slate-800 !bg-white/60 dark:!bg-slate-900/60 !text-slate-800 dark:!text-white !text-sm focus:!outline-none focus:!ring-2 focus:!ring-primary/50 transition-all"
+                  buttonClass="!bg-transparent !border-0 !rounded-l-xl !pl-2"
+                  dropdownClass="!bg-white dark:!bg-slate-900 !text-slate-800 dark:!text-white !border-slate-200 dark:!border-slate-800"
                 />
               </div>
               <div className="space-y-1.5">

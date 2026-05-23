@@ -94,7 +94,7 @@ export const StudyAbroad = () => {
   };
 
   return (
-    <section id="study-abroad" className="py-20 bg-transparent transition-colors duration-300 relative">
+    <section id="study-abroad" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
       {/* Background graphic */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/5 blur-[150px] pointer-events-none"></div>
 

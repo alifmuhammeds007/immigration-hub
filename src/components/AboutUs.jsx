@@ -22,7 +22,7 @@ export const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-transparent transition-colors duration-300 relative">
+    <section id="about" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
@@ -31,7 +31,7 @@ export const AboutUs = () => {
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
-            We are a New Zealand based Study and Immigration consultant operating in New Zealand and Kerala. 
+            We are a New Zealand based Study and Immigration consultant operating in New Zealand and Kerala.
             We specialize in guiding applicants toward their absolute best career and settlement pathways.
           </p>
         </div>
@@ -43,7 +43,7 @@ export const AboutUs = () => {
             <h3 className="font-heading font-bold text-2xl text-slate-800 dark:text-white">
               Why Choose Our Expert Advisors?
             </h3>
-            
+
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-light">
               At **IMMIGRATION HUB**, we believe in a custom, client-centric approach. We assess education and exp background, career goals, settlement plans, family background, financial considerations, and socio-economic standards to evaluate and recommend the best-fit options to study abroad in the best institute.
             </p>
@@ -83,7 +83,7 @@ export const AboutUs = () => {
             <div className="relative space-y-6">
               {/* Profile Card 1: Director LIA */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md px-3">
                   LIA
                 </div>
                 <div className="space-y-2">
@@ -101,7 +101,7 @@ export const AboutUs = () => {
 
               {/* Profile Card 2: CEO New Zealand Experience */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-primary/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md px-3">
                   NZ
                 </div>
                 <div className="space-y-2">
