@@ -13,22 +13,10 @@ import { FloatingBubbles } from './components/FloatingBubbles';
 import { ShieldCheck } from 'lucide-react';
 
 function App() {
+  // Permanently lock the application to the dark theme across all devices
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const updateTheme = (e) => {
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    };
-
-    updateTheme(mediaQuery);
-    mediaQuery.addEventListener('change', updateTheme);
-    return () => mediaQuery.removeEventListener('change', updateTheme);
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   }, []);
 
   // Force scroll to top on load/refresh and clear hash
