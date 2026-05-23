@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Copy, Check, MessageSquare } from 'lucide-react';
 
-export const ContactUs: React.FC = () => {
-  const [copiedText, setCopiedText] = useState<string | null>(null);
+export const ContactUs = () => {
+  const [copiedText, setCopiedText] = useState(null);
 
   const offices = [
     {
@@ -23,14 +23,14 @@ export const ContactUs: React.FC = () => {
     }
   ];
 
-  const handleCopy = (text: string, label: string) => {
+  const handleCopy = (text, label) => {
     navigator.clipboard.writeText(text);
     setCopiedText(label);
     setTimeout(() => setCopiedText(null), 2000);
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-dark-card transition-colors duration-300 relative">
+    <section id="contact" className="py-20 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -102,7 +102,7 @@ export const ContactUs: React.FC = () => {
                         href={`mailto:${office.email}`}
                         className="flex items-center gap-2.5 hover:text-primary transition-colors font-semibold"
                       >
-                        <Mail className="w-4 h-4 text-indigo-500 shrink-0" />
+                        <Mail className="w-4 h-4 text-accent shrink-0" />
                         <span>{office.email}</span>
                       </a>
                       <button

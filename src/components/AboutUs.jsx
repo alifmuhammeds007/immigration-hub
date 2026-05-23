@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle, Shield, Users } from 'lucide-react';
 
-export const AboutUs: React.FC = () => {
+export const AboutUs = () => {
   const steps = [
     {
       title: "Background Assessment",
@@ -22,7 +22,7 @@ export const AboutUs: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-dark-card transition-colors duration-300 relative">
+    <section id="about" className="py-20 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">

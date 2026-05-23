@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-slate-800 bg-[#F8FAFC]">
+    <div className="min-h-screen text-slate-800 bg-transparent">
       {/* 1. Navigation bar */}
       <Navbar />
 

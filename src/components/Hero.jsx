@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Calendar, Compass, GraduationCap, ShieldCheck, Landmark } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
+  const slides = [
+    { url: '/hero_nz.png', alt: 'Queenstown, New Zealand' },
+    { url: '/hero_uk.png', alt: 'London, United Kingdom' },
+    { url: '/hero_france.png', alt: 'Paris, France' },
+    { url: '/hero_dubai.png', alt: 'Dubai, United Arab Emirates' }
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   const stats = [
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
@@ -30,7 +46,30 @@ export const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-slate-50 dark:bg-dark-bg transition-colors duration-300">
+    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-transparent transition-colors duration-300">
+      {/* Background Slideshow */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {slides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentSlide === idx ? 'opacity-[0.70]' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.url}
+              alt={slide.alt}
+              className="w-full h-full object-cover object-center transform transition-transform duration-[6000ms] ease-out"
+              style={{
+                transform: currentSlide === idx ? 'scale(1.05)' : 'scale(1.02)'
+              }}
+            />
+          </div>
+        ))}
+        {/* Soft, low-glare dark navy-indigo wash overlay to guarantee high-contrast white text readability without glare or light problems */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1B365D]/95 via-[#1B365D]/80 to-[#1B365D]/40 md:from-[#1B365D]/95 md:via-[#1B365D]/75 md:to-transparent"></div>
+      </div>
+
       {/* Dynamic Ambient Background Blobs */}
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-red/8 blur-[100px] pointer-events-none"></div>
@@ -43,7 +82,7 @@ export const Hero: React.FC = () => {
           {/* Text Content Area */}
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in-up">
             {/* Top Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-accent border border-primary/20 text-xs font-bold uppercase tracking-wider animate-float">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-bold uppercase tracking-wider animate-float">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
@@ -52,19 +91,19 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Glowing Headline Option 1 & 2 combined beautifully */}
-            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-slate-900 dark:text-white leading-[1.1] transition-colors">
+            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.1] transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
               Studying and Settling Abroad Made Easy by{' '}
-              <span className="text-gradient-brand">IMMIGRATION HUB</span>
+              <span className="text-gradient-hero-brand">IMMIGRATION HUB</span>
             </h1>
 
             {/* Dynamic, supportive context paragraph */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-light">
+            <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl font-medium drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]">
               Explore genuine New Zealand visa and study pathways with the expert guidance of a{' '}
-              <strong className="font-bold text-slate-800 dark:text-white border-b-2 border-emerald-500/30">
+              <strong className="font-extrabold text-slate-950 drop-shadow-[0_2px_3px_rgba(255,255,255,0.95)] whitespace-nowrap">
                 Licensed Immigration Adviser (LIA)
               </strong>{' '}
               in New Zealand, while also unlocking exciting study abroad opportunities in destinations like the{' '}
-              <strong className="font-bold text-slate-800 dark:text-white border-b-2 border-primary/30">
+              <strong className="font-extrabold text-slate-950 drop-shadow-[0_2px_3px_rgba(255,255,255,0.95)]">
                 UK, Dubai, France, Malta, Spain
               </strong>{' '}
               and more.
@@ -90,12 +129,12 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Micro assurance */}
-            <div className="flex items-center gap-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <div className="flex items-center gap-6 text-xs text-slate-200 font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
               <div className="flex items-center gap-1.5">
-                <span className="text-emerald-500">✔</span> Zero Consultation Fee for Students
+                <span className="text-emerald-400 font-bold">✔</span> Zero Consultation Fee for Students
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="text-emerald-500">✔</span> 100% Transparency Guaranteed
+                <span className="text-emerald-400 font-bold">✔</span> 100% Transparency Guaranteed
               </div>
             </div>
           </div>

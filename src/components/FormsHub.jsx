@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { Upload, CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
 
-export const FormsHub: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'assessment' | 'counselling'>('assessment');
+export const FormsHub = () => {
+  const [activeTab, setActiveTab] = useState('assessment');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
 
   // Free Assessment State
   const [assessmentForm, setAssessmentForm] = useState({
@@ -19,8 +19,8 @@ export const FormsHub: React.FC = () => {
     experience: '0',
     message: ''
   });
-  const [cvFile, setCvFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [cvFile, setCvFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   // Counselling State
   const [counsellingForm, setCounsellingForm] = useState({
@@ -69,11 +69,30 @@ export const FormsHub: React.FC = () => {
     });
   };
 
-  const handleAssessmentSubmit = async (e: React.FormEvent) => {
+  const [lastSubmittedAssessment, setLastSubmittedAssessment] = useState(null);
+
+  const triggerAssessmentWhatsApp = (details) => {
+    if (!details) return;
+    const waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}\n\nPlease evaluate my profile.`;
+    const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
+    window.open(waUrl, '_blank');
+  };
+
+  const triggerAssessmentEmail = (details) => {
+    if (!details) return;
+    const emailSubject = `Detailed Visa Assessment - ${details.firstName} ${details.lastName}`;
+    const emailBody = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}\n\nPlease evaluate my profile.`;
+    const mailUrl = `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailUrl, '_blank');
+  };
+
+  const handleAssessmentSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(null);
     setError(null);
+
+    const currentDetails = { ...assessmentForm };
 
     try {
       const formData = new FormData();
@@ -100,19 +119,26 @@ export const FormsHub: React.FC = () => {
       const resData = await response.json();
 
       if (response.ok && resData.success) {
-        setSuccess('Your Free Visa Assessment has been received! Our Licensed Immigration Adviser or Senior Counsellor will review your CV and get in touch with you shortly.');
+        setLastSubmittedAssessment(currentDetails);
+        setSuccess('Your Free Detailed Visa Evaluation has been successfully submitted! We have automatically generated a draft to WhatsApp number +91 96330 62888. If the chat did not open automatically, please click the action buttons below.');
+        
+        // Auto-redirect to WhatsApp
+        const waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}\n\nPlease evaluate my profile.`;
+        const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
+        window.open(waUrl, '_blank');
+
         resetForms();
       } else {
         throw new Error(resData.detail || 'Failed to submit assessment.');
       }
-    } catch (err: any) {
+    } catch (err) {
       setError(err.message || 'Something went wrong. Please check your network connection.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleCounsellingSubmit = async (e: React.FormEvent) => {
+  const handleCounsellingSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(null);
@@ -151,14 +177,14 @@ export const FormsHub: React.FC = () => {
       } else {
         throw new Error(resData.detail || 'Failed to book session.');
       }
-    } catch (err: any) {
+    } catch (err) {
       setError(err.message || 'Something went wrong. Please check your network connection.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const selected = e.target.files[0];
       if (selected.size > 5 * 1024 * 1024) {
@@ -173,7 +199,7 @@ export const FormsHub: React.FC = () => {
   };
 
   return (
-    <section id="forms-hub" className="py-20 bg-slate-50 dark:bg-dark-bg transition-colors duration-300 relative">
+    <section id="forms-hub" className="py-20 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -190,7 +216,7 @@ export const FormsHub: React.FC = () => {
         </div>
 
         {/* Form Selector Tab Buttons */}
-        <div className="flex rounded-2xl bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 p-2 max-w-lg mx-auto mb-8 shadow-sm">
+        <div className="flex rounded-2xl bg-sky-50/70 dark:bg-dark-card border border-slate-100 dark:border-slate-800 p-2 max-w-lg mx-auto mb-8 shadow-sm">
           <button
             onClick={() => { setActiveTab('assessment'); setSuccess(null); setError(null); }}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition-all ${
@@ -215,13 +241,36 @@ export const FormsHub: React.FC = () => {
 
         {/* Global Notifications */}
         {success && (
-          <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-400 text-sm flex gap-3 text-left">
-            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-500" />
-            <span className="font-light">{success}</span>
+          <div className="mb-6 p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-400 text-sm flex flex-col gap-4 text-left shadow-lg">
+            <div className="flex gap-3 items-start">
+              <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-500 mt-0.5 animate-pulse" />
+              <div className="space-y-1">
+                <p className="font-extrabold text-slate-950 dark:text-white text-base">Submission Successful!</p>
+                <p className="font-semibold text-slate-800 dark:text-slate-200">{success}</p>
+              </div>
+            </div>
+            {lastSubmittedAssessment && (
+              <div className="flex flex-wrap gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => triggerAssessmentWhatsApp(lastSubmittedAssessment)}
+                  className="px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-[#25D366]/20 flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>💬 Send details on WhatsApp</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => triggerAssessmentEmail(lastSubmittedAssessment)}
+                  className="px-5 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>✉ Send details via Email</span>
+                </button>
+              </div>
+            )}
           </div>
         )}
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-800 dark:text-rose-400 text-sm flex gap-3 text-left">
+          <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-950 dark:text-rose-400 text-sm flex gap-3 text-left font-semibold">
             <AlertTriangle className="w-5 h-5 shrink-0 text-rose-500" />
             <span className="font-light">{error}</span>
           </div>

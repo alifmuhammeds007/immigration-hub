@@ -1,23 +1,13 @@
 import React from 'react';
 import { ArrowUpRight, GraduationCap, Compass, Briefcase, DollarSign } from 'lucide-react';
 
-interface CountryCard {
-  name: string;
-  flag: string;
-  gradient: string;
-  workRights: string;
-  postStudyWork: string;
-  tuitionFee: string;
-  popularCourses: string;
-  highlight: string;
-}
-
-export const StudyAbroad: React.FC = () => {
-  const countries: CountryCard[] = [
+export const StudyAbroad = () => {
+  const countries = [
     {
       name: "New Zealand",
       flag: "🇳🇿",
-      gradient: "from-blue-600 to-indigo-800",
+      image: "/hero_nz.png",
+      gradient: "from-[#1B365D] to-[#0F2240]",
       workRights: "20 Hrs / Week",
       postStudyWork: "Up to 3 Years",
       tuitionFee: "$22,000 - $35,000 NZD / Yr",
@@ -27,7 +17,8 @@ export const StudyAbroad: React.FC = () => {
     {
       name: "United Kingdom",
       flag: "🇬🇧",
-      gradient: "from-rose-600 to-blue-800",
+      image: "/hero_uk.png",
+      gradient: "from-[#E51937] to-[#1B365D]",
       workRights: "20 Hrs / Week",
       postStudyWork: "2 Years (Graduate Route)",
       tuitionFee: "£11,000 - £22,000 / Yr",
@@ -37,6 +28,7 @@ export const StudyAbroad: React.FC = () => {
     {
       name: "Dubai (UAE)",
       flag: "🇦🇪",
+      image: "/hero_dubai.png",
       gradient: "from-emerald-600 to-amber-600",
       workRights: "Part-time Permitted",
       postStudyWork: "Golden Visa Opportunities",
@@ -47,7 +39,8 @@ export const StudyAbroad: React.FC = () => {
     {
       name: "France",
       flag: "🇫🇷",
-      gradient: "from-indigo-600 via-white to-red-600",
+      image: "/hero_france.png",
+      gradient: "from-[#1B365D] via-white to-[#E51937]",
       workRights: "Part-time Permitted",
       postStudyWork: "2 Years Master Stayback",
       tuitionFee: "€8,000 - €16,000 / Yr",
@@ -57,6 +50,7 @@ export const StudyAbroad: React.FC = () => {
     {
       name: "Malta",
       flag: "🇲🇹",
+      image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&w=600&q=80",
       gradient: "from-red-700 to-slate-400",
       workRights: "15 Hrs / Week (after 90 days)",
       postStudyWork: "9 Months Stayback",
@@ -67,6 +61,7 @@ export const StudyAbroad: React.FC = () => {
     {
       name: "Spain",
       flag: "🇪🇸",
+      image: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=600&q=80",
       gradient: "from-amber-500 to-red-600",
       workRights: "30 Hrs / Week",
       postStudyWork: "1-2 Years Job Seeker Visa",
@@ -76,16 +71,16 @@ export const StudyAbroad: React.FC = () => {
     }
   ];
 
-  const handleCountryShortcut = (countryName: string) => {
+  const handleCountryShortcut = (countryName) => {
     // Scroll to the book counselling form
-    const destInput = document.getElementById('preferred-country') as HTMLInputElement;
+    const destInput = document.getElementById('preferred-country');
     if (destInput) {
       destInput.value = countryName;
       const event = new Event('input', { bubbles: true });
       destInput.dispatchEvent(event);
     }
     
-    const enquiryDest = document.getElementById('enquiry-country') as HTMLSelectElement;
+    const enquiryDest = document.getElementById('enquiry-country');
     if (enquiryDest) {
       enquiryDest.value = countryName;
       const event = new Event('change', { bubbles: true });
@@ -99,7 +94,7 @@ export const StudyAbroad: React.FC = () => {
   };
 
   return (
-    <section id="study-abroad" className="py-20 bg-white dark:bg-dark-card transition-colors duration-300 relative">
+    <section id="study-abroad" className="py-20 bg-transparent transition-colors duration-300 relative">
       {/* Background graphic */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/5 blur-[150px] pointer-events-none"></div>
 
@@ -122,21 +117,27 @@ export const StudyAbroad: React.FC = () => {
               key={idx}
               className={`group relative rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
             >
-              {/* Graphic Banner card */}
-              <div className={`h-24 bg-gradient-to-r ${country.gradient} p-5 relative flex items-center justify-between overflow-hidden`}>
-                {/* Decorative glow / graphic */}
-                <div className="absolute -right-10 -bottom-10 w-28 h-28 rounded-full bg-white/10 blur-xl"></div>
+              {/* Graphic Banner card with Scenic Country Image */}
+              <div className="h-32 relative flex items-center justify-between overflow-hidden p-5">
+                {/* Background image banner */}
+                <img 
+                  src={country.image} 
+                  alt={country.name} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Low-glare dark navy/slate gradient wash to ensure outstanding readability of text and flag */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-slate-950/20"></div>
                 
                 <div className="flex items-center gap-3 relative z-10">
                   <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl shadow-inner shadow-white/20">
                     {country.flag}
                   </div>
-                  <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white">
+                  <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
                     {country.name}
                   </h3>
                 </div>
 
-                <GraduationCap className="w-12 h-12 text-white/10 absolute right-4 bottom-2" />
+                <GraduationCap className="w-12 h-12 text-white/20 absolute right-4 bottom-2 z-10" />
               </div>
 
               {/* Information Parameters */}

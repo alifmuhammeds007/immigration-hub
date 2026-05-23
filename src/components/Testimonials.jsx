@@ -1,23 +1,10 @@
 import React, { useState } from 'react';
 import { Star, ShieldCheck, GraduationCap, Quote, MapPin } from 'lucide-react';
 
-interface Testimonial {
-  name: string;
-  location: string;
-  destination: string;
-  program: string;
-  institute: string;
-  rating: number;
-  review: string;
-  badge: string;
-  avatarText: string;
-  avatarColor: string;
-}
+export const Testimonials = () => {
+  const [filter, setFilter] = useState('all');
 
-export const Testimonials: React.FC = () => {
-  const [filter, setFilter] = useState<string>('all');
-
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
       name: "Anjali Nair",
       location: "Ernakulam, Kerala",
@@ -28,7 +15,7 @@ export const Testimonials: React.FC = () => {
       review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The CEO's decade-long experience in NZ was highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in NZ were excellent! Highly recommended!",
       badge: "🇳🇿 NZ Student Visa Approved",
       avatarText: "AN",
-      avatarColor: "bg-gradient-to-tr from-blue-600 to-indigo-600"
+      avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"
     },
     {
       name: "Rahul Kurup",
@@ -52,7 +39,7 @@ export const Testimonials: React.FC = () => {
       review: "Studying in France was my dream, and Immigration Hub made it happen easily. They helped me secure an offer with subsidized student accommodation in Paris and prepared me for the visa interview thoroughly. Their client-centric approach stands out. Highly professional, always accessible via phone and WhatsApp!",
       badge: "🇫🇷 France Student Visa Approved",
       avatarText: "SJ",
-      avatarColor: "bg-gradient-to-tr from-indigo-500 via-slate-400 to-red-500"
+      avatarColor: "bg-gradient-to-tr from-[#1B365D] via-slate-400 to-[#E51937]"
     },
     {
       name: "Adarsh Pillai",
@@ -112,7 +99,7 @@ export const Testimonials: React.FC = () => {
       review: "I had some gaps in my work history, making my student visa complex. The Licensed Immigration Adviser (LIA) at Immigration Hub personally reviewed my file and prepared a water-tight visa application explanation. They are very detailed, transparent, and follow a strict client-centric approach. My visa was approved in 12 days! A million thanks!",
       badge: "🇳🇿 NZ Student Visa Approved",
       avatarText: "GK",
-      avatarColor: "bg-gradient-to-tr from-indigo-600 to-purple-600"
+      avatarColor: "bg-gradient-to-tr from-[#1B365D] to-purple-600"
     }
   ];
 
@@ -121,7 +108,7 @@ export const Testimonials: React.FC = () => {
     : testimonials.filter(t => t.destination.toLowerCase() === filter.toLowerCase());
 
   return (
-    <section id="testimonials" className="py-20 bg-slate-50 dark:bg-dark-bg transition-colors duration-300 relative">
+    <section id="testimonials" className="py-20 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
@@ -149,7 +136,7 @@ export const Testimonials: React.FC = () => {
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 border ${
                 filter === cat.id
                   ? 'bg-primary text-white border-primary shadow-md shadow-primary/20'
-                  : 'bg-white dark:bg-dark-card border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-primary/30'
+                  : 'bg-sky-50/60 dark:bg-dark-card border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-primary/30'
               }`}
             >
               {cat.label}
@@ -162,7 +149,7 @@ export const Testimonials: React.FC = () => {
           {filteredTestimonials.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-xl dark:hover:bg-slate-900/60 transition-all duration-300 text-left flex flex-col justify-between electric-glow reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
+              className={`group relative p-6 sm:p-8 rounded-3xl bg-sky-50/50 dark:bg-dark-card border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-xl dark:hover:bg-slate-900/60 transition-all duration-300 text-left flex flex-col justify-between electric-glow reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
             >
               {/* Top Section */}
               <div className="space-y-4">

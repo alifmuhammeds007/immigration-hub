@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
-export const FloatingBubbles: React.FC = () => {
+export const FloatingBubbles = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3.5 pointer-events-none">
       {/* WhatsApp Floating Bubble */}

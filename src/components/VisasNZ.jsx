@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import { ShieldCheck, GraduationCap, Briefcase, Users, PlaneTakeoff, ChevronRight, CheckCircle2 } from 'lucide-react';
 
-interface VisaDetail {
-  id: string;
-  name: string;
-  icon: React.ReactNode;
-  tagline: string;
-  description: string;
-  checklist: string[];
-  liaTip: string;
-}
+export const VisasNZ = () => {
+  const [activeTab, setActiveTab] = useState('student');
 
-export const VisasNZ: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('student');
-
-  const visas: VisaDetail[] = [
+  const visas = [
     {
       id: 'student',
       name: 'Student Visa',
@@ -92,7 +82,7 @@ export const VisasNZ: React.FC = () => {
 
   const handleApplyShortcut = () => {
     // Select Purpose of Inquiry or focus form
-    const purposeSelect = document.getElementById('purpose-inquiry') as HTMLSelectElement;
+    const purposeSelect = document.getElementById('purpose-inquiry');
     if (purposeSelect) {
       purposeSelect.value = 'Immigration Services to New Zealand';
       // Trigger native event so React state updates
@@ -101,7 +91,7 @@ export const VisasNZ: React.FC = () => {
     }
     
     // Set destination country to New Zealand
-    const destInput = document.getElementById('preferred-country') as HTMLInputElement;
+    const destInput = document.getElementById('preferred-country');
     if (destInput) {
       destInput.value = 'New Zealand';
       const event = new Event('input', { bubbles: true });
@@ -115,7 +105,7 @@ export const VisasNZ: React.FC = () => {
   };
 
   return (
-    <section id="visas" className="py-20 bg-slate-50 dark:bg-dark-bg transition-colors duration-300 relative">
+    <section id="visas" className="py-20 bg-transparent transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
@@ -142,7 +132,7 @@ export const VisasNZ: React.FC = () => {
                 className={`w-full p-4 rounded-xl flex items-center justify-between transition-all duration-300 text-left ${
                   activeTab === visa.id
                     ? 'bg-gradient-brand text-white shadow-lg shadow-primary/20 scale-[1.01]'
-                    : 'bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary/30 hover:bg-slate-50 dark:hover:bg-slate-900/50'
+                    : 'bg-sky-50/60 dark:bg-dark-card border border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary/30 hover:bg-slate-50 dark:hover:bg-slate-900/50'
                 }`}
               >
                 <div className="flex items-center gap-3.5">
