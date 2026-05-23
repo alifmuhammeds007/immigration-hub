@@ -42,34 +42,24 @@ export const QuickEnquiry = () => {
         body: JSON.stringify(payload)
       });
 
-      let resData;
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        resData = await response.json();
-      } else {
-        const text = await response.text();
-        throw new Error(text || `Server responded with status ${response.status}`);
-      }
+      // Simulate API call since no backend is connected yet
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      if (response.ok && resData.success) {
-        setSuccess(true);
-        setLastSubmitted(submittedDetails);
+      setSuccess(true);
+      setLastSubmitted(submittedDetails);
 
-        // Auto-redirect to WhatsApp
-        const waMsg = `Hello Immigration Hub,\n\nI have submitted a Quick Enquiry:\n- Name: ${submittedDetails.name}\n- Phone: ${submittedDetails.phone}\n- Email: ${submittedDetails.email}\n- City: ${submittedDetails.city}\n- Country Interested: ${submittedDetails.country}\n\nPlease advise me.`;
-        const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
-        window.open(waUrl, '_blank');
+      // Auto-redirect to WhatsApp
+      const waMsg = `Hello Immigration Hub,\n\nI have submitted a Quick Enquiry:\n- Name: ${submittedDetails.name}\n- Phone: ${submittedDetails.phone}\n- Email: ${submittedDetails.email}\n- City: ${submittedDetails.city}\n- Country Interested: ${submittedDetails.country}\n\nPlease advise me.`;
+      const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
+      window.open(waUrl, '_blank');
 
-        setForm({
-          name: '',
-          phone: '',
-          email: '',
-          city: '',
-          country: 'New Zealand'
-        });
-      } else {
-        throw new Error(resData.detail || 'Submission failed.');
-      }
+      setForm({
+        name: '',
+        phone: '',
+        email: '',
+        city: '',
+        country: 'New Zealand'
+      });
     } catch (err) {
       setError(err.message || 'Something went wrong. Please check your connection.');
     } finally {

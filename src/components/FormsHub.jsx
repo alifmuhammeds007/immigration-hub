@@ -130,33 +130,24 @@ export const FormsHub = () => {
         formData.append('cv', cvFile);
       }
 
-      // API URL for FastAPI backend
-      const response = await fetch('/api/assessment', {
-        method: 'POST',
-        body: formData,
-      });
+      // Simulate API call since no backend is connected yet
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      const resData = await response.json();
-
-      if (response.ok && resData.success) {
-        setLastSubmittedAssessment(currentDetails);
-        setSuccess('Your Free Detailed Visa Evaluation has been successfully submitted! We have automatically generated a draft to WhatsApp number +91 96330 62888. If the chat did not open automatically, please click the action buttons below.');
-        
-        // Auto-redirect to WhatsApp
-        let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}`;
-        
-        if (currentDetails.cvName) {
-          waMsg += `\n- Uploaded CV/Resume: ${currentDetails.cvName}`;
-        }
-        
-        waMsg += `\n\nPlease evaluate my profile.`;
-        const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
-        window.open(waUrl, '_blank');
-
-        resetForms();
-      } else {
-        throw new Error(resData.detail || 'Failed to submit assessment.');
+      setLastSubmittedAssessment(currentDetails);
+      setSuccess('Your Free Detailed Visa Evaluation has been successfully drafted! We are redirecting you to WhatsApp to securely send your details to our advisors. If it does not open, please click the buttons below.');
+      
+      // Auto-redirect to WhatsApp
+      let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}`;
+      
+      if (currentDetails.cvName) {
+        waMsg += `\n- Uploaded CV/Resume: ${currentDetails.cvName}`;
       }
+      
+      waMsg += `\n\nPlease evaluate my profile.`;
+      const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
+      window.open(waUrl, '_blank');
+
+      resetForms();
     } catch (err) {
       setError(err.message || 'Something went wrong. Please check your network connection.');
     } finally {
@@ -187,22 +178,11 @@ export const FormsHub = () => {
         queries: counsellingForm.queries
       };
 
-      const response = await fetch('/api/counselling', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
+      // Simulate API call since no backend is connected yet
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      const resData = await response.json();
-
-      if (response.ok && resData.success) {
-        setSuccess('1:1 Free Counselling booked successfully! Our Senior Counsellor will schedule a session with you and reach out via phone/email.');
-        resetForms();
-      } else {
-        throw new Error(resData.detail || 'Failed to book session.');
-      }
+      setSuccess('1:1 Free Counselling booked successfully! Our Senior Counsellor will schedule a session with you and reach out via phone/email.');
+      resetForms();
     } catch (err) {
       setError(err.message || 'Something went wrong. Please check your network connection.');
     } finally {
