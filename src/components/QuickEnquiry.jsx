@@ -42,7 +42,14 @@ export const QuickEnquiry = () => {
         body: JSON.stringify(payload)
       });
 
-      const resData = await response.json();
+      let resData;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        resData = await response.json();
+      } else {
+        const text = await response.text();
+        throw new Error(text || `Server responded with status ${response.status}`);
+      }
 
       if (response.ok && resData.success) {
         setSuccess(true);
