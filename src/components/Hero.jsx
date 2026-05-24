@@ -47,8 +47,8 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden bg-transparent transition-colors duration-300">
-      {/* Background Slideshow */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Background Slideshow (Desktop Only) */}
+      <div className="hidden lg:block absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {slides.map((slide, idx) => (
           <div
             key={idx}
@@ -108,6 +108,28 @@ export const Hero = () => {
               </strong>{' '}
               and more.
             </p>
+
+            {/* Inline Slideshow Card for Mobile View - Shows pictures minimized in a medium-sized box, accurate with no stretch */}
+            <div className="block lg:hidden w-full aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl my-5 z-10 electric-glow">
+              {slides.map((slide, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    currentSlide === idx ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={slide.url}
+                    alt={slide.alt}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Caption badge inside mobile slideshow */}
+                  <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase">
+                    {slide.alt}
+                  </div>
+                </div>
+              ))}
+            </div>
 
             {/* Action CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

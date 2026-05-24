@@ -73,7 +73,13 @@ export const FormsHub = () => {
 
   const triggerAssessmentWhatsApp = (details) => {
     if (!details) return;
-    const waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}\n\nPlease evaluate my profile.`;
+    let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
+    
+    if (details.cvName) {
+      waMsg += `\n- Uploaded CV/Resume: ${details.cvName}`;
+    }
+    
+    waMsg += `\n\nPlease evaluate my profile.`;
     const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
     window.open(waUrl, '_blank');
   };
@@ -81,7 +87,13 @@ export const FormsHub = () => {
   const triggerAssessmentEmail = (details) => {
     if (!details) return;
     const emailSubject = `Detailed Visa Assessment - ${details.firstName} ${details.lastName}`;
-    const emailBody = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}\n\nPlease evaluate my profile.`;
+    let emailBody = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
+    
+    if (details.cvName) {
+      emailBody += `\n- Uploaded CV/Resume: ${details.cvName}`;
+    }
+    
+    emailBody += `\n\nPlease evaluate my profile.`;
     const mailUrl = `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.open(mailUrl, '_blank');
   };
@@ -92,7 +104,10 @@ export const FormsHub = () => {
     setSuccess(null);
     setError(null);
 
-    const currentDetails = { ...assessmentForm };
+    const currentDetails = { 
+      ...assessmentForm,
+      cvName: cvFile ? cvFile.name : null
+    };
 
     try {
       const formData = new FormData();
@@ -123,7 +138,13 @@ export const FormsHub = () => {
         setSuccess('Your Free Detailed Visa Evaluation has been successfully submitted! We have automatically generated a draft to WhatsApp number +91 96330 62888. If the chat did not open automatically, please click the action buttons below.');
         
         // Auto-redirect to WhatsApp
-        const waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}\n\nPlease evaluate my profile.`;
+        let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}`;
+        
+        if (currentDetails.cvName) {
+          waMsg += `\n- Uploaded CV/Resume: ${currentDetails.cvName}`;
+        }
+        
+        waMsg += `\n\nPlease evaluate my profile.`;
         const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
         window.open(waUrl, '_blank');
 
