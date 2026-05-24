@@ -9,7 +9,7 @@ export const VisasNZ = () => {
       id: 'student',
       name: 'Student Visa',
       icon: <GraduationCap className="w-5 h-5" />,
-      tagline: 'Unlock standard NZ education & stay-back work rights',
+      tagline: 'Unlock standard New Zealand education & stay-back work rights',
       description: 'Ideal for individuals seeking quality education at New Zealand colleges, universities, or private training establishments (PTEs). Allows you to work up to 20 hours a week part-time and full-time during holidays.',
       checklist: [
         'Offer of Place from an NZQA-accredited educational institution',
@@ -28,8 +28,8 @@ export const VisasNZ = () => {
       description: 'Allows you to visit New Zealand for holidays, sight-seeing, social visits, or short-term courses (up to 3 months). Standard visas permit stays of up to 9 months in an 18-month period.',
       checklist: [
         'Valid passport and evidence of identity',
-        'Proof of financial support ($1,000/month or sponsorship from NZ)',
-        'Onward travel ticket showing planned departure from NZ',
+        'Proof of financial support ($1,000/month or sponsorship from New Zealand)',
+        'Onward travel ticket showing planned departure from New Zealand',
         'Sincere intent to visit and return to home country'
       ],
       liaTip: 'Always provide robust evidence of ties to your home country (employment letters, property ownership, close family) to substantiate your return intentions.'
@@ -56,7 +56,7 @@ export const VisasNZ = () => {
       description: 'Enables partners and children of New Zealand citizens, residents, or specific student/work visa holders to travel to and live in New Zealand with appropriate study or work rights.',
       checklist: [
         'Evidence of genuine, stable, and long-term partnership',
-        'Proof of sponsor status (NZ visa type, financial capability)',
+        'Proof of sponsor status (New Zealand visa type, financial capability)',
         'Birth certificates for dependent children',
         'Shared home rental agreements, bank accounts, or utility bills'
       ],

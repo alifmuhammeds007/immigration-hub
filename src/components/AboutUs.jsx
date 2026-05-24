@@ -31,7 +31,7 @@ export const AboutUs = () => {
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
-            We are a New Zealand based Study and Immigration consultant operating in NZ and Kerala. 
+            We are a New Zealand based Study and Immigration consultant operating in New Zealand and Kerala. 
             We specialize in guiding applicants toward their absolute best career and settlement pathways.
           </p>
         </div>
@@ -99,7 +99,7 @@ export const AboutUs = () => {
                 </div>
               </div>
 
-              {/* Profile Card 2: CEO NZ Experience */}
+              {/* Profile Card 2: CEO New Zealand Experience */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-primary/30 transition-all duration-300 premium-card-hover">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md">
                   NZ
@@ -109,7 +109,7 @@ export const AboutUs = () => {
                     CEO's Experience
                   </div>
                   <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Decade-Long NZ Ground Experience
+                    Decade-Long New Zealand Ground Experience
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                     Our CEO spent over a decade living, working, and studying in **NEW ZEALAND**. Get invaluable first-hand knowledge on actual living costs, course selectivities, part-time jobs, and local settlement networks.

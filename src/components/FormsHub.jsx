@@ -368,7 +368,7 @@ export const FormsHub = () => {
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 >
                   <option value="Study Abroad">🎓 Study Abroad Opportunity</option>
-                  <option value="Immigration Services to New Zealand">🇳🇿 NZ Visa/Immigration Pathway</option>
+                  <option value="Immigration Services to New Zealand">🇳🇿 New Zealand Visa/Immigration Pathway</option>
                 </select>
               </div>
               <div className="space-y-1.5">

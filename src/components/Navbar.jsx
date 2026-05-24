@@ -21,7 +21,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About Us', href: '#about' },
-    { name: 'NZ Visas', href: '#visas' },
+    { name: 'New Zealand Visas', href: '#visas' },
     { name: 'Study Abroad', href: '#study-abroad' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
@@ -64,7 +64,7 @@ export const Navbar = () => {
               {/* LIA Badge */}
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:border-emerald-400/40 hover:bg-emerald-500/20 hover:shadow-[0_0_12px_rgba(16,185,129,0.2)] text-xs font-bold transition-all duration-300 cursor-help">
                 <ShieldCheck className="w-4 h-4 animate-pulse text-emerald-400" />
-                <span>Licensed NZ LIA Guidance</span>
+                <span>Licensed New Zealand LIA Guidance</span>
               </div>
 
               {/* Quick Action Button */}
@@ -130,7 +130,7 @@ export const Navbar = () => {
           <div className="pt-6 border-t border-white/15 space-y-4 mt-auto">
             <div className="flex items-center gap-2.5 px-4 py-3.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold shadow-sm">
               <ShieldCheck className="w-5 h-5 text-emerald-400 animate-pulse" />
-              <span>Licensed NZ LIA Guidance</span>
+              <span>Licensed New Zealand LIA Guidance</span>
             </div>
 
             <a

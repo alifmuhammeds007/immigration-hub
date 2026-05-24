@@ -12,8 +12,8 @@ export const Testimonials = () => {
       program: "Postgraduate Diploma in Applied Management",
       institute: "Eastern Institute of Technology (EIT)",
       rating: 5,
-      review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The CEO's decade-long experience in NZ was highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in NZ were excellent! Highly recommended!",
-      badge: "🇳🇿 NZ Student Visa Approved",
+      review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The CEO's decade-long experience in New Zealand was highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in New Zealand were excellent! Highly recommended!",
+      badge: "🇳🇿 New Zealand Student Visa Approved",
       avatarText: "AN",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"
     },
@@ -49,7 +49,7 @@ export const Testimonials = () => {
       institute: "Auckland University of Technology (AUT)",
       rating: 5,
       review: "Choosing AUT for my Masters was the best decision, made possible by Immigration Hub. Their LIA Director reviewed my engineering background and structured my SOP. Having an office in Auckland made a massive difference. They guided me through local bank setups, mobile connection, and part-time job hunting immediately upon landing. Pure professional excellence!",
-      badge: "🇳🇿 NZ MIT Visa Approved",
+      badge: "🇳🇿 New Zealand MIT Visa Approved",
       avatarText: "AP",
       avatarColor: "bg-gradient-to-tr from-teal-500 to-emerald-600"
     },
@@ -97,7 +97,7 @@ export const Testimonials = () => {
       institute: "Otago Polytechnic (Auckland Campus)",
       rating: 5,
       review: "I had some gaps in my work history, making my student visa complex. The Licensed Immigration Adviser (LIA) at Immigration Hub personally reviewed my file and prepared a water-tight visa application explanation. They are very detailed, transparent, and follow a strict client-centric approach. My visa was approved in 12 days! A million thanks!",
-      badge: "🇳🇿 NZ Student Visa Approved",
+      badge: "🇳🇿 New Zealand Student Visa Approved",
       avatarText: "GK",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-purple-600"
     }

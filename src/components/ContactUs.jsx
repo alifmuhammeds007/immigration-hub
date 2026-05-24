@@ -16,10 +16,10 @@ export const ContactUs = () => {
     {
       city: "Auckland (New Zealand Liaison)",
       role: "Licensed LIA Advisory & Post-Landing Division",
-      address: "IMMIGRATION HUB NZ, Level 4, 125 Queen Street, Auckland CBD, Auckland 1010, New Zealand",
+      address: "IMMIGRATION HUB New Zealand, Level 4, 125 Queen Street, Auckland CBD, Auckland 1010, New Zealand",
       phones: ["+64 21 028 8882 (LIA Hotline)"],
       email: "office@immigrationhub.in",
-      hours: "Mon - Fri: 9:00 AM - 5:00 PM (NZST)"
+      hours: "Mon - Fri: 9:00 AM - 5:00 PM (New Zealand Standard Time)"
     }
   ];
 

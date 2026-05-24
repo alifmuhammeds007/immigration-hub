@@ -22,26 +22,26 @@ export const Hero = () => {
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
       value: "LIA Licensed",
-      label: "Director-led NZ visa counsel",
+      label: "Director-led New Zealand visa counselling",
       desc: "Licensed Immigration Adviser expert support"
     },
     {
       icon: <GraduationCap className="w-6 h-6 text-primary" />,
-      value: "10+ Years",
-      label: "CEO's NZ experience",
-      desc: "Direct guidance based on studying & working in NZ"
+      value: "10 Years",
+      label: "CEO's New Zealand experience",
+      desc: "Direct guidance based on studying & working in New Zealand"
     },
     {
       icon: <Landmark className="w-6 h-6 text-accent" />,
       value: "6+ Destinations",
-      label: "Global study destinations",
-      desc: "Study options in NZ, UK, Dubai, France, Malta, Spain"
+      label: "Global study destination",
+      desc: "Study options in New Zealand, UK, Dubai, France, Malta, Spain"
     },
     {
       icon: <Compass className="w-6 h-6 text-indigo-500" />,
-      value: "End-to-End",
-      label: "Pre & Post Landing Care",
-      desc: " Kerala & NZ offices for continuous student support"
+      value: "End-to-end",
+      label: "Pre & Post landing support",
+      desc: " Kerala & New Zealand offices for continuous student support"
     }
   ];
 
@@ -146,7 +146,7 @@ export const Hero = () => {
                 href="#visas"
                 className="px-6 py-3.5 rounded-xl glassmorphism text-slate-800 dark:text-white font-bold text-sm tracking-wide uppercase transition-all border border-slate-200 dark:border-slate-800 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 flex items-center gap-2 hover:scale-[1.02]"
               >
-                Explore NZ Visas
+                Explore New Zealand Visas
               </a>
             </div>
 
@@ -201,7 +201,7 @@ export const Hero = () => {
                 ))}
               </div>
 
-              {/* CEO NZ Experience highlight */}
+              {/* CEO New Zealand Experience highlight */}
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
