@@ -51,7 +51,7 @@
   }
   
   body {
-    background: linear-gradient(135deg, #E0F7FF 0%, #C8EEFF 50%, #BAE6FD 100%);
+    background: linear-gradient(135deg, #F0F7FF 0%, #D2E7FF 30%, #93C5FD 60%, #3B82F6 85%, #4F46E5 100%);
     background-attachment: fixed;
     color: #0F172A; /* Slate 900 for ultra readability */
     overflow-x: hidden;
