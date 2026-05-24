@@ -51,22 +51,23 @@
   }
   
   body {
-    background: linear-gradient(135deg, #F0F7FF 0%, #D2E7FF 30%, #93C5FD 60%, #3B82F6 85%, #4F46E5 100%);
-    background-attachment: fixed;
-    color: #0F172A; /* Slate 900 for ultra readability */
+    background: linear-gradient(135deg, #02040A 0%, #08122B 35%, #0B1D4F 70%, #1E3A8A 90%, #02040A 100%) !important;
+    background-attachment: fixed !important;
+    color: #F8FAFC !important;
     overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: #F8FAFC !important;
   }
 }
 
 /* Custom Utilities for Premium Aesthetics */
 .glassmorphism {
-  background: rgba(224, 242, 254, 0.5) !important; /* Soft sky-blue tinted glass to reduce glare */
+  background: rgba(10, 15, 30, 0.75) !important; /* Premium dark-space glass */
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(186, 230, 253, 0.4) !important; /* Tinted border */
+  border: 1px solid rgba(59, 130, 246, 0.25) !important; /* Glowing electric blue border */
 }
 
 .dark .glassmorphism {
@@ -76,21 +77,21 @@
 }
 
 .electric-glow {
-  box-shadow: 0 0 40px -10px rgba(27, 54, 93, 0.15); /* Softer Navy Glow instead of Electric Blue */
+  box-shadow: 0 0 45px -10px rgba(59, 130, 246, 0.45); /* Glowing Electric Blue */
 }
 
 .electric-glow-lg {
-  box-shadow: 0 0 60px -15px rgba(27, 54, 93, 0.3);
+  box-shadow: 0 0 65px -15px rgba(59, 130, 246, 0.6);
 }
 
 .text-gradient-primary {
-  background: linear-gradient(135deg, #1B365D 0%, #E51937 100%); /* Navy to Brand Red */
+  background: linear-gradient(135deg, #3B82F6 0%, #E51937 100%); /* Electric Blue to Brand Red */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #1B365D 35%, #E51937 100%);
+  background: linear-gradient(135deg, #60A5FA 35%, #E51937 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -250,27 +251,27 @@
 
 /* 
   Global Text Readability Contrast Overrides
-  Darkens standard text colors to ensure deep, bold contrast.
-  This satisfies WCAG accessibility requirements on light backgrounds 
+  Lightens text colors to ensure deep, bold contrast on dark backgrounds.
+  This satisfies WCAG accessibility requirements on dark backgrounds 
   and eliminates eye strain by making words extremely distinct.
 */
 .text-slate-900 {
-  color: #020617 !important; /* Deepest black-slate */
+  color: #F8FAFC !important; /* Crisp White-slate */
 }
 .text-slate-800 {
-  color: #0F172A !important; /* Ultra-dark slate-900 */
+  color: #E2E8F0 !important; /* Light Slate-200 */
 }
 .text-slate-700 {
-  color: #1E293B !important; /* Bold slate-800 */
+  color: #CBD5E1 !important; /* Slate-300 */
 }
 .text-slate-600 {
-  color: #334155 !important; /* Crisp slate-700 */
+  color: #94A3B8 !important; /* Slate-400 */
 }
 .text-slate-500 {
-  color: #475569 !important; /* Mid-slate-600 */
+  color: #64748B !important; /* Slate-500 */
 }
 .text-slate-400 {
-  color: #64748b !important; /* Soft subtext-500 */
+  color: #475569 !important; /* Slate-600 */
 }
 
 /* Orbit Center setting for SVG airplane rotation around the logo icon */
@@ -284,6 +285,60 @@
   transform-origin: 50px 40px !important;
   animation: plane-orbit 11s linear infinite;
   will-change: transform;
+}
+
+/* Premium Dark Mode Card Overrides */
+.bg-sky-50\/60,
+.bg-sky-50\/50,
+.bg-sky-50,
+.bg-slate-50,
+.bg-slate-900\/60,
+.bg-white,
+.bg-white\/50,
+.bg-white\/80 {
+  background-color: rgba(10, 15, 30, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.bg-slate-50\/50 {
+  background-color: rgba(10, 15, 30, 0.55) !important;
+}
+
+.border-slate-100,
+.border-slate-200,
+.border-slate-300 {
+  border-color: rgba(59, 130, 246, 0.2) !important; /* Soft glowing electric blue borders */
+}
+
+/* Quick enquiry panel background color override */
+#EAF5FC,
+.bg-\[\#EAF5FC\] {
+  background-color: rgba(10, 15, 30, 0.85) !important; /* Deep dark electric blue background container */
+}
+
+.border-slate-350 {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Override input backgrounds to dark mode inputs */
+input, select, textarea {
+  background-color: rgba(5, 7, 15, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  color: #F8FAFC !important;
+}
+
+/* Focus state for inputs */
+input:focus, select:focus, textarea:focus {
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Fix for Study Abroad Card and testimonials hover */
+.premium-card-hover:hover {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.3) !important;
 }
 
 
