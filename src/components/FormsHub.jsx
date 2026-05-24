@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
+import { CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
 import ReactPhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
@@ -24,8 +24,7 @@ export const FormsHub = () => {
     experience: '0',
     message: ''
   });
-  const [cvFile, setCvFile] = useState(null);
-  const fileInputRef = useRef(null);
+
 
   // Counselling State
   const [counsellingForm, setCounsellingForm] = useState({
@@ -55,8 +54,7 @@ export const FormsHub = () => {
       experience: '0',
       message: ''
     });
-    setCvFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = '';
+
 
     setCounsellingForm({
       firstName: '',
@@ -80,9 +78,7 @@ export const FormsHub = () => {
     if (!details) return '#';
     let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
     
-    if (details.cvName) {
-      waMsg += `\n- Uploaded CV/Resume: ${details.cvName}`;
-    }
+
     
     waMsg += `\n\nPlease evaluate my profile.`;
     return `https://wa.me/919633062888?text=${encodeURIComponent(waMsg)}`;
@@ -93,9 +89,7 @@ export const FormsHub = () => {
     const emailSubject = `Detailed Visa Assessment - ${details.firstName} ${details.lastName}`;
     let emailBody = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${details.firstName} ${details.lastName}\n- Email: ${details.email}\n- Contact: ${details.contactNumber}\n- Purpose: ${details.purpose}\n- Preferred Country: ${details.destination}\n- Qualification: ${details.qualification}\n- Work Experience: ${details.experience} Years\n- Message: ${details.message}`;
     
-    if (details.cvName) {
-      emailBody += `\n- Uploaded CV/Resume: ${details.cvName}`;
-    }
+
     
     emailBody += `\n\nPlease evaluate my profile.`;
     return `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
@@ -108,8 +102,7 @@ export const FormsHub = () => {
     setError(null);
 
     const currentDetails = { 
-      ...assessmentForm,
-      cvName: cvFile ? cvFile.name : null
+      ...assessmentForm
     };
 
     try {
@@ -124,9 +117,7 @@ export const FormsHub = () => {
       formData.append('work_experience', assessmentForm.experience);
       formData.append('message', assessmentForm.message);
       
-      if (cvFile) {
-        formData.append('cv', cvFile);
-      }
+
 
       // Simulate API call since no backend is connected yet
       await new Promise(resolve => setTimeout(resolve, 800));
@@ -137,9 +128,7 @@ export const FormsHub = () => {
       // Auto-redirect to WhatsApp
       let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}`;
       
-      if (currentDetails.cvName) {
-        waMsg += `\n- Uploaded CV/Resume: ${currentDetails.cvName}`;
-      }
+
       
       waMsg += `\n\nPlease evaluate my profile.`;
       const waUrl = `https://api.whatsapp.com/send?phone=919633062888&text=${encodeURIComponent(waMsg)}`;
@@ -188,19 +177,7 @@ export const FormsHub = () => {
     }
   };
 
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      const selected = e.target.files[0];
-      if (selected.size > 5 * 1024 * 1024) {
-        setError('Resume/CV file size must be less than 5MB.');
-        setCvFile(null);
-        if (fileInputRef.current) fileInputRef.current.value = '';
-        return;
-      }
-      setCvFile(selected);
-      setError(null);
-    }
-  };
+
 
   return (
     <section id="forms-hub" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
@@ -404,36 +381,7 @@ export const FormsHub = () => {
               </div>
             </div>
 
-            {/* File Upload CV Area */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Upload Your CV / Resume (Optional)</label>
-              <div
-                onClick={() => fileInputRef.current?.click()}
-                className="group border-2 border-dashed border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 rounded-2xl p-6 text-center cursor-pointer bg-slate-50/50 dark:bg-slate-900/40 hover:bg-slate-100/50 dark:hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center gap-2"
-              >
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileChange}
-                  accept=".pdf,.doc,.docx,.rtf,.txt,.png,.jpg,.jpeg"
-                  className="hidden"
-                />
-                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-primary flex items-center justify-center transition-colors">
-                  <Upload className="w-5 h-5" />
-                </div>
-                {cvFile ? (
-                  <div>
-                    <p className="text-xs font-semibold text-emerald-500">📎 {cvFile.name}</p>
-                    <p className="text-[10px] text-slate-400">Click or drag again to replace (Max 5MB)</p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Click to select files or drag-and-drop</p>
-                    <p className="text-[10px] text-slate-400">Supports PDF, DOCX, TXT, Images up to 5MB</p>
-                  </div>
-                )}
-              </div>
-            </div>
+
 
             {/* Assisted Queries */}
             <div className="space-y-1.5">
