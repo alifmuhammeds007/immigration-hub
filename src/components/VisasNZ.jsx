@@ -10,7 +10,7 @@ export const VisasNZ = () => {
       name: 'Student Visa',
       icon: <GraduationCap className="w-5 h-5" />,
       tagline: 'Unlock standard New Zealand education & stay-back work rights',
-      description: 'Ideal for individuals seeking quality education at New Zealand colleges, universities, or private training establishments (PTEs). Allows you to work up to 20 hours a week part-time and full-time during holidays.',
+      description: 'Ideal for individuals seeking quality education at New Zealand colleges, universities, or private training establishments (PTEs). Allows you to work up to 25 hours a week part-time and full-time during holidays.',
       checklist: [
         'Offer of Place from an NZQA-accredited educational institution',
         'Evidence of sufficient funds for living expenses ($20,000 per year)',
@@ -24,8 +24,8 @@ export const VisasNZ = () => {
       id: 'visitor',
       name: 'Visitor Visa',
       icon: <PlaneTakeoff className="w-5 h-5" />,
-      tagline: 'Explore beautiful New Zealand or visit family & friends',
-      description: 'Allows you to visit New Zealand for holidays, sight-seeing, social visits, or short-term courses (up to 3 months). Standard visas permit stays of up to 9 months in an 18-month period.',
+      tagline: 'Explore the beauty of New Zealand with the right visitor visa guidance',
+      description: 'Allows you to visit New Zealand for tourism, visiting family & friends.',
       checklist: [
         'Valid passport and evidence of identity',
         'Proof of financial support ($1,000/month or sponsorship from New Zealand)',

@@ -12,7 +12,7 @@ export const Testimonials = () => {
       program: "Postgraduate Diploma in Applied Management",
       institute: "Eastern Institute of Technology (EIT)",
       rating: 5,
-      review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The CEO's decade-long experience in New Zealand was highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in New Zealand were excellent! Highly recommended!",
+      review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The Director's guidance and personal experience in New Zealand were highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in New Zealand were excellent! Highly recommended!",
       badge: "🇳🇿 New Zealand Student Visa Approved",
       avatarText: "AN",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"

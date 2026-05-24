@@ -83,36 +83,36 @@ export const AboutUs = () => {
             <div className="relative space-y-6">
               {/* Profile Card 1: Director LIA */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md px-3">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
                   LIA
                 </div>
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase">
-                    Director's Credentials
+                    Director Credentials
                   </div>
                   <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Government Licensed LIA Director
+                    Priyanka Anilkumar
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                    Our Director holds a highly prestigious **LIA license (Licensed Immigration Adviser)**, legally authorizing them to provide immigration and visa advice for New Zealand. Experience 100% legal, honest filing.
+                    Our Director & New Zealand Licensed Immigration Adviser, Priyanka Anilkumar (IAA Licence No. 202501411), is authorised to provide professional immigration advice and assistance for all types of New Zealand visas. From guiding clients with the right visa pathway to preparing, handling, and lodging visa applications, she offers complete end-to-end support with honesty, transparency, and professionalism.
                   </p>
                 </div>
               </div>
 
-              {/* Profile Card 2: CEO New Zealand Experience */}
+              {/* Profile Card 2: LIA Guidance */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-primary/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md px-3">
-                  NZ
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
+                  LIA
                 </div>
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:text-accent text-[10px] font-bold uppercase">
-                    CEO's Experience
+                    Director's Guidance
                   </div>
                   <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Decade-Long New Zealand Ground Experience
+                    Guidance of our Director & LIA
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                    Our CEO spent over a decade living, working, and studying in **NEW ZEALAND**. Get invaluable first-hand knowledge on actual living costs, course selectivities, part-time jobs, and local settlement networks.
+                    Every file at Immigration Hub is processed under the direct supervision and professional guidance of our licensed adviser. We help students evaluate course selectivities, understand part-time work rights (up to 25 hours per week!), manage living costs, and build reliable local support networks in New Zealand.
                   </p>
                 </div>
               </div>

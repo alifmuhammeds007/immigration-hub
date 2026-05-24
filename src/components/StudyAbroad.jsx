@@ -8,10 +8,10 @@ export const StudyAbroad = () => {
       flag: "🇳🇿",
       image: "/hero_nz.png",
       gradient: "from-[#1B365D] to-[#0F2240]",
-      workRights: "20 Hrs / Week",
-      postStudyWork: "Up to 3 Years",
-      tuitionFee: "$22,000 - $35,000 New Zealand Dollars / Yr",
-      popularCourses: "IT, Nursing, Engineering, Business, PG Diploma",
+      workRights: "25 Hrs / Week",
+      postStudyWork: "Upto 4 Yrs",
+      tuitionFee: "$25,000 New Zealand Dollars / Yr",
+      popularCourses: "Engineering, IT, Business, Nursing, Construction, Designing & Animation, & Many more",
       highlight: "Our specialized focus. Fully guided under legal LIA Director licensure!"
     },
     {
