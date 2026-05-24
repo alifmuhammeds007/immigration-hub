@@ -312,7 +312,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Anjali"
+                  placeholder="Enter your first name"
                   value={assessmentForm.firstName}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, firstName: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -323,7 +323,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Nair"
+                  placeholder="Enter your last name"
                   value={assessmentForm.lastName}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, lastName: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -338,7 +338,7 @@ export const FormsHub = () => {
                 <input
                   type="email"
                   required
-                  placeholder="e.g. name@domain.com"
+                  placeholder="Enter your Gmail ID"
                   value={assessmentForm.email}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -349,7 +349,7 @@ export const FormsHub = () => {
                 <input
                   type="tel"
                   required
-                  placeholder="e.g. +91 96330 62888"
+                  placeholder="Enter your phone number"
                   value={assessmentForm.contactNumber}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, contactNumber: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -377,7 +377,7 @@ export const FormsHub = () => {
                   type="text"
                   required
                   id="preferred-country"
-                  placeholder="e.g. New Zealand, UK, France"
+                  placeholder="Enter your preferred country"
                   value={assessmentForm.destination}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, destination: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -392,7 +392,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. B.Tech CS, B.Com, Plus Two"
+                  placeholder="Enter your highest qualification"
                   value={assessmentForm.qualification}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, qualification: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
