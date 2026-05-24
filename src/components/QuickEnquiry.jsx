@@ -181,7 +181,7 @@ export const QuickEnquiry = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Sneha Joseph"
+                    placeholder="Enter your name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-950 dark:text-white text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm"
@@ -194,7 +194,7 @@ export const QuickEnquiry = () => {
                   <input
                     type="tel"
                     required
-                    placeholder="e.g. +91 96330 62888"
+                    placeholder="Enter your phone number"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-950 dark:text-white text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm"
@@ -207,7 +207,7 @@ export const QuickEnquiry = () => {
                   <input
                     type="email"
                     required
-                    placeholder="e.g. sneha@gmail.com"
+                    placeholder="Enter your Gmail ID"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-950 dark:text-white text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm"
@@ -220,7 +220,7 @@ export const QuickEnquiry = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Trivandrum"
+                    placeholder="Enter your place"
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-950 dark:text-white text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all shadow-sm"
