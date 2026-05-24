@@ -99,11 +99,11 @@ export const Hero = () => {
             {/* Dynamic, supportive context paragraph */}
             <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl font-medium drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]">
               Explore genuine New Zealand visa and study pathways with the expert guidance of a{' '}
-              <strong className="font-extrabold text-white whitespace-nowrap">
+              <strong className="font-extrabold text-black whitespace-nowrap">
                 Licensed Immigration Adviser (LIA)
               </strong>{' '}
               in New Zealand, while also unlocking exciting study abroad opportunities in destinations like the{' '}
-              <strong className="font-extrabold text-white">
+              <strong className="font-extrabold text-black">
                 UK, Dubai, France, Malta, Spain
               </strong>{' '}
               and more.
