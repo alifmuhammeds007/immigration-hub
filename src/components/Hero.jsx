@@ -34,15 +34,15 @@ export const Hero = () => {
     },
     {
       icon: <Landmark className="w-6 h-6 text-accent" />,
-      value: "6+ Destinations",
-      label: "Global study destination",
+      value: "Global Study Destination",
+      label: "6+ Destinations",
       desc: "Study options in New Zealand, UK, Dubai, France, Malta, Spain"
     },
     {
       icon: <Compass className="w-6 h-6 text-indigo-500" />,
       value: "End-to-end",
       label: "Pre & Post landing support",
-      desc: " Kerala & New Zealand offices for continuous student support"
+      desc: " Kerala & ChristChurch offices for continuous student support"
     }
   ];
 
@@ -157,7 +157,7 @@ export const Hero = () => {
                 }}
                 className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.02] flex items-center gap-2"
               >
-                <span>Free Assessment</span>
+                <span>Free Visa Assessment</span>
               </a>
 
               <a
@@ -223,7 +223,7 @@ export const Hero = () => {
               {/* CEO New Zealand Experience highlight */}
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
-                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">New Zealand</span> provide post-landing services like airport pickup & job hunting guidance!
+                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">ChristChurch</span> provide post-landing services like airport pickup & job hunting guidance!
                 </div>
               </div>
             </div>

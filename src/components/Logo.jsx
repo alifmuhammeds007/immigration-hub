@@ -67,9 +67,6 @@ export const Logo = ({ className = '', showText = true }) => {
               Hub
             </span>
           </div>
-          <div className="text-[9px] font-extrabold tracking-[0.16em] text-slate-300 uppercase -mt-0.5 whitespace-nowrap">
-            THE GLOBAL VISA EXPERTS
-          </div>
         </div>
       )}
     </div>

@@ -13,7 +13,7 @@ export const VisasNZ = () => {
       description: 'Ideal for individuals seeking quality education at New Zealand colleges, universities, or private training establishments (PTEs). Allows you to work up to 25 hours a week part-time and full-time during holidays.',
       checklist: [
         'Offer of Place from an NZQA-accredited educational institution',
-        'Evidence of sufficient funds for living expenses ($20,000 per year)',
+        'Evidence of sufficient funds for living expenses',
         'Tuition fee payment receipt or confirmation',
         'Academic transcripts & english language competency proof',
         'Genuine intent & clear post-study pathway plans'
@@ -28,7 +28,7 @@ export const VisasNZ = () => {
       description: 'Allows you to visit New Zealand for tourism, visiting family & friends.',
       checklist: [
         'Valid passport and evidence of identity',
-        'Proof of financial support ($1,000/month or sponsorship from New Zealand)',
+        'Proof of financial support',
         'Onward travel ticket showing planned departure from New Zealand',
         'Sincere intent to visit and return to home country'
       ],
@@ -70,7 +70,7 @@ export const VisasNZ = () => {
       description: 'The Accredited Employer Work Visa (AEWV) allows skilled professionals to work in New Zealand for an accredited employer. Requires a job check approval for the specific employer before visa filing.',
       checklist: [
         'Full job offer from an INZ accredited employer',
-        'Evidence of suitable qualification or 3+ years relevant work experience',
+        'Evidence of suitable qualification or relevant work experience',
         'Job check token showing no local New Zealanders are available',
         'Employment contract complying with median wage regulations'
       ],
@@ -117,7 +117,7 @@ export const VisasNZ = () => {
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
-            Providing fully compliant, government-licensed visa advice under the strict guidance of our LIA Director. Explore the right pathway for your settlement goals.
+            Providing trusted New Zealand immigration advice through our government-licensed Director and Licensed Immigration Adviser (LIA), Explore the right pathway for your settlement goals.
           </p>
         </div>
 
