@@ -86,21 +86,27 @@ function App() {
       <FloatingBubbles />
 
      {/* 10. Corporate Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 relative z-10 transition-colors overflow-hidden">
+      <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 relative z-10 transition-colors overflow-hidden mt-auto">
         
-        {/* Bulletproof 2D World Map Background Layer (Anchored to Bottom) */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex items-end justify-center overflow-hidden bg-slate-900">
+        {/* Bulletproof 2D World Map Background Layer */}
+        <div className="absolute bottom-0 left-0 w-full h-[250px] sm:h-[400px] md:h-[500px] pointer-events-none z-0 flex justify-center overflow-hidden">
           
-          {/* object-bottom forces the image to anchor to the bottom of the container */}
+          {/* MOBILE IMAGE: Shows on phones */}
           <img 
-            src="/world-map.png" 
-            alt="World Map Background"
-            className="w-full h-auto max-h-full object-contain object-bottom opacity-20 dark:opacity-15 min-w-[800px]"
+            src="/world-map-mobile.png" 
+            alt="World Map Mobile Background"
+            className="block md:hidden w-full h-full object-cover object-bottom opacity-30 mix-blend-screen"
           />
-          
-          {/* Blending gradients */}
-          <div className="absolute inset-0 bg-slate-900/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/80"></div>
+
+          {/* DESKTOP (WINDOWS) IMAGE: object-cover with reduced opacity */}
+          <img 
+            src="/world-map-desktop.png" 
+            alt="World Map Desktop Background"
+            className="hidden md:block w-full h-full object-cover object-bottom opacity-10 mix-blend-screen"
+          />
+
+          {/* Fades the top edge of the map smoothly into the background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-transparent"></div>
         </div>
 
         {/* Content Container (z-10 ensures it sits on top of the map) */}
