@@ -451,18 +451,18 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Rahul"
+                  placeholder="Enter your First name "
                   value={counsellingForm.firstName}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, firstName: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Second Name *</label>
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Last Name *</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Kurup"
+                  placeholder="Enter your Last name "
                   value={counsellingForm.secondName}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, secondName: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -494,7 +494,7 @@ export const FormsHub = () => {
                 <input
                   type="email"
                   required
-                  placeholder="e.g. name@domain.com"
+                  placeholder="Enter your Email"
                   value={counsellingForm.email}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -509,7 +509,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Kochi, Kottayam, Trivandrum"
+                  placeholder="Where do you live?"
                   value={counsellingForm.city}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, city: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -520,7 +520,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. B.Tech CS, MBA, Plus Two"
+                  placeholder="Your highest degree?"
                   value={counsellingForm.qualification}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, qualification: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -537,7 +537,7 @@ export const FormsHub = () => {
                   min="0"
                   max="30"
                   required
-                  placeholder="e.g. 2"
+                  placeholder="Enter total years"
                   value={counsellingForm.experience}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, experience: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -565,7 +565,7 @@ export const FormsHub = () => {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Information Technology, Hospitality, Nursing"
+                  placeholder="What would you like to study?"
                   value={counsellingForm.courses}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, courses: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -592,7 +592,7 @@ export const FormsHub = () => {
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Budget for Studying Abroad (Optional)</label>
                 <input
                   type="text"
-                  placeholder="e.g. Under 15 Lakhs INR, 15-25 Lakhs, No bar"
+                  placeholder="Your estimated budget?"
                   value={counsellingForm.budget}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, budget: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -602,7 +602,7 @@ export const FormsHub = () => {
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Additional Queries</label>
                 <input
                   type="text"
-                  placeholder="Spouse work visa options, post-study residency timeline..."
+                  placeholder="Any specific questions?"
                   value={counsellingForm.queries}
                   onChange={(e) => setCounsellingForm({ ...counsellingForm, queries: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"

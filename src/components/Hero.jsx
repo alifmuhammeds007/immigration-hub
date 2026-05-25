@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Calendar, Compass, GraduationCap, ShieldCheck, Landmark } from 'lucide-react';
 
-export const Hero = () => {
-  const slides = [
-    { url: '/hero_nz.png', alt: 'Queenstown, New Zealand' },
-    { url: '/hero_uk.png', alt: 'London, United Kingdom' },
-    { url: '/hero_france.png', alt: 'Paris, France' },
-    { url: '/hero_dubai.png', alt: 'Dubai, United Arab Emirates' }
-  ];
+// OPTIMIZATION: Moved static data outside the component to prevent memory reallocation every 6 seconds
+const slides = [
+  { url: '/hero_nz.png', alt: 'Queenstown, New Zealand' },
+  { url: '/hero_uk.png', alt: 'London, United Kingdom' },
+  { url: '/hero_france.png', alt: 'Paris, France' },
+  { url: '/hero_dubai.png', alt: 'Dubai, United Arab Emirates' }
+];
 
+export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export const Hero = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
 
   const stats = [
     {
@@ -52,26 +53,29 @@ export const Hero = () => {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out will-change-opacity ${
               currentSlide === idx ? 'opacity-[0.70]' : 'opacity-0'
             }`}
           >
             <img
               src={slide.url}
               alt={slide.alt}
-              className="w-full h-full object-cover object-center transform transition-transform duration-[6000ms] ease-out"
+              // OPTIMIZATION: Eager load the first image, lazy load the rest.
+              loading={idx === 0 ? "eager" : "lazy"}
+              fetchPriority={idx === 0 ? "high" : "auto"}
+              className="w-full h-full object-cover object-center transform transition-transform duration-[6000ms] ease-out will-change-transform"
               style={{
                 transform: currentSlide === idx ? 'scale(1.05)' : 'scale(1.02)'
               }}
             />
           </div>
         ))}
-        {/* Soft, low-glare dark navy-indigo wash overlay to guarantee high-contrast white text readability without glare or light problems */}
+        {/* Soft, low-glare dark navy-indigo wash overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1B365D]/95 via-[#1B365D]/80 to-[#1B365D]/40 md:from-[#1B365D]/95 md:via-[#1B365D]/75 md:to-transparent"></div>
       </div>
 
-      {/* Dynamic Ambient Background Blobs */}
-      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
+      {/* Dynamic Ambient Background Blobs (OPTIMIZATION: Removed heavy pulse animation from large blurs) */}
+      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-red/8 blur-[100px] pointer-events-none"></div>
 
       {/* Grid Pattern overlay */}
@@ -81,46 +85,43 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Text Content Area */}
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in-up">
-            {/* Top Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-bold uppercase tracking-wider animate-float">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
-              </span>
-              The Global Visa Expert
-            </div>
-
-            {/* Glowing Headline Option 1 & 2 combined beautifully */}
-            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.1] transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
+            
+            {/* Glowing Headline with Pure White-to-Red Gradient */}
+            <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.1] [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">
               Studying and Settling Abroad Made Easy by{' '}
-              <span className="text-gradient-hero-brand">IMMIGRATION HUB</span>
+              <span className="bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent">
+                IMMIGRATION HUB
+              </span>
             </h1>
 
-            {/* Dynamic, supportive context paragraph */}
-            <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl font-medium drop-shadow-[0_2px_5px_rgba(0,0,0,0.25)]">
+            {/* Dynamic, supportive context paragraph with White-to-Red gradients */}
+            <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl font-medium [text-shadow:0_2px_5px_rgba(0,0,0,0.4)]">
               Explore genuine New Zealand visa and study pathways with the expert guidance of a{' '}
-              <strong className="font-extrabold text-gradient-red-white-mobile whitespace-nowrap">
+              <strong className="font-extrabold bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent whitespace-nowrap">
                 Licensed Immigration Adviser (LIA)
               </strong>{' '}
               in New Zealand, while also unlocking exciting study abroad opportunities in destinations like the{' '}
-              <strong className="font-extrabold text-gradient-red-white-mobile">
+              <strong className="font-extrabold bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent">
                 UK, Dubai, France, Malta, Spain
               </strong>{' '}
               and more.
             </p>
 
-            {/* Inline Slideshow Card for Mobile View - Shows pictures minimized in a medium-sized box, accurate with no stretch */}
+            {/* Inline Slideshow Card for Mobile View */}
             <div className="block lg:hidden w-full aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl my-5 z-10 electric-glow">
               {slides.map((slide, idx) => (
                 <div
                   key={idx}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out will-change-opacity ${
                     currentSlide === idx ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
                   <img
                     src={slide.url}
                     alt={slide.alt}
+                    // OPTIMIZATION: Eager load the first image, lazy load the rest.
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    fetchPriority={idx === 0 ? "high" : "auto"}
                     className="w-full h-full object-cover"
                   />
                   {/* Caption badge inside mobile slideshow */}
@@ -194,9 +195,6 @@ export const Hero = () => {
                   <span className="w-3.5 h-3.5 rounded-full bg-yellow-400"></span>
                   <span className="w-3.5 h-3.5 rounded-full bg-emerald-400"></span>
                 </div>
-                <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-                  Trust Indicators
-                </div>
               </div>
 
               {/* Stats Grid */}
@@ -224,7 +222,6 @@ export const Hero = () => {
 
               {/* CEO New Zealand Experience highlight */}
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
                   Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">New Zealand</span> provide post-landing services like airport pickup & job hunting guidance!
                 </div>

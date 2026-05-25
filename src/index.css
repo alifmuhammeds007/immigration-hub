@@ -4,7 +4,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @theme {
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -15,22 +14,21 @@
   --color-accent: #E51937; /* Match dynamic brand red */
   
   --animate-plane-orbit: plane-orbit 11s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-gradient: gradient 15s ease infinite;
+
+  --color-brand-red: #E51937;
+  --color-brand-red-dark: #b81026;
+  --color-dark-bg: #0A0F1D;
+  --color-dark-card: #121829;
+  --color-dark-border: #1E293B;
 
   @keyframes plane-orbit {
     0% { transform: rotate(0deg); }
     54.5% { transform: rotate(360deg); }
     100% { transform: rotate(360deg); }
   }
-  --color-brand-red: #E51937;
-  --color-brand-red-dark: #b81026;
-  --color-dark-bg: #0A0F1D;
-  --color-dark-card: #121829;
-  --color-dark-border: #1E293B;
-  
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-gradient: gradient 15s ease infinite;
-
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -68,8 +66,7 @@
     z-index: -9999;
     background: #0C1F3B !important;
     pointer-events: none;
-    transform: translateZ(0);
-    will-change: transform;
+    /* Removed heavy will-change that caused VRAM bloat */
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -78,14 +75,18 @@
   }
 }
 
-/* Custom Utilities for Premium Aesthetics */
+/* =========================================
+   PERFORMANCE-OPTIMIZED GLASSMORPHISM
+   ========================================= */
 .glassmorphism {
-  background: rgba(10, 15, 30, 0.75) !important; /* Premium dark-space glass */
+  background: rgba(10, 15, 30, 0.75) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(59, 130, 246, 0.25) !important; /* Glowing electric blue border */
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
+  /* GPU Acceleration WITHOUT memory leak */
   transform: translateZ(0);
-  will-change: transform, backdrop-filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .dark .glassmorphism {
@@ -93,476 +94,48 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transform: translateZ(0);
-  will-change: transform, backdrop-filter;
 }
 
-.electric-glow {
-  box-shadow: 0 0 45px -10px rgba(59, 130, 246, 0.45); /* Glowing Electric Blue */
-}
+/* =========================================
+   GLOWS & GRADIENTS
+   ========================================= */
+.electric-glow { box-shadow: 0 0 45px -10px rgba(59, 130, 246, 0.45); }
+.electric-glow-lg { box-shadow: 0 0 65px -15px rgba(59, 130, 246, 0.6); }
+.red-glow { box-shadow: 0 0 40px -10px rgba(229, 25, 55, 0.2); }
+.red-glow-lg { box-shadow: 0 0 60px -15px rgba(229, 25, 55, 0.45); }
 
-.electric-glow-lg {
-  box-shadow: 0 0 65px -15px rgba(59, 130, 246, 0.6);
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #1B365D 0%, #E51937 100%);
 }
 
 .text-gradient-primary {
-  background: linear-gradient(135deg, #3B82F6 0%, #E51937 100%); /* Electric Blue to Brand Red */
+  background: linear-gradient(135deg, #3B82F6 0%, #E51937 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .text-gradient-brand {
   background: linear-gradient(135deg, #60A5FA 35%, #E51937 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .text-gradient-hero-brand {
   background: linear-gradient(135deg, #FFFFFF 15%, #E51937 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.red-glow {
-  box-shadow: 0 0 40px -10px rgba(229, 25, 55, 0.2);
-}
-
-.red-glow-lg {
-  box-shadow: 0 0 60px -15px rgba(229, 25, 55, 0.45);
-}
-
-.bg-gradient-brand {
-  background: linear-gradient(135deg, #1B365D 0%, #E51937 100%);
+  background-clip: text;
 }
 
 .text-gradient-gold {
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F1F5F9;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #0A0F1D;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
-}
-
-/* Premium Entry & Scroll Reveal Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-scale-up {
-  animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Scroll-triggered reveal animations via IntersectionObserver */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(24px) scale(0.98);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal-on-scroll.revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Staggered entry transitions */
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-.reveal-delay-500 { transition-delay: 500ms; }
-
-/* Interactive Hover Enhancements */
-.premium-card-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow, border-color;
-  transform: translateZ(0);
-}
-
-.premium-card-hover:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 30px -10px rgba(27, 54, 93, 0.15);
-  border-color: rgba(27, 54, 93, 0.25) !important;
-}
-
-.dark .premium-card-hover:hover {
-  box-shadow: 0 12px 40px -12px rgba(229, 25, 55, 0.15);
-  border-color: rgba(229, 25, 55, 0.25) !important;
-}
-
-/* 
-  Global Text Readability Contrast Overrides
-  Lightens text colors to ensure deep, bold contrast on dark backgrounds.
-  This satisfies WCAG accessibility requirements on dark backgrounds 
-  and eliminates eye strain by making words extremely distinct.
-*/
-.text-slate-900 {
-  color: #F8FAFC !important; /* Crisp White-slate */
-}
-.text-slate-800 {
-  color: #E2E8F0 !important; /* Light Slate-200 */
-}
-.text-slate-700 {
-  color: #CBD5E1 !important; /* Slate-300 */
-}
-.text-slate-600 {
-  color: #94A3B8 !important; /* Slate-400 */
-}
-.text-slate-500 {
-  color: #64748B !important; /* Slate-500 */
-}
-.text-slate-400 {
-  color: #475569 !important; /* Slate-600 */
-}
-
-/* Orbit Center setting for SVG airplane rotation around the logo icon */
-@keyframes plane-orbit {
-  0% { transform: rotate(0deg); }
-  54.5% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-plane-orbit {
-  transform-origin: 50px 40px !important;
-  animation: plane-orbit 11s linear infinite;
-  will-change: transform;
-}
-
-/* Premium Dark Mode Card Overrides */
-.bg-sky-50\/60,
-.bg-sky-50\/50,
-.bg-sky-50,
-.bg-slate-50,
-.bg-slate-900\/60,
-.bg-white,
-.bg-white\/50,
-.bg-white\/80 {
-  background-color: rgba(10, 15, 30, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-color: rgba(59, 130, 246, 0.2) !important;
-  transform: translateZ(0);
-  will-change: transform, backdrop-filter;
-}
-
-.bg-slate-50\/50 {
-  background-color: rgba(10, 15, 30, 0.55) !important;
-}
-
-.border-slate-100,
-.border-slate-200,
-.border-slate-300 {
-  border-color: rgba(59, 130, 246, 0.2) !important; /* Soft glowing electric blue borders */
-}
-
-/* Quick enquiry panel background color override */
-#EAF5FC,
-.bg-\[\#EAF5FC\] {
-  background-color: rgba(10, 15, 30, 0.85) !important; /* Deep dark electric blue background container */
-}
-
-.border-slate-350 {
-  border-color: rgba(59, 130, 246, 0.3) !important;
-}
-
-/* Override input backgrounds to dark mode inputs */
-input, select, textarea {
-  background-color: rgba(5, 7, 15, 0.9) !important;
-  border-color: rgba(59, 130, 246, 0.35) !important;
-  color: #F8FAFC !important;
-}
-
-/* Focus state for inputs */
-input:focus, select:focus, textarea:focus {
-  border-color: #3B82F6 !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
-}
-
-/* Fix for Study Abroad Card and testimonials hover */
-.premium-card-hover:hover {
-  background-color: rgba(15, 23, 42, 0.9) !important;
-  border-color: rgba(59, 130, 246, 0.5) !important;
-  box-shadow: 0 0 35px rgba(59, 130, 246, 0.3) !important;
-}
-
-/* Responsive mobile-only red & white gradient text for highlighted hero phrases */
-.text-gradient-red-white-mobile {
-  background: linear-gradient(135deg, #FF3E5E 0%, #FFFFFF 100%) !important;
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-scale-up {
-  animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Scroll-triggered reveal animations via IntersectionObserver */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(24px) scale(0.98);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal-on-scroll.revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Staggered entry transitions */
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-.reveal-delay-500 { transition-delay: 500ms; }
-
-/* Interactive Hover Enhancements */
-.premium-card-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow, border-color;
-  transform: translateZ(0);
-}
-
-.premium-card-hover:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 30px -10px rgba(27, 54, 93, 0.15);
-  border-color: rgba(27, 54, 93, 0.25) !important;
-}
-
-.dark .premium-card-hover:hover {
-  box-shadow: 0 12px 40px -12px rgba(229, 25, 55, 0.15);
-  border-color: rgba(229, 25, 55, 0.25) !important;
-}
-
-/* 
-  Global Text Readability Contrast Overrides
-  Lightens text colors to ensure deep, bold contrast on dark backgrounds.
-  This satisfies WCAG accessibility requirements on dark backgrounds 
-  and eliminates eye strain by making words extremely distinct.
-*/
-.dark .text-slate-900 {
-  color: #F8FAFC !important; /* Crisp White-slate */
-}
-.dark .text-slate-800 {
-  color: #E2E8F0 !important; /* Light Slate-200 */
-}
-.dark .text-slate-700 {
-  color: #CBD5E1 !important; /* Slate-300 */
-}
-.dark .text-slate-600 {
-  color: #94A3B8 !important; /* Slate-400 */
-}
-.dark .text-slate-500 {
-  color: #64748B !important; /* Slate-500 */
-}
-.dark .text-slate-400 {
-  color: #475569 !important; /* Slate-600 */
-}
-
-/* Orbit Center setting for SVG airplane rotation around the logo icon */
-@keyframes plane-orbit {
-  0% { transform: rotate(0deg); }
-  54.5% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-plane-orbit {
-  transform-origin: 50px 40px !important;
-  animation: plane-orbit 11s linear infinite;
-  will-change: transform;
-}
-
-/* Premium Dark Mode Card Overrides */
-.dark .bg-sky-50\/60,
-.dark .bg-sky-50\/50,
-.dark .bg-sky-50,
-.dark .bg-slate-50,
-.dark .bg-slate-900\/60,
-.dark .bg-white,
-.dark .bg-white\/50,
-.dark .bg-white\/80 {
-  background-color: rgba(10, 15, 30, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-color: rgba(59, 130, 246, 0.2) !important;
-  transform: translateZ(0);
-  will-change: transform, backdrop-filter;
-}
-
-.dark .bg-slate-50\/50 {
-  background-color: rgba(10, 15, 30, 0.55) !important;
-}
-
-.dark .border-slate-100,
-.dark .border-slate-200,
-.dark .border-slate-300 {
-  border-color: rgba(59, 130, 246, 0.2) !important; /* Soft glowing electric blue borders */
-}
-
-/* Quick enquiry panel background color override */
-.dark #EAF5FC,
-.dark .bg-\[\#EAF5FC\] {
-  background-color: rgba(10, 15, 30, 0.85) !important; /* Deep dark electric blue background container */
-}
-
-.dark .border-slate-350 {
-  border-color: rgba(59, 130, 246, 0.3) !important;
-}
-
-/* Override input backgrounds to dark mode inputs */
-.dark input, .dark select, .dark textarea {
-  background-color: rgba(5, 7, 15, 0.9) !important;
-  border-color: rgba(59, 130, 246, 0.35) !important;
-  color: #F8FAFC !important;
-}
-
-/* Focus state for inputs */
-.dark input:focus, .dark select:focus, .dark textarea:focus {
-  border-color: #3B82F6 !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
-}
-
-/* Fix for Study Abroad Card and testimonials hover */
-.dark .premium-card-hover:hover {
-  background-color: rgba(15, 23, 42, 0.9) !important;
-  border-color: rgba(59, 130, 246, 0.5) !important;
-  box-shadow: 0 0 35px rgba(59, 130, 246, 0.3) !important;
-}
-
-/* Responsive mobile-only red & white gradient text for highlighted hero phrases */
 .text-gradient-red-white-mobile {
   background: linear-gradient(135deg, #FF3E5E 0%, #FFFFFF 100%) !important;
   -webkit-background-clip: text !important;
@@ -575,27 +148,150 @@ input:focus, select:focus, textarea:focus {
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
-    color: #000000 !important; /* Reverts back to solid black on desktop */
+    color: #000000 !important;
   }
 }
 
-/* react-phone-input-2 overrides for precise UI matching */
-.react-tel-input .form-control {
-  color: inherit !important;
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+.dark ::-webkit-scrollbar-track { background: #0A0F1D; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* =========================================
+   ANIMATIONS & REVEALS
+   ========================================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-scale-up { animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.animate-plane-orbit {
+  transform-origin: 50px 40px !important;
+  animation: plane-orbit 11s linear infinite;
+}
+
+/* Optimized Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Removed will-change to prevent massive mobile lag spikes */
+  transform: translateZ(0); 
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-delay-500 { transition-delay: 500ms; }
+
+/* =========================================
+   HOVERS & CONTRAST OVERRIDES
+   ========================================= */
+.premium-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+.premium-card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 30px -10px rgba(27, 54, 93, 0.15);
+  border-color: rgba(27, 54, 93, 0.25) !important;
+}
+
+.dark .premium-card-hover:hover {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Contrast Overrides */
+.text-slate-900, .dark .text-slate-900 { color: #F8FAFC !important; }
+.text-slate-800, .dark .text-slate-800 { color: #E2E8F0 !important; }
+.text-slate-700, .dark .text-slate-700 { color: #CBD5E1 !important; }
+.text-slate-600, .dark .text-slate-600 { color: #94A3B8 !important; }
+.text-slate-500, .dark .text-slate-500 { color: #64748B !important; }
+.text-slate-400, .dark .text-slate-400 { color: #475569 !important; }
+
+/* =========================================
+   DARK MODE BACKGROUND & INPUT OVERRIDES
+   ========================================= */
+.dark .bg-sky-50\/60, .dark .bg-sky-50\/50, .dark .bg-sky-50, .dark .bg-slate-50,
+.dark .bg-slate-900\/60, .dark .bg-white, .dark .bg-white\/50, .dark .bg-white\/80 {
+  background-color: rgba(10, 15, 30, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+  transform: translateZ(0);
+}
+
+.dark .bg-slate-50\/50 { background-color: rgba(10, 15, 30, 0.55) !important; }
+
+.dark .border-slate-100, .dark .border-slate-200, .dark .border-slate-300 {
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+#EAF5FC, .bg-\[\#EAF5FC\], .dark #EAF5FC, .dark .bg-\[\#EAF5FC\] {
+  background-color: rgba(10, 15, 30, 0.85) !important;
+}
+
+.border-slate-350, .dark .border-slate-350 {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+input, select, textarea, .dark input, .dark select, .dark textarea {
+  background-color: rgba(5, 7, 15, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  color: #F8FAFC !important;
+}
+
+input:focus, select:focus, textarea:focus, .dark input:focus, .dark select:focus, .dark textarea:focus {
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* =========================================
+   REACT-PHONE-INPUT-2 OVERRIDES
+   ========================================= */
+.react-tel-input .form-control { color: inherit !important; }
 .dark .react-tel-input .form-control {
   color: #F8FAFC !important;
   background-color: rgba(5, 7, 15, 0.9) !important;
   border-color: rgba(59, 130, 246, 0.35) !important;
 }
-.react-tel-input .flag-dropdown {
-  background: transparent !important;
-  border: none !important;
-}
-.react-tel-input .selected-flag:hover,
-.react-tel-input .selected-flag:focus {
-  background: transparent !important;
-}
+.react-tel-input .flag-dropdown { background: transparent !important; border: none !important; }
+.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus { background: transparent !important; }
+
 .react-tel-input .country-list {
   background-color: #ffffff !important;
   color: #1e293b !important;
@@ -608,17 +304,13 @@ input:focus, select:focus, textarea:focus {
   color: #f8fafc !important;
   border-color: #1e293b !important;
 }
-.react-tel-input .country-list .country.highlight,
-.react-tel-input .country-list .country:hover {
+
+.react-tel-input .country-list .country.highlight, .react-tel-input .country-list .country:hover {
   background-color: #f1f5f9 !important;
 }
-.dark .react-tel-input .country-list .country.highlight,
-.dark .react-tel-input .country-list .country:hover {
+.dark .react-tel-input .country-list .country.highlight, .dark .react-tel-input .country-list .country:hover {
   background-color: #1e293b !important;
 }
-.react-tel-input .country-list .dial-code {
-  color: #64748b !important;
-}
-.dark .react-tel-input .country-list .dial-code {
-  color: #94a3b8 !important;
-}
+
+.react-tel-input .country-list .dial-code { color: #64748b !important; }
+.dark .react-tel-input .country-list .dial-code { color: #94a3b8 !important; }
