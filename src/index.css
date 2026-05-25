@@ -78,22 +78,37 @@
 /* =========================================
    PERFORMANCE-OPTIMIZED GLASSMORPHISM
    ========================================= */
+/* Mobile-first: Lightweight blur for Android GPUs */
 .glassmorphism {
-  background: rgba(10, 15, 30, 0.75) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 15, 30, 0.85) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(59, 130, 246, 0.25) !important;
-  /* GPU Acceleration WITHOUT memory leak */
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .dark .glassmorphism {
-  background: rgba(18, 24, 41, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(18, 24, 41, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ramp the blur back up to maximum quality on Desktop & Tablet */
+@media (min-width: 768px) {
+  .glassmorphism {
+    background: rgba(10, 15, 30, 0.75) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  .dark .glassmorphism {
+    background: rgba(18, 24, 41, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 /* =========================================
@@ -246,13 +261,24 @@
 /* =========================================
    DARK MODE BACKGROUND & INPUT OVERRIDES
    ========================================= */
+/* Mobile-first: Lightweight blur for Android GPUs */
 .dark .bg-sky-50\/60, .dark .bg-sky-50\/50, .dark .bg-sky-50, .dark .bg-slate-50,
 .dark .bg-slate-900\/60, .dark .bg-white, .dark .bg-white\/50, .dark .bg-white\/80 {
-  background-color: rgba(10, 15, 30, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  background-color: rgba(10, 15, 30, 0.85) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
   border-color: rgba(59, 130, 246, 0.2) !important;
   transform: translateZ(0);
+}
+
+/* Ramp the blur back up to maximum quality on Desktop & Tablet */
+@media (min-width: 768px) {
+  .dark .bg-sky-50\/60, .dark .bg-sky-50\/50, .dark .bg-sky-50, .dark .bg-slate-50,
+  .dark .bg-slate-900\/60, .dark .bg-white, .dark .bg-white\/50, .dark .bg-white\/80 {
+    background-color: rgba(10, 15, 30, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
 }
 
 .dark .bg-slate-50\/50 { background-color: rgba(10, 15, 30, 0.55) !important; }
