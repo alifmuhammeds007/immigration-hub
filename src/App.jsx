@@ -175,15 +175,9 @@ function App() {
           </div>
 
           {/* Sub-footer Area */}
-<<<<<<< HEAD
           <div className="border-t border-slate-700/50 pt-8 mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 font-medium">
             <p className="drop-shadow-sm">
               © {new Date().getFullYear()} IMMIGRATION HUB (The Global Visa Expert). All Rights Reserved.
-=======
-          <div className="border-t border-slate-800 pt-8 mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-600 dark:text-slate-500 font-light">
-            <p>
-              © {new Date().getFullYear()} IMMIGRATION HUB. All Rights Reserved.
->>>>>>> 9d4835a0f953ae8b8c34f2654a48dd969f90dbfe
             </p>
             <div className="flex gap-4 mt-4 md:mt-0 text-[10px]">
               <span className="hover:text-white transition-colors cursor-help" title="Government regulatory codes strictly adhered to.">IAA Code of Conduct</span>
