@@ -104,7 +104,7 @@ export const FormsHub = () => {
 
     
     emailBody += `\n\nPlease evaluate my profile.`;
-    return `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    return `mailto:info@immigrationhub.nz?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   };
 
   const handleAssessmentSubmit = async (e) => {

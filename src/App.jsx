@@ -111,7 +111,7 @@ function App() {
 
         {/* Content Container (z-10 ensures it sits on top of the map) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
             {/* Column 1: Brand & Slogan */}
             <div className="space-y-4">
               <Logo className="scale-90 origin-left drop-shadow-lg" />
@@ -165,19 +165,7 @@ function App() {
               </ul>
             </div>
 
-            {/* Column 4: Contact Shortcuts */}
-            <div className="space-y-3">
-              <h4 className="font-heading font-bold text-xs text-white uppercase tracking-wider drop-shadow-sm">
-                Support Hours
-              </h4>
-              <p className="text-xs text-slate-400 font-medium leading-normal">
-                Our filing division operates Mon - Sat: 9:30 AM to 6:00 PM IST.<br/>
-                Our Christchurch office operates Mon - Fri: 9:00 AM to 5:00 PM New Zealand Standard Time (NZST).
-              </p>
-              <div className="text-[10px] text-emerald-400/80 font-semibold pt-2">
-                Need immediate help? Click the green WhatsApp bubble at the bottom right.
-              </div>
-            </div>
+
           </div>
 
           {/* Sub-footer Area */}
