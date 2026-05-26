@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Shield, Users } from 'lucide-react';
+import { CheckCircle, Shield, Users, Landmark, HeartHandshake } from 'lucide-react';
 
 export const AboutUs = () => {
   const steps = [
@@ -23,64 +23,32 @@ export const AboutUs = () => {
 
   return (
     <section id="about" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background graphic */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/5 blur-[150px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <div className="text-center max-w-5xl mx-auto mb-16 reveal-on-scroll">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
             About <span className="text-gradient-brand">Immigration Hub</span>
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-brand-red mx-auto mt-4 rounded-full"></div>
-          <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
-            We are a New Zealand based Study and Immigration consultant operating in New Zealand and Kerala.
-            We specialize in guiding applicants toward their absolute best career and settlement pathways.
+          <p className="text-slate-600 dark:text-slate-300 mt-6 text-sm sm:text-base font-light leading-relaxed max-w-4xl mx-auto text-left sm:text-center">
+            We are a New Zealand based Study and Immigration consultant in New Zealand and Kerala. At IMMIGRATION HUB we specialize in guiding applicants towards their best career pathway with the help of our dynamic and enthusiastic education and migration consultants. With our CEO’s decade long experience living, working and studying in NEW ZEALAND, and our Director’s LIA Licence, we offer expert knowledge in the education and migration sectors. 
+            <br /><br />
+            Our specific client-centric approach carefully assess education and experienced background, career goals, settlement plans, family background, financial considerations and the socio economic standards to evaluate and recommend the best-fit options to study abroad in the best institute, choose the best course with the best advice for a hassle free pre and post study live, navigate the documentation, visa application and submission process, and also in the Post landing services.
           </p>
         </div>
 
         {/* Core Profile Split Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left Column: Mission Description */}
-          <div className="space-y-6 text-left reveal-on-scroll reveal-delay-100">
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-16">
+          {/* Left Column: Why Choose & Leadership Cards Stacked (Lg: col-span-7) */}
+          <div className="lg:col-span-7 space-y-6 text-left reveal-on-scroll reveal-delay-100">
             <h3 className="font-heading font-bold text-2xl text-slate-800 dark:text-white">
               Why Choose Our Expert Advisors?
             </h3>
 
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-light">
-              At **IMMIGRATION HUB**, we believe in a custom, client-centric approach. We assess education and exp background, career goals, settlement plans, family background, financial considerations, and socio-economic standards to evaluate and recommend the best-fit options to study abroad in the best institute.
-            </p>
-
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-light">
-              We guide students to choose the best course with the best advice for a hassle-free pre and post-study life, navigate the documentation, visa application, and submission process, and also in the **Post-landing services**.
-            </p>
-
-            {/* Sub-features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 mt-0.5 animate-pulse">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Licensed & Regulated</h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Operated under strict LIA Code of Conduct</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 text-primary mt-0.5 animate-pulse">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Client-Centric Philosophy</h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Custom pathways tailored to your profile</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Leadership Profile Cards */}
-          <div className="relative reveal-on-scroll reveal-delay-200">
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-xl pointer-events-none"></div>
-
-            <div className="relative space-y-6">
+            <div className="space-y-6">
               {/* Profile Card 1: Director LIA */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
@@ -99,22 +67,81 @@ export const AboutUs = () => {
                 </div>
               </div>
 
-              {/* Profile Card 2: LIA Guidance */}
+              {/* Profile Card 2: CEO Profile */}
               <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-primary/30 transition-all duration-300 premium-card-hover">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
                   CEO
                 </div>
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:text-accent text-[10px] font-bold uppercase">
-                    CEO's Guidance
+                    CEO Credentials
                   </div>
                   <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Guidance of our CEO
+                    Manu
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                    Every file at Immigration Hub is processed under the direct supervision and professional guidance of our licensed adviser. We help students evaluate course selectivities, understand part-time work rights (up to 25 hours per week!), manage living costs, and build reliable local support networks in New Zealand.
+                    Our CEO, Manu, has been living in New Zealand for over 10 years and brings valuable international experience in guiding students towards the right education and career pathways in New Zealand and other countries. Through his genuine support, practical guidance, and student-focused approach, he has helped many aspiring students confidently begin their study abroad journey. His dedication, experience, and continuous efforts have been one of the strongest foundations behind the growth and strength of our team.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Trust & Metrics Grid (Lg: col-span-5) */}
+          <div className="lg:col-span-5 relative reveal-on-scroll reveal-delay-200 space-y-6">
+            {/* Visual Scenic Backdrop Card */}
+            <div className="relative h-64 rounded-3xl overflow-hidden shadow-xl border border-white/10 group">
+              <img 
+                src="/hero_nz.png" 
+                alt="Auckland, New Zealand" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                <span className="text-[10px] font-bold text-accent uppercase tracking-widest bg-white/10 px-2 py-0.5 rounded backdrop-blur-sm">
+                  Our Destination Focus
+                </span>
+                <h4 className="font-heading font-extrabold text-xl text-white mt-2 drop-shadow">
+                  Your Trusted Partner to New Zealand
+                </h4>
+                <p className="text-xs text-slate-300 font-light mt-1">
+                  Director-led LIA immigration guidance with an active local presence in both Auckland & Kerala.
+                </p>
+              </div>
+            </div>
+
+            {/* Sub-features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/20 transition-all duration-300">
+                <div className="p-2 w-fit rounded-lg bg-emerald-500/10 text-emerald-500 mb-3 animate-pulse">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Licensed & Regulated</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Operated under strict New Zealand LIA Code of Conduct</p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 transition-all duration-300">
+                <div className="p-2 w-fit rounded-lg bg-primary/10 text-primary mb-3 animate-pulse">
+                  <Users className="w-5 h-5" />
+                </div>
+                <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Client-Centric Approach</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Thorough background evaluation & course mapping</p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-accent/20 transition-all duration-300">
+                <div className="p-2 w-fit rounded-lg bg-accent/10 text-accent mb-3">
+                  <Landmark className="w-5 h-5" />
+                </div>
+                <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Decade of Experience</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">CEO's direct living, studying & working knowledge</p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-red/20 transition-all duration-300">
+                <div className="p-2 w-fit rounded-lg bg-brand-red/10 text-brand-red mb-3">
+                  <HeartHandshake className="w-5 h-5" />
+                </div>
+                <h4 className="font-heading font-semibold text-sm text-slate-800 dark:text-white">Post-Landing Care</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Airport pickup, initial stay, & local job search support</p>
               </div>
             </div>
           </div>

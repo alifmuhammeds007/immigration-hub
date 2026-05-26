@@ -33,8 +33,8 @@ export const Hero = () => {
     },
     {
       icon: <Landmark className="w-6 h-6 text-accent" />,
-      value: "6+ Destinations",
-      label: "Global study destination",
+      value: "Global Study Destination",
+      label: "6+ Destinations",
       desc: "Study options in New Zealand, UK, Dubai, France, Malta, Spain"
     },
     {
@@ -156,7 +156,7 @@ export const Hero = () => {
                 }}
                 className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.02] flex items-center gap-2"
               >
-                <span>Free Assessment</span>
+                <span>Free Visa Assessment</span>
               </a>
 
               <a
