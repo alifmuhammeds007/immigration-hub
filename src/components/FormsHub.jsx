@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CalendarRange, Send, CheckCircle2, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
 import ReactPhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
@@ -8,6 +8,18 @@ const PhoneInput = ReactPhoneInput.default || ReactPhoneInput;
 
 export const FormsHub = () => {
   const [activeTab, setActiveTab] = useState('assessment');
+
+  useEffect(() => {
+    const handleSetTab = (e) => {
+      if (e.detail === 'assessment' || e.detail === 'counselling') {
+        setActiveTab(e.detail);
+        setSuccess(null);
+        setError(null);
+      }
+    };
+    window.addEventListener('setFormsHubTab', handleSetTab);
+    return () => window.removeEventListener('setFormsHubTab', handleSetTab);
+  }, []);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);

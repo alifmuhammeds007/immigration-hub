@@ -135,6 +135,11 @@ export const Hero = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#forms-hub"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('setFormsHubTab', { detail: 'counselling' }));
+                  document.getElementById('forms-hub')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="px-6 py-3.5 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 flex items-center gap-2 group hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4" />
@@ -143,7 +148,23 @@ export const Hero = () => {
               </a>
 
               <a
+                href="#forms-hub"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('setFormsHubTab', { detail: 'assessment' }));
+                  document.getElementById('forms-hub')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.02] flex items-center gap-2"
+              >
+                <span>Free Assessment</span>
+              </a>
+
+              <a
                 href="#visas"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('visas')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="px-6 py-3.5 rounded-xl glassmorphism text-slate-800 dark:text-white font-bold text-sm tracking-wide uppercase transition-all border border-slate-200 dark:border-slate-800 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 flex items-center gap-2 hover:scale-[1.02]"
               >
                 Explore New Zealand Visas

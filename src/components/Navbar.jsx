@@ -69,14 +69,6 @@ export const Navbar = () => {
                 <ShieldCheck className="w-4 h-4 animate-pulse text-emerald-400" />
                 <span>Licensed New Zealand LIA Guidance</span>
               </div>
-
-              {/* Quick Action Button */}
-              <a
-                href="#forms-hub"
-                className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.03] active:scale-[0.97]"
-              >
-                Free Assessment
-              </a>
             </div>
 
             {/* Mobile Menu & Action Button */}
@@ -135,15 +127,6 @@ export const Navbar = () => {
               <ShieldCheck className="w-5 h-5 text-emerald-400 animate-pulse" />
               <span>Licensed New Zealand LIA Guidance</span>
             </div>
-
-            <a
-              href="#forms-hub"
-              onClick={() => setIsOpen(false)}
-              className="block w-full py-4 text-center rounded-xl bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg shadow-brand-red/20 active:scale-[0.98]"
-            >
-              Free Assessment
-            </a>
-
           </div>
         </div>
       </div>
