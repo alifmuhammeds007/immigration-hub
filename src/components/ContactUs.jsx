@@ -16,7 +16,7 @@ export const ContactUs = () => {
     {
       city: "Auckland (New Zealand Liaison)",
       role: "Licensed LIA Advisory & Post-Landing Division",
-      address: "IMMIGRATION HUB New Zealand, Level 4, 125 Queen Street, Auckland CBD, Auckland 1010, New Zealand",
+      address: "",
       phones: ["+64 21 028 8882 (LIA Hotline)"],
       email: "office@immigrationhub.in",
       hours: "Mon - Fri: 9:00 AM - 5:00 PM (New Zealand Standard Time)"
@@ -65,10 +65,12 @@ export const ContactUs = () => {
                     </div>
 
                     {/* Address */}
-                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-400">
-                      <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <p className="leading-relaxed font-light">{office.address}</p>
-                    </div>
+                    {office.address && (
+                      <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-400">
+                        <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <p className="leading-relaxed font-light">{office.address}</p>
+                      </div>
+                    )}
 
                     {/* Phones */}
                     <div className="space-y-2">
