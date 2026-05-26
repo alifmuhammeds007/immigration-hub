@@ -6,15 +6,15 @@ export const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Anjali Nair",
+      name: "Silpa Thomas",
       location: "Ernakulam, Kerala",
       destination: "New Zealand",
-      program: "Postgraduate Diploma in Applied Management",
-      institute: "Eastern Institute of Technology (EIT)",
+      program: "Visitor Visa Application Support",
+      institute: "New Zealand Visitor Visa",
       rating: 5,
-      review: "The LIA license guidance at Immigration Hub is absolutely top-class. My study pathway was assessed step-by-step. They selected a course matching my career goals and navigated the visa filing flawlessly. The Director's guidance and personal experience in New Zealand were highly helpful, advising on actual living costs and post-landing work rights. The airport pickup and initial stay guidance in New Zealand were excellent! Highly recommended!",
-      badge: "🇳🇿 New Zealand Student Visa Approved",
-      avatarText: "AN",
+      review: "My dream of visiting New Zealand became a reality through IMMIGRATION HUB and the expert guidance of Adviser Priyanka. The application process was handled professionally with proper advice and continuous support throughout every stage. I truly appreciate their genuine assistance and would strongly recommend their services to anyone planning their New Zealand journey.",
+      badge: "🇳🇿 New Zealand Visitor Visa Approved",
+      avatarText: "ST",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"
     },
     {
@@ -54,27 +54,27 @@ export const Testimonials = () => {
       avatarColor: "bg-gradient-to-tr from-teal-500 to-emerald-600"
     },
     {
-      name: "Harikrishnan R.",
+      name: "Joyal",
       location: "Thrissur, Kerala",
       destination: "Dubai",
       program: "MBA in Logistics & Supply Chain",
       institute: "American University in the Emirates",
       rating: 5,
-      review: "My processing for Dubai was incredibly swift. Immigration Hub was extremely helpful in advising on part-time work options and corporate connections. They completed the entire document submission in record time. A highly professional team of migration specialists!",
+      review: "My study abroad journey to Dubai became simple and stress-free with the support of IMMIGRATION HUB. The team helped me choose an affordable course that matched both my career goals and budget, which gave me the confidence to take the first step towards my dream career. I’m truly happy with the guidance and support I received throughout my entire journey.",
       badge: "🇦🇪 Dubai Study Visa Approved",
-      avatarText: "HR",
+      avatarText: "J",
       avatarColor: "bg-gradient-to-tr from-amber-500 to-orange-600"
     },
     {
-      name: "Diya Mathews",
+      name: "Bichu Thankachan",
       location: "Pathanamthitta, Kerala",
       destination: "Europe",
       program: "Graduate Diploma in Tourism & Hospitality",
       institute: "Malta College of Arts, Science and Technology (MCAST)",
       rating: 5,
-      review: "Highly affordable tuition fees and a beautiful Schengen environment were my key priorities. Diya and the Senior Counsellors at Immigration Hub recommended Malta. They guided me through the entire Schengen visa documentation. I had a completely hassle-free filing process and zero hidden charges!",
+      review: "My European study journey to Malta became much smoother with the excellent guidance from the CEO, Manu . The support provided throughout the admission and visa process was professional, transparent, and reassuring at every stage. I’m extremely satisfied with their service and truly appreciate their commitment towards students and their future goals.",
       badge: "🇲🇹 Malta Study Visa Approved",
-      avatarText: "DM",
+      avatarText: "BT",
       avatarColor: "bg-gradient-to-tr from-red-600 to-slate-500"
     },
     {
@@ -90,15 +90,15 @@ export const Testimonials = () => {
       avatarColor: "bg-gradient-to-tr from-yellow-500 to-red-600"
     },
     {
-      name: "Gopika Krishnan",
+      name: "Jagan",
       location: "Palakkad, Kerala",
-      destination: "New Zealand",
-      program: "Postgraduate Diploma in Informatics",
-      institute: "Otago Polytechnic (Auckland Campus)",
+      destination: "Dubai",
+      program: "Dubai Academic Pathway Support",
+      institute: "Dubai Study Admission Liaison",
       rating: 5,
-      review: "I had some gaps in my work history, making my student visa complex. The Licensed Immigration Adviser (LIA) at Immigration Hub personally reviewed my file and prepared a water-tight visa application explanation. They are very detailed, transparent, and follow a strict client-centric approach. My visa was approved in 12 days! A million thanks!",
-      badge: "🇳🇿 New Zealand Student Visa Approved",
-      avatarText: "GK",
+      review: "IMMIGRATION HUB guided me towards the right academic pathway based on my interests and future plans. The team clearly explained every detail regarding my programme, student life in Dubai, and the visa process, which made me feel confident about studying abroad. I’m very happy with their professional support and would definitely recommend IMMIGRATION HUB to students planning their Dubai education journey.",
+      badge: "🇦🇪 Dubai Study Visa Approved",
+      avatarText: "J",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-purple-600"
     }
   ];
