@@ -56,7 +56,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-slate-100 bg-[#02040A]">
+    <div className="min-h-screen text-slate-100 bg-[#0C1F3B]">
       {/* 1. Navigation bar */}
       <Navbar />
 
