@@ -42,15 +42,15 @@ export const Testimonials = () => {
       avatarColor: "bg-gradient-to-tr from-[#1B365D] via-slate-400 to-[#E51937]"
     },
     {
-      name: "Adarsh Pillai",
+      name: "Princy",
       location: "Kollam, Kerala",
       destination: "New Zealand",
-      program: "Master of Information Technology",
-      institute: "Auckland University of Technology (AUT)",
+      program: "Visitor Visa Application Support",
+      institute: "New Zealand Immigration",
       rating: 5,
-      review: "Choosing AUT for my Masters was the best decision, made possible by Immigration Hub. Their LIA Director reviewed my engineering background and structured my SOP. Having an office in Auckland made a massive difference. They guided me through local bank setups, mobile connection, and part-time job hunting immediately upon landing. Pure professional excellence!",
-      badge: "🇳🇿 New Zealand MIT Visa Approved",
-      avatarText: "AP",
+      review: "I’m very happy with the support I received from IMMIGRATION HUB for my New Zealand visitor visa application. The guidance provided by the Licensed Immigration Adviser was professional, detailed, and reassuring throughout the process. Their expertise and careful handling gave me confidence and helped me achieve a successful outcome.",
+      badge: "🇳🇿 New Zealand Visitor Visa Approved",
+      avatarText: "P",
       avatarColor: "bg-gradient-to-tr from-teal-500 to-emerald-600"
     },
     {
