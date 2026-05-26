@@ -78,15 +78,15 @@ export const Testimonials = () => {
       avatarColor: "bg-gradient-to-tr from-red-600 to-slate-500"
     },
     {
-      name: "Arjun S.",
+      name: "Arjun Pillai",
       location: "Calicut, Kerala",
-      destination: "Europe",
-      program: "Master in Sports Management",
-      institute: "GBSB Global Business School",
+      destination: "Dubai",
+      program: "Dubai Academic Support Pathway",
+      institute: "Dubai Higher Education Centre",
       rating: 5,
-      review: "I applied for Spain through Immigration Hub. They provided highly detailed advice on stay-back work rights, job-seeker visa options, and local Spanish language learning supports. The transparent and realistic guidance was refreshing. They are truly the Global Visa Expert!",
-      badge: "🇪🇸 Spain Study Visa Approved",
-      avatarText: "AS",
+      review: "I had a great experience with IMMIGRATION HUB during my study abroad process to Dubai. The team was supportive, approachable, and always ready to clarify my doubts. Their guidance with course selection, college admission, and visa processing made the entire journey easy and well-organised.",
+      badge: "🇦🇪 Dubai Study Visa Approved",
+      avatarText: "AP",
       avatarColor: "bg-gradient-to-tr from-yellow-500 to-red-600"
     },
     {
