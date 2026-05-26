@@ -81,14 +81,6 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Text Content Area */}
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in-up">
-            {/* Top Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white border border-white/20 text-xs font-bold uppercase tracking-wider animate-float">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
-              </span>
-              The Global Visa Expert
-            </div>
 
             {/* Glowing Headline Option 1 & 2 combined beautifully */}
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.1] transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">

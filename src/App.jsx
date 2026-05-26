@@ -160,7 +160,7 @@ function App() {
           {/* Sub-footer Area */}
           <div className="border-t border-slate-800 pt-8 mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-600 dark:text-slate-500 font-light">
             <p>
-              © {new Date().getFullYear()} IMMIGRATION HUB (The Global Visa Expert). All Rights Reserved.
+              © {new Date().getFullYear()} IMMIGRATION HUB. All Rights Reserved.
             </p>
             <div className="flex gap-4 mt-4 md:mt-0 text-[10px]">
               <span className="hover:text-slate-400 cursor-help" title="Government regulatory codes strictly adhered to.">IAA Code of Conduct</span>
