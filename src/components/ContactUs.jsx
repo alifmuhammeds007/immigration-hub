@@ -6,7 +6,7 @@ export const ContactUs = () => {
 
   const offices = [
     {
-      city: ", Kerala (India )",
+      city: "Kerala (India )",
       role: "Corporate Head Office & Filing Division",
       address: "",
       phones: ["+91 96330 62888", "+91 96330 69888"],
@@ -14,7 +14,7 @@ export const ContactUs = () => {
       hours: "Mon - Sat: 9:30 AM - 6:00 PM (IST)"
     },
     {
-      city: "Auckland (New Zealand Liaison)",
+      city: "Christchurch(New Zealand Liasison)",
       role: "Licensed LIA Advisory & Post-Landing Division",
       address: "",
       phones: ["+64 21 028 8882 (LIA Hotline)"],

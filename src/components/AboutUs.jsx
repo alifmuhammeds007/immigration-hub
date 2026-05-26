@@ -93,7 +93,7 @@ export const AboutUs = () => {
             <div className="relative h-64 rounded-3xl overflow-hidden shadow-xl border border-white/10 group">
               <img 
                 src="/hero_nz.png" 
-                alt="Auckland, New Zealand" 
+                alt="Christchurch, New Zealand" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
@@ -105,7 +105,7 @@ export const AboutUs = () => {
                   Your Trusted Partner to New Zealand
                 </h4>
                 <p className="text-xs text-slate-300 font-light mt-1">
-                  Director-led LIA immigration guidance with an active local presence in both ChristChurch & Kerala.
+                  Director-led LIA immigration guidance with an active local presence in both Christchurch & Kerala.
                 </p>
               </div>
             </div>
