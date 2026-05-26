@@ -77,7 +77,7 @@ export const QuickEnquiry = () => {
     if (!lastSubmitted) return '#';
     const emailSubject = `Quick Enquiry - ${lastSubmitted.name}`;
     const emailBody = `Hello Immigration Hub,\n\nI have submitted a Quick Enquiry:\n- Name: ${lastSubmitted.name}\n- Phone: ${lastSubmitted.phone}\n- Email: ${lastSubmitted.email}\n- City: ${lastSubmitted.city}\n- Country Interested: ${lastSubmitted.country}\n\nPlease advise me.`;
-    return `mailto:office@immigrationhub.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    return `mailto:info@immigrationhub.nz?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   };
 
   return (
@@ -267,11 +267,11 @@ export const QuickEnquiry = () => {
               <span>+91 96330 62888</span>
             </a>
             <a
-              href="mailto:office@immigrationhub.in"
+              href="mailto:info@immigrationhub.nz"
               className="flex items-center gap-2 text-xs text-slate-950 dark:text-slate-200 font-bold hover:text-[#E51937] dark:hover:text-[#E51937] transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-[#E51937] shrink-0" />
-              <span>office@immigrationhub.in</span>
+              <span>info@immigrationhub.nz</span>
             </a>
           </div>
         </div>
