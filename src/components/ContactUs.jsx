@@ -6,9 +6,9 @@ export const ContactUs = () => {
 
   const offices = [
     {
-      city: "Kochi, Kerala (India HQ)",
+      city: ", Kerala (India )",
       role: "Corporate Head Office & Filing Division",
-      address: "IMMIGRATION HUB, 2nd Floor, Grand Tower, Near Metro Pillar 420, Kochi, Kerala - 682025",
+      address: "",
       phones: ["+91 96330 62888", "+91 96330 69888"],
       email: "office@immigrationhub.in",
       hours: "Mon - Sat: 9:30 AM - 6:00 PM (IST)"
