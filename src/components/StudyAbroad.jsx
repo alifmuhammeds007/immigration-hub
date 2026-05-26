@@ -1,73 +1,37 @@
 import React from 'react';
-import { ArrowUpRight, GraduationCap, Compass, Briefcase, DollarSign } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export const StudyAbroad = () => {
   const countries = [
     {
       name: "New Zealand",
       flag: "🇳🇿",
-      image: "/hero_nz.png",
-      gradient: "from-[#1B365D] to-[#0F2240]",
-      workRights: "25 Hrs / Week",
-      postStudyWork: "Upto 4 Yrs",
-      tuitionFee: "$25,000 New Zealand Dollars / Yr",
-      popularCourses: "Engineering, IT, Business, Nursing, Construction, Designing & Animation, & Many more",
-      highlight: "Our specialized focus. Fully guided under legal LIA Director licensure!"
+      image: "/hero_nz.png"
     },
     {
       name: "United Kingdom",
       flag: "🇬🇧",
-      image: "/hero_uk.png",
-      gradient: "from-[#E51937] to-[#1B365D]",
-      workRights: "20 Hrs / Week",
-      postStudyWork: "2 Years (Graduate Route)",
-      tuitionFee: "£11,000 - £22,000 / Yr",
-      popularCourses: "MBA, Data Science, Digital Marketing, Public Health",
-      highlight: "Premium world-class universities, fast 1-year master's programs."
+      image: "/hero_uk.png"
     },
     {
       name: "Dubai (UAE)",
       flag: "🇦🇪",
-      image: "/hero_dubai.png",
-      gradient: "from-emerald-600 to-amber-600",
-      workRights: "Part-time Permitted",
-      postStudyWork: "Golden Visa Opportunities",
-      tuitionFee: "AED 35,000 - 75,000 / Yr",
-      popularCourses: "Hospitality, Logistics, Business Management, Architecture",
-      highlight: "Tax-free living, global corporate hub with quick processing."
+      image: "/hero_dubai.png"
     },
     {
       name: "France",
       flag: "🇫🇷",
-      image: "/hero_france.png",
-      gradient: "from-[#1B365D] via-white to-[#E51937]",
-      workRights: "Part-time Permitted",
-      postStudyWork: "2 Years Master Stayback",
-      tuitionFee: "€8,000 - €16,000 / Yr",
-      popularCourses: "Luxury Branding, Fashion Management, Culinary, AI",
-      highlight: "Subsidized accommodation, top-tier triple-accredited business schools."
+      image: "/hero_france.png"
     },
     {
       name: "Malta",
       flag: "🇲🇹",
-      image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&w=600&q=80",
-      gradient: "from-red-700 to-slate-400",
-      workRights: "15 Hrs / Week (after 90 days)",
-      postStudyWork: "9 Months Stayback",
-      tuitionFee: "€5,000 - €8,500 / Yr",
-      popularCourses: "Business Administration, IT, Tourism & Hospitality Management",
-      highlight: "Highly affordable European study option. Fast entry to Schengen Zone."
+      image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&w=600&q=80"
     },
     {
       name: "Spain",
       flag: "🇪🇸",
-      image: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=600&q=80",
-      gradient: "from-amber-500 to-red-600",
-      workRights: "30 Hrs / Week",
-      postStudyWork: "1-2 Years Job Seeker Visa",
-      tuitionFee: "€3,000 - €9,000 / Yr (Pvt higher)",
-      popularCourses: "Hospitality & Tourism, Sports Management, International Business",
-      highlight: "Vibrant cultural hub, lower living expenses, expansive work rights."
+      image: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=600&q=80"
     }
   ];
 
@@ -115,88 +79,39 @@ export const StudyAbroad = () => {
           {countries.map((country, idx) => (
             <div
               key={idx}
-              className={`group relative rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
+              onClick={() => handleCountryShortcut(country.name)}
+              className="group relative h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer reveal-on-scroll premium-card-hover"
             >
-              {/* Graphic Banner card with Scenic Country Image */}
-              <div className="h-32 relative flex items-center justify-between overflow-hidden p-5">
-                {/* Background image banner */}
-                <img 
-                  src={country.image} 
-                  alt={country.name} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {/* Low-glare dark navy/slate gradient wash to ensure outstanding readability of text and flag */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-slate-950/20"></div>
-                
-                <div className="flex items-center gap-3 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl shadow-inner shadow-white/20">
+              {/* Full-sized Scenic Country Image */}
+              <img 
+                src={country.image} 
+                alt={country.name} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              {/* Premium dark gradient overlay for text readability and elegance */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
+              
+              {/* Glassmorphic hover highlight effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr from-primary/10 via-transparent to-accent/5 pointer-events-none"></div>
+
+              {/* Text and Flag Container positioned beautifully at the bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform duration-300">
                     {country.flag}
-                  </div>
-                  <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+                  </span>
+                  <h3 className="font-heading font-extrabold text-2xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-wide">
                     {country.name}
                   </h3>
                 </div>
-
-                <GraduationCap className="w-12 h-12 text-white/20 absolute right-4 bottom-2 z-10" />
-              </div>
-
-              {/* Information Parameters */}
-              <div className="p-6 space-y-4 flex-grow">
-                {/* Data Row 1: Stayback */}
-                <div className="flex items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800/80 pb-2">
-                  <span className="text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5">
-                    <Compass className="w-3.5 h-3.5 text-primary" /> Stayback Option
-                  </span>
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
-                    {country.postStudyWork}
-                  </span>
-                </div>
-
-                {/* Data Row 2: Work rights */}
-                <div className="flex items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800/80 pb-2">
-                  <span className="text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5 text-accent" /> Part-Time Work
-                  </span>
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
-                    {country.workRights}
-                  </span>
-                </div>
-
-                {/* Data Row 3: Tuition */}
-                <div className="flex items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800/80 pb-2">
-                  <span className="text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5">
-                    <DollarSign className="w-3.5 h-3.5 text-emerald-500" /> Avg Tuition Cost
-                  </span>
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
-                    {country.tuitionFee}
-                  </span>
-                </div>
-
-                {/* Courses */}
-                <div className="space-y-1">
-                  <h4 className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                    Popular Programs
-                  </h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-normal font-light">
-                    {country.popularCourses}
-                  </p>
-                </div>
-
-                {/* Specialty Highlight Banner */}
-                <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 italic bg-slate-100/50 dark:bg-slate-800/50 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800/50">
-                  {country.highlight}
-                </p>
-              </div>
-
-              {/* Action Button Footer */}
-              <div className="p-6 pt-0">
-                <button
-                  onClick={() => handleCountryShortcut(country.name)}
-                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-red hover:text-white dark:bg-slate-800 dark:hover:bg-brand-red text-slate-700 dark:text-slate-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1"
-                >
-                  <span>Select Destination</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+                
+                {/* Subtle visual link indicator that appears on hover */}
+                <div className="h-0.5 w-0 bg-gradient-to-r from-brand-red to-primary transition-all duration-500 group-hover:w-20 mt-3 rounded-full shadow-[0_0_8px_#E51937]" />
+                
+                <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wider mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 flex items-center gap-1">
+                  Select Destination <ArrowUpRight className="w-3.5 h-3.5 text-brand-red" />
+                </span>
               </div>
             </div>
           ))}
