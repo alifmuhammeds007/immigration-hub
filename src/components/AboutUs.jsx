@@ -105,7 +105,7 @@ export const AboutUs = () => {
                   Your Trusted Partner to New Zealand
                 </h4>
                 <p className="text-xs text-slate-300 font-light mt-1">
-                  Director-led LIA immigration guidance with an active local presence in both Auckland & Kerala.
+                  Director-led LIA immigration guidance with an active local presence in both Christ Church & Kerala.
                 </p>
               </div>
             </div>

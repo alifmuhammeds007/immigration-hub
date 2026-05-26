@@ -41,7 +41,7 @@ export const Hero = () => {
       icon: <Compass className="w-6 h-6 text-indigo-500" />,
       value: "End-to-end",
       label: "Pre & Post landing support",
-      desc: " Kerala & New Zealand offices for continuous student support"
+      desc: " Kerala & Christ Church offices for continuous student support"
     }
   ];
 
@@ -226,7 +226,7 @@ export const Hero = () => {
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
-                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">New Zealand</span> provide post-landing services like airport pickup & job hunting guidance!
+                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">Christ Church</span> provide post-landing services like airport pickup & job hunting guidance!
                 </div>
               </div>
             </div>
