@@ -106,10 +106,10 @@ export const AboutUs = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:text-accent text-[10px] font-bold uppercase">
-                    Director's Guidance
+                    CEO's Guidance
                   </div>
                   <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Guidance of our Director & LIA
+                    Guidance of our CEO & LIA
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                     Every file at Immigration Hub is processed under the direct supervision and professional guidance of our licensed adviser. We help students evaluate course selectivities, understand part-time work rights (up to 25 hours per week!), manage living costs, and build reliable local support networks in New Zealand.

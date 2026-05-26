@@ -93,7 +93,7 @@ function App() {
             <div className="space-y-4">
               <Logo className="scale-90 origin-left" />
               <p className="text-xs text-slate-500 leading-relaxed font-light">
-                Studying and settling abroad made easy by Immigration Hub. Kerala and New Zealand’s premier study visa & migration consultancies.
+                Studying and settling abroad made easy by Immigration Hub. New Zealand and Kerala's premier study visa & migration consultancies.
               </p>
               <div className="flex items-center gap-1.5 px-3 py-1 w-fit rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-3.5 h-3.5" /> LIA Licensed Director
