@@ -26,7 +26,7 @@ export const StudyAbroad = () => {
     {
       name: "Malta",
       flag: "🇲🇹",
-      image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&w=600&q=80"
+      image: "/hero_malta.png"
     },
     {
       name: "Spain",
