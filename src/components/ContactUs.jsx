@@ -7,7 +7,6 @@ export const ContactUs = () => {
   const offices = [
     {
       city: "Kerala (India )",
-      role: "Corporate Head Office & Filing Division",
       address: "",
       phones: ["+91 96330 62888", "+91 96330 69888"],
       email: "info@immigrationhub.nz",
@@ -15,7 +14,6 @@ export const ContactUs = () => {
     },
     {
       city: "Christchurch(New Zealand Liasison)",
-      role: "Licensed LIA Advisory & Post-Landing Division",
       address: "",
       phones: ["+64 204369699"],
       email: "info@immigrationhub.nz",
@@ -50,34 +48,31 @@ export const ContactUs = () => {
           {offices.map((office, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-lg transition-all duration-300 text-left flex flex-col justify-between h-full"
+              className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center h-full min-h-[220px]"
             >
-              <div className="space-y-4">
+              <div className="space-y-5 w-full">
                 {/* Header */}
                 <div>
-                  <span className="text-[10px] font-bold text-primary dark:text-accent uppercase tracking-widest bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
-                    {office.role}
-                  </span>
-                  <h3 className="font-heading font-extrabold text-lg text-slate-900 dark:text-white mt-2">
+                  <h3 className="font-heading font-extrabold text-xl text-slate-900 dark:text-white">
                     {office.city}
                   </h3>
                 </div>
 
                 {/* Address */}
                 {office.address && (
-                  <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-400">
+                  <div className="flex items-start justify-center gap-2 text-xs text-slate-600 dark:text-slate-400">
                     <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <p className="leading-relaxed font-light">{office.address}</p>
                   </div>
                 )}
 
                 {/* Phones */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {office.phones.map((phone, pIdx) => (
-                    <div key={pIdx} className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+                    <div key={pIdx} className="flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400">
                       <a
                         href={`tel:${phone.replace(/\s+/g, '')}`}
-                        className="flex items-center gap-2.5 hover:text-primary transition-colors font-semibold"
+                        className="flex items-center gap-2 hover:text-primary transition-colors font-semibold"
                       >
                         <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
                         <span>{phone}</span>
@@ -98,10 +93,10 @@ export const ContactUs = () => {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+                <div className="flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400">
                   <a
                     href={`mailto:${office.email}`}
-                    className="flex items-center gap-2.5 hover:text-primary transition-colors font-semibold"
+                    className="flex items-center gap-2 hover:text-primary transition-colors font-semibold"
                   >
                     <Mail className="w-4 h-4 text-accent shrink-0" />
                     <span>{office.email}</span>
@@ -122,7 +117,7 @@ export const ContactUs = () => {
 
               {/* Hours */}
               {office.hours && (
-                <div className="border-t border-slate-200/50 dark:border-slate-800/80 pt-4 mt-6 flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500">
+                <div className="border-t border-slate-200/50 dark:border-slate-800/80 pt-4 mt-6 flex items-center justify-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 w-full">
                   <Clock className="w-3.5 h-3.5" />
                   <span>{office.hours}</span>
                 </div>
