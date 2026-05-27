@@ -141,7 +141,7 @@ export const Testimonials = () => {
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">
-            Real stories from our successful students who unlocked amazing careers and settled abroad. Over 1,000+ happy clients from Kerala and New Zealand.
+            Real stories from our successful students who unlocked amazing careers and settled abroad. Over 1,000+ happy clients from Multiple countries.
           </p>
         </div>
 
