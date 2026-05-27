@@ -1,8 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, X, Loader2, Send, CheckCircle2, Zap } from 'lucide-react';
 
 export const QuickEnquiry = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // 1. Check hash on mount
+    if (window.location.hash === '#quick-enquiry') {
+      setIsOpen(true);
+    }
+
+    // 2. Listen to hash changes
+    const handleHashChange = () => {
+      if (window.location.hash === '#quick-enquiry') {
+        setIsOpen(true);
+      }
+    };
+
+    // 3. Listen to custom event
+    const handleCustomEvent = () => {
+      setIsOpen(true);
+      setSuccess(false);
+      setError(null);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('openQuickEnquiry', handleCustomEvent);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('openQuickEnquiry', handleCustomEvent);
+    };
+  }, []);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);

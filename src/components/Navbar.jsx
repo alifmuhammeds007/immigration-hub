@@ -23,6 +23,7 @@ export const Navbar = () => {
     { name: 'Study Abroad', href: '#study-abroad' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Quick Enquiry', href: '#quick-enquiry' },
   ];
 
   return (
