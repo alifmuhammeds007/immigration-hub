@@ -119,7 +119,7 @@ function App() {
                 Studying and settling abroad made easy by Immigration Hub. New Zealand and Kerala's premier study visa & migration consultancies.
               </p>
               <div className="flex items-center gap-1.5 px-3 py-1 w-fit rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold uppercase tracking-wider md:backdrop-blur-md shadow-lg shadow-emerald-500/10">
-                <ShieldCheck className="w-3.5 h-3.5" /> LIA Licensed Director
+                <ShieldCheck className="w-3.5 h-3.5" /> LIA Support Director
               </div>
             </div>
 

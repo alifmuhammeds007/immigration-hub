@@ -22,7 +22,7 @@ export const Hero = () => {
   const stats = [
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
-      value: "LIA Licensed",
+      value: "LIA Support",
       label: "Director-led New Zealand visa counselling",
       desc: "Licensed Immigration Adviser expert support"
     },

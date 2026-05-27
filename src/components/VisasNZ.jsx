@@ -110,7 +110,7 @@ export const VisasNZ = () => {
         {/* Header Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-            <ShieldCheck className="w-4 h-4" /> Licensed LIA Expertise
+            <ShieldCheck className="w-4 h-4" /> Licensed Immigration Adviser Expertise
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
             New Zealand <span className="text-gradient-brand">Visas Hub</span>

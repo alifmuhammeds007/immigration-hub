@@ -65,7 +65,7 @@ export const Navbar = () => {
               {/* LIA Badge */}
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:border-emerald-400/40 hover:bg-emerald-500/20 text-xs font-bold transition-colors duration-300 cursor-help">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Licensed New Zealand LIA Guidance</span>
+                <span>Licensed Immigration Adviser guidance</span>
               </div>
             </div>
 
@@ -136,7 +136,7 @@ export const Navbar = () => {
           <div className="pt-6 border-t border-white/10 space-y-4 mt-auto">
             <div className="flex items-center gap-2.5 px-4 py-3.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold shadow-sm">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span>Licensed New Zealand LIA Guidance</span>
+              <span>Licensed Immigration Adviser guidance</span>
             </div>
           </div>
         </div>

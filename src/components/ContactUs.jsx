@@ -48,9 +48,14 @@ export const ContactUs = () => {
           {offices.map((office, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center h-full min-h-[220px]"
+              className="relative overflow-hidden p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center h-full min-h-[220px]"
             >
-              <div className="space-y-5 w-full">
+              {/* Background Location Watermark with 50% visibility */}
+              <div className="absolute -right-8 -bottom-8 text-slate-200 dark:text-slate-800 pointer-events-none transform -rotate-12 z-0 select-none opacity-50">
+                <MapPin className="w-36 h-36" />
+              </div>
+
+              <div className="space-y-5 w-full relative z-10">
                 {/* Header */}
                 <div>
                   <h3 className="font-heading font-extrabold text-xl text-slate-900 dark:text-white">
@@ -71,7 +76,7 @@ export const ContactUs = () => {
                   {office.phones.map((phone, pIdx) => (
                     <div key={pIdx} className="flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400">
                       <a
-                        href={`tel:${phone.replace(/\s+/g, '')}`}
+                         href={`tel:${phone.replace(/\s+/g, '')}`}
                         className="flex items-center gap-2 hover:text-primary transition-colors font-semibold"
                       >
                         <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
