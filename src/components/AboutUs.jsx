@@ -63,7 +63,7 @@ export const AboutUs = () => {
                   </div>
                   {/* Name and LIA under the picture */}
                   <div className="p-4 flex-1 flex flex-col items-center justify-center text-center">
-                    <h4 className="font-heading font-extrabold text-sm text-slate-900 dark:text-white leading-tight">
+                    <h4 className="font-heading font-extrabold text-[15px] sm:text-base text-slate-900 dark:text-white leading-tight">
                       Priyanka Anilkumar
                     </h4>
                     <div className="mt-2 text-2xl font-black text-emerald-500 dark:text-emerald-400 tracking-wider">

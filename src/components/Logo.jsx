@@ -58,7 +58,7 @@ export const Logo = ({ className = '', showText = true }) => {
 
       {/* Logo Typography */}
       {showText && (
-        <div className="flex flex-col leading-tight">
+        <div className="flex flex-col leading-tight text-left">
           <div className="font-heading font-extrabold text-xl tracking-tight flex items-center">
             <span className="text-white transition-colors duration-200">
               Immigration
@@ -67,6 +67,9 @@ export const Logo = ({ className = '', showText = true }) => {
               Hub
             </span>
           </div>
+          <span className="text-[8px] font-black uppercase tracking-[0.22em] bg-gradient-to-r from-white via-slate-100 to-[#E51937] bg-clip-text text-transparent mt-0.5 drop-shadow-[0_0_5px_rgba(229,25,55,0.45)]">
+            The global visa experts
+          </span>
         </div>
       )}
     </div>
