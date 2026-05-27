@@ -85,18 +85,24 @@ export const AboutUs = () => {
               </div>
 
               {/* Profile Card 2: CEO Profile */}
-              <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-primary/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
-                  CEO
-                </div>
-                <div className="space-y-2">
-                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:text-accent text-[10px] font-bold uppercase">
-                    CEO Credentials
-                  </div>
-                  <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
+              <div className="rounded-3xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row overflow-hidden hover:border-primary/30 transition-all duration-300 premium-card-hover">
+                {/* Left Column (Profile Details) */}
+                <div className="w-full sm:w-48 bg-slate-950/5 dark:bg-slate-950/20 flex flex-col items-center justify-center text-center p-6 border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-800/80 shrink-0">
+                  <h4 className="font-heading font-extrabold text-[15px] sm:text-base text-slate-900 dark:text-white leading-tight">
                     Manu
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  <div className="mt-3 px-5 py-1.5 rounded-xl bg-gradient-to-tr from-primary via-[#D31F3C] to-[#E51937] text-white font-black text-xs sm:text-sm tracking-widest shadow-lg shadow-primary/20 border border-primary/20 uppercase inline-block hover:scale-105 transition-transform duration-300">
+                    CEO
+                  </div>
+                </div>
+
+                {/* Right Column (Credentials Details) */}
+                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-center text-left">
+                  <h3 className="font-heading font-extrabold text-lg text-slate-900 dark:text-white uppercase tracking-wider text-gradient-primary">
+                    CEO Credentials
+                  </h3>
+                  <div className="h-4" /> {/* Gap */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-350 font-light leading-relaxed">
                     Our CEO, Manu, has been living in New Zealand for over 10 years and brings valuable international experience in guiding students towards the right education and career pathways in New Zealand and other countries. Through his genuine support, practical guidance, and student-focused approach, he has helped many aspiring students confidently begin their study abroad journey. His dedication, experience, and continuous efforts have been one of the strongest foundations behind the growth and strength of our team.
                   </p>
                 </div>
