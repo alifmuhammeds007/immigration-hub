@@ -50,24 +50,35 @@ export const AboutUs = () => {
 
             <div className="space-y-6">
               {/* Profile Card 1: Director LIA */}
-              <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
-                <div className="flex flex-col items-center shrink-0">
-                  <img 
-                    src="/priyanka.jpg" 
-                    alt="Priyanka Anilkumar" 
-                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover shadow-md border-2 border-emerald-500/20"
-                  />
-                  <div className="text-center mt-2">
+              <div className="rounded-3xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row overflow-hidden hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
+                {/* Left Column (Full Height Photo & Profile Details) */}
+                <div className="w-full sm:w-48 bg-slate-950/5 dark:bg-slate-950/20 flex flex-col border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-800/80 shrink-0">
+                  {/* Photo at the top of the column */}
+                  <div className="w-full h-48 shrink-0 relative overflow-hidden">
+                    <img 
+                      src="/priyanka.jpg" 
+                      alt="Priyanka Anilkumar" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Name and LIA under the picture */}
+                  <div className="p-4 flex-1 flex flex-col items-center justify-center text-center">
                     <h4 className="font-heading font-extrabold text-sm text-slate-900 dark:text-white leading-tight">
                       Priyanka Anilkumar
                     </h4>
-                    <span className="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[9px] font-bold uppercase tracking-wider">
-                      Director Credentials
-                    </span>
+                    <div className="mt-2 text-2xl font-black text-emerald-500 dark:text-emerald-400 tracking-wider">
+                      LIA
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-2 flex-1 pt-1">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+
+                {/* Right Column (Credentials Details) */}
+                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-center text-left">
+                  <h3 className="font-heading font-extrabold text-lg text-slate-900 dark:text-white uppercase tracking-wider text-gradient-primary">
+                    Director Credentials
+                  </h3>
+                  <div className="h-4" /> {/* Gap */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-350 font-light leading-relaxed">
                     Our Director & New Zealand Licensed Immigration Adviser, Priyanka Anilkumar (IAA Licence No. 202501411), is authorised to provide professional immigration advice and assistance for all types of New Zealand visas. From guiding clients with the right visa pathway to preparing, handling, and lodging visa applications, she offers complete end-to-end support with honesty, transparency, and professionalism.
                   </p>
                 </div>
