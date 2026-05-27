@@ -66,7 +66,7 @@ export const AboutUs = () => {
                     <h4 className="font-heading font-extrabold text-[15px] sm:text-base text-slate-900 dark:text-white leading-tight">
                       Priyanka Anilkumar
                     </h4>
-                    <div className="mt-2 text-2xl font-black text-emerald-500 dark:text-emerald-400 tracking-wider">
+                    <div className="mt-3 px-5 py-1.5 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 text-white font-black text-xs sm:text-sm tracking-widest shadow-lg shadow-emerald-500/20 border border-emerald-400/20 uppercase inline-block hover:scale-105 transition-transform duration-300">
                       LIA
                     </div>
                   </div>
