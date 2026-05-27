@@ -9,7 +9,7 @@ export const ContactUs = () => {
       city: "Kerala (India )",
       address: "",
       phones: ["+91 96330 62888", "+91 96330 69888"],
-      email: "info@immigrationhub.nz",
+      email: "office@immigrationhub.in",
       hours: ""
     },
     {
