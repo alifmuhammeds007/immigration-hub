@@ -50,17 +50,23 @@ export const AboutUs = () => {
 
             <div className="space-y-6">
               {/* Profile Card 1: Director LIA */}
-              <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center font-bold text-2xl shadow-md shrink-0 px-3">
-                  LIA
-                </div>
-                <div className="space-y-2">
-                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase">
-                    Director Credentials
+              <div className="p-6 rounded-2xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left hover:border-emerald-500/30 transition-all duration-300 premium-card-hover">
+                <div className="flex flex-col items-center shrink-0">
+                  <img 
+                    src="/priyanka.jpg" 
+                    alt="Priyanka Anilkumar" 
+                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover shadow-md border-2 border-emerald-500/20"
+                  />
+                  <div className="text-center mt-2">
+                    <h4 className="font-heading font-extrabold text-sm text-slate-900 dark:text-white leading-tight">
+                      Priyanka Anilkumar
+                    </h4>
+                    <span className="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[9px] font-bold uppercase tracking-wider">
+                      Director Credentials
+                    </span>
                   </div>
-                  <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
-                    Priyanka Anilkumar
-                  </h4>
+                </div>
+                <div className="space-y-2 flex-1 pt-1">
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                     Our Director & New Zealand Licensed Immigration Adviser, Priyanka Anilkumar (IAA Licence No. 202501411), is authorised to provide professional immigration advice and assistance for all types of New Zealand visas. From guiding clients with the right visa pathway to preparing, handling, and lodging visa applications, she offers complete end-to-end support with honesty, transparency, and professionalism.
                   </p>
