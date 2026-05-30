@@ -135,7 +135,7 @@ export const FormsHub = () => {
       await new Promise(resolve => setTimeout(resolve, 800));
 
       setLastSubmittedAssessment(currentDetails);
-      setSuccess('Your Free Detailed Visa Evaluation has been successfully drafted! We are redirecting you to WhatsApp to securely send your details to our advisors. If it does not open, please click the buttons below.');
+      setSuccess('Your Detailed Visa Evaluation has been successfully drafted! We are redirecting you to WhatsApp to securely send your details to our advisors. If it does not open, please click the buttons below.');
       
       // Auto-redirect to WhatsApp
       let waMsg = `Hello Immigration Hub,\n\nI have submitted a Detailed Visa Assessment Request:\n- Name: ${currentDetails.firstName} ${currentDetails.lastName}\n- Email: ${currentDetails.email}\n- Contact: ${currentDetails.contactNumber}\n- Purpose: ${currentDetails.purpose}\n- Preferred Country: ${currentDetails.destination}\n- Qualification: ${currentDetails.qualification}\n- Work Experience: ${currentDetails.experience} Years\n- Message: ${currentDetails.message}`;
@@ -204,7 +204,7 @@ export const FormsHub = () => {
           </h2>
           <div className="h-1.5 w-20 bg-gradient-brand mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-sm sm:text-base font-light">
-            Take your first solid step. Fill out our detailed profile questionnaires, and receive a professional evaluation from our team completely free.
+            Take your first solid step. Fill out our detailed profile questionnaires, and receive a professional evaluation from our team.
           </p>
         </div>
 
@@ -274,7 +274,6 @@ export const FormsHub = () => {
           <form onSubmit={handleAssessmentSubmit} className="glassmorphism rounded-3xl border border-white/20 dark:border-white/5 bg-white/60 dark:bg-dark-card/65 p-6 sm:p-10 shadow-xl electric-glow text-left space-y-6">
             <h3 className="font-heading font-extrabold text-xl text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-800/80 pb-3 flex items-center justify-between">
               <span>Detailed Visa Evaluation Form</span>
-              <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Free</span>
             </h3>
 
             {/* Row 1: First/Last Names */}
