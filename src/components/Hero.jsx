@@ -223,7 +223,7 @@ export const Hero = () => {
               {/* CEO New Zealand Experience highlight */}
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
-                  Our offices in <span className="font-bold text-primary dark:text-accent">Kerala</span> and <span className="font-bold text-primary dark:text-accent">Christchurch</span> provide post-landing services like airport pickup & job hunting guidance!
+                  Our offices in <span className="font-bold text-primary dark:text-accent">New Zealand</span> and <span className="font-bold text-primary dark:text-accent">India</span> provide post-landing services like airport pickup & job hunting guidance!
                 </div>
               </div>
             </div>
