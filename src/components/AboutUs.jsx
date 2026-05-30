@@ -36,7 +36,7 @@ export const AboutUs = () => {
           <p className="text-slate-600 dark:text-slate-300 mt-6 text-sm sm:text-base font-light leading-relaxed max-w-4xl mx-auto text-left sm:text-center">
             We are a New Zealand-based study and immigration consultancy operating in New Zealand  and India . At Immigration Hub, we specialize in guiding applicants towards the best career and migration pathways with the support of our dynamic and enthusiastic education and migration consultants. With our CEO’s decade-long experience living, working, and studying in New Zealand, along with guidance from our Director, a Licensed Immigration Adviser (LIA), we offer expert knowledge and trusted guidance in both the education and migration sectors.
             <br /><br />
-            Our clientcentric approach carefully assesses each applicant’s educational and professional background, career goals, settlement plans, family background, financial considerations, and socioeconomic circumstances to evaluate and recommend the bestfit study abroad options. We assist clients in selecting the right institution and course, provide expert guidance for a hasslefree pre and poststudy journey, support with documentation and visa application processes, and also offer reliable postlanding services.
+            Our client centric approach carefully assesses each applicant’s educational and professional background, career goals, settlement plans, family background, financial considerations, and socioeconomic circumstances to evaluate and recommend the bestfit study abroad options. We assist clients in selecting the right institution and course, provide expert guidance for a hasslefree pre and poststudy journey, support with documentation and visa application processes, and also offer reliable postlanding services.
           </p>
         </div>
 
@@ -128,7 +128,7 @@ export const AboutUs = () => {
                   Your Trusted Partner to New Zealand
                 </h4>
                 <p className="text-xs text-slate-300 font-light mt-1">
-                  Director-led LIA immigration guidance with an active local presence in both Christchurch & Kerala.
+                  Director-led guidance from our Licensed Immigration Adviser (LIA), with an active local presence in both New Zealand  and India.
                 </p>
               </div>
             </div>

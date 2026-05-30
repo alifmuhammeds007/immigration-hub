@@ -18,30 +18,6 @@ export const Testimonials = () => {
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"
     },
     {
-      name: "Rahul Kurup",
-      location: "Trivandrum, Kerala",
-      destination: "United Kingdom",
-      program: "Visa Approved",
-      institute: "United Kingdom Student Visa",
-      rating: 5,
-      review: "Getting my UK visa was extremely fast and smooth with Immigration Hub. As a fresh graduate, I was confused, but their counsellors helped me choose the perfect master's course within my budget. They kept the entire visa application process 100% transparent. I am highly grateful to the Kerala team for their exceptional pre-departure support!",
-      badge: "🇬🇧 UK Study Visa Approved",
-      avatarText: "RK",
-      avatarColor: "bg-gradient-to-tr from-rose-500 to-red-600"
-    },
-    {
-      name: "Sneha Joseph",
-      location: "Kottayam, Kerala",
-      destination: "Europe",
-      program: "Visa Approved",
-      institute: "France Student Visa",
-      rating: 5,
-      review: "Studying in France was my dream, and Immigration Hub made it happen easily. They helped me secure an offer with subsidized student accommodation in Paris and prepared me for the visa interview thoroughly. Their client-centric approach stands out. Highly professional, always accessible via phone and WhatsApp!",
-      badge: "🇫🇷 France Student Visa Approved",
-      avatarText: "SJ",
-      avatarColor: "bg-gradient-to-tr from-[#1B365D] via-slate-400 to-[#E51937]"
-    },
-    {
       name: "Princy",
       location: "United Arab Emirates",
       destination: "New Zealand",

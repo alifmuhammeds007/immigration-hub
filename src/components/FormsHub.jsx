@@ -411,7 +411,7 @@ export const FormsHub = () => {
             <div className="p-3.5 rounded-xl bg-slate-100/60 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2.5">
               <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
               <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-tight">
-                <strong>LIA Privacy Pledge</strong>: All uploaded resumes and profiles are securely analyzed strictly under the privacy policy rules of the Immigration Advisers Authority (IAA).
+                All applicant details are securely handled in compliance with the privacy and professional standards of the Immigration Advisers Authority (IAA).
               </p>
             </div>
 
