@@ -137,7 +137,7 @@ export const Testimonials = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white uppercase tracking-tight">
-            Student <span className="text-gradient-primary">Testimonials</span>
+            Client <span className="text-gradient-primary">Testimonials</span>
           </h2>
           <div className="h-1.5 w-20 bg-gradient-to-r from-primary to-accent mx-auto mt-4 rounded-full"></div>
           <p className="text-slate-600 dark:text-slate-400 mt-6 text-base font-light">

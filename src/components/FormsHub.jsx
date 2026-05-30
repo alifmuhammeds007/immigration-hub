@@ -218,7 +218,7 @@ export const FormsHub = () => {
                 : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
-            📋 Free Visa Assessment
+            📋 Visa Assessment
           </button>
           <button
             onClick={() => { setActiveTab('counselling'); setSuccess(null); setError(null); }}
@@ -269,7 +269,7 @@ export const FormsHub = () => {
           </div>
         )}
 
-        {/* Tab 1: Free Visa Assessment Form */}
+        {/* Tab 1: Visa Assessment Form */}
         {activeTab === 'assessment' && (
           <form onSubmit={handleAssessmentSubmit} className="glassmorphism rounded-3xl border border-white/20 dark:border-white/5 bg-white/60 dark:bg-dark-card/65 p-6 sm:p-10 shadow-xl electric-glow text-left space-y-6">
             <h3 className="font-heading font-extrabold text-xl text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-800/80 pb-3 flex items-center justify-between">
@@ -310,7 +310,7 @@ export const FormsHub = () => {
                 <input
                   type="email"
                   required
-                  placeholder="Enter your Gmail ID"
+                  placeholder="Enter your Email ID"
                   value={assessmentForm.email}
                   onChange={(e) => setAssessmentForm({ ...assessmentForm, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"

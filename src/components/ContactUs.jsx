@@ -13,7 +13,7 @@ export const ContactUs = () => {
       hours: ""
     },
     {
-      city: "Christchurch(New Zealand Liasison)",
+      city: "Christchurch(New Zealand - Liaison)",
       address: "",
       phones: ["+64 204369699"],
       email: "info@immigrationhub.nz",
