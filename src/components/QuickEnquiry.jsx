@@ -115,7 +115,7 @@ export const QuickEnquiry = () => {
       {!isOpen && (
         <button
           onClick={() => { setIsOpen(true); setSuccess(false); setError(null); }}
-          className="fixed right-0 top-[40%] z-40 bg-[#E51937] hover:bg-[#b81026] text-white py-3.5 px-3 rounded-l-2xl shadow-2xl flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 hover:pr-4 group animate-float border-y border-l border-white/20"
+          className="fixed right-0 top-[40%] z-40 bg-[#D34E5E] hover:bg-[#A63543] text-white py-3.5 px-3 rounded-l-2xl shadow-2xl flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 hover:pr-4 group animate-float border-y border-l border-white/20"
         >
           <Zap className="w-5 h-5 animate-pulse text-yellow-300" />
           <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest [writing-mode:vertical-lr] rotate-180">
@@ -135,7 +135,7 @@ export const QuickEnquiry = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-slate-300 dark:border-slate-800/80 pb-3">
               <div className="flex items-center gap-1.5 text-slate-950 dark:text-accent font-heading font-black text-base uppercase tracking-tight">
-                <Zap className="w-5 h-5 text-[#E51937]" />
+                <Zap className="w-5 h-5 text-[#D34E5E]" />
                 <span>Quick Enquiry</span>
               </div>
               <button
@@ -268,7 +268,7 @@ export const QuickEnquiry = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-brand-red/10 hover:shadow-brand-red/20 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed mt-4 hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full py-3.5 rounded-xl bg-[#D34E5E] hover:bg-[#A63543] text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-brand-red/10 hover:shadow-brand-red/20 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed mt-4 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {loading ? (
                     <>
@@ -290,16 +290,16 @@ export const QuickEnquiry = () => {
           <div className="border-t border-slate-350 dark:border-slate-800/80 pt-4 text-left space-y-2">
             <a
               href="tel:+919633062888"
-              className="flex items-center gap-2 text-xs text-slate-950 dark:text-slate-200 font-bold hover:text-[#E51937] dark:hover:text-[#E51937] transition-colors"
+              className="flex items-center gap-2 text-xs text-slate-950 dark:text-slate-200 font-bold hover:text-[#D34E5E] dark:hover:text-[#D34E5E] transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#E51937] shrink-0" />
+              <Phone className="w-3.5 h-3.5 text-[#D34E5E] shrink-0" />
               <span>+91 96330 62888</span>
             </a>
             <a
               href="mailto:office@immigrationhub.in"
-              className="flex items-center gap-2 text-xs text-slate-950 dark:text-slate-200 font-bold hover:text-[#E51937] dark:hover:text-[#E51937] transition-colors"
+              className="flex items-center gap-2 text-xs text-slate-950 dark:text-slate-200 font-bold hover:text-[#D34E5E] dark:hover:text-[#D34E5E] transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#E51937] shrink-0" />
+              <Mail className="w-3.5 h-3.5 text-[#D34E5E] shrink-0" />
               <span>office@immigrationhub.in</span>
             </a>
           </div>

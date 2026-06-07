@@ -116,7 +116,7 @@ function App() {
             <div className="space-y-4">
               <Logo className="scale-90 origin-left drop-shadow-lg" />
               <p className="text-xs text-slate-300 leading-relaxed font-medium drop-shadow-md">
-                Studying and settling abroad made easy by Immigration Hub. New Zealand and Kerala's premier student visa & migration consultancies.
+                Studying and settling abroad made easy by Immigration Hub. New Zealand and India's premier student visa & migration consultancies.
               </p>
             </div>
 

@@ -15,7 +15,7 @@ export const VisasNZ = () => {
         'Offer of Place from an NZQA-accredited educational institution',
         'Evidence of sufficient funds for living expenses',
         'Tuition fee payment receipt or confirmation',
-        'Academic transcripts & english language competency proof',
+        'Academic transcripts & English language competency proof',
         'Genuine intent & clear post-study pathway plans'
       ],
       liaTip: 'Selecting the correct course matching your academic and work history is critical. Implausible course pathways are the primary cause of student visa rejections.'

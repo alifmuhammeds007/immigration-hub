@@ -12,7 +12,7 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "New Zealand Visitor Visa",
       rating: 5,
-      review: "My dream of visiting New Zealand became a reality through IMMIGRATION HUB and the expert guidance of Adviser Priyanka. The application process was handled professionally with proper advice and continuous support throughout every stage. I truly appreciate their genuine assistance and would strongly recommend their services to anyone planning their New Zealand journey.",
+      review: "My dream of visiting New Zealand became a reality through Immigration Hub and the expert guidance of Adviser Priyanka. The application process was handled professionally with proper advice and continuous support throughout every stage. I truly appreciate their genuine assistance and would strongly recommend their services to anyone planning their New Zealand journey.",
       badge: "🇳🇿 New Zealand Visitor Visa Approved",
       avatarText: "ST",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-emerald-600"
@@ -24,7 +24,7 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "New Zealand Visitor Visa",
       rating: 5,
-      review: "I’m very happy with the support I received from IMMIGRATION HUB for my New Zealand visitor visa application. The guidance provided by the Licensed Immigration Adviser was professional, detailed, and reassuring throughout the process. Their expertise and careful handling gave me confidence and helped me achieve a successful outcome.",
+      review: "I’m very happy with the support I received from Immigration Hub for my New Zealand visitor visa application. The guidance provided by the Licensed Immigration Adviser was professional, detailed, and reassuring throughout the process. Their expertise and careful handling gave me confidence and helped me achieve a successful outcome.",
       badge: "🇳🇿 New Zealand Visitor Visa Approved",
       avatarText: "P",
       avatarColor: "bg-gradient-to-tr from-teal-500 to-emerald-600"
@@ -36,7 +36,7 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "Dubai Student Visa",
       rating: 5,
-      review: "My study abroad journey to Dubai became simple and stress-free with the support of IMMIGRATION HUB. The team helped me choose an affordable course that matched both my career goals and budget, which gave me the confidence to take the first step towards my dream career. I’m truly happy with the guidance and support I received throughout my entire journey.",
+      review: "My study abroad journey to Dubai became simple and stress-free with the support of Immigration Hub. The team helped me choose an affordable course that matched both my career goals and budget, which gave me the confidence to take the first step towards my dream career. I’m truly happy with the guidance and support I received throughout my entire journey.",
       badge: "🇦🇪 Dubai Student Visa Approved",
       avatarText: "J",
       avatarColor: "bg-gradient-to-tr from-amber-500 to-orange-600"
@@ -60,7 +60,7 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "Dubai Student Visa",
       rating: 5,
-      review: "I had a great experience with IMMIGRATION HUB during my study abroad process to Dubai. The team was supportive, approachable, and always ready to clarify my doubts. Their guidance with course selection, college admission, and visa processing made the entire journey easy and well-organised.",
+      review: "I had a great experience with Immigration Hub during my study abroad process to Dubai. The team was supportive, approachable, and always ready to clarify my doubts. Their guidance with course selection, college admission, and visa processing made the entire journey easy and well-organised.",
       badge: "🇦🇪 Dubai Student Visa Approved",
       avatarText: "AP",
       avatarColor: "bg-gradient-to-tr from-yellow-500 to-red-600"
@@ -72,34 +72,10 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "Dubai Student Visa",
       rating: 5,
-      review: "IMMIGRATION HUB guided me towards the right academic pathway based on my interests and future plans. The team clearly explained every detail regarding my programme, student life in Dubai, and the visa process, which made me feel confident about studying abroad. I’m very happy with their professional support and would definitely recommend IMMIGRATION HUB to students planning their Dubai education journey.",
+      review: "Immigration Hub guided me towards the right academic pathway based on my interests and future plans. The team clearly explained every detail regarding my programme, student life in Dubai, and the visa process, which made me feel confident about studying abroad. I’m very happy with their professional support and would definitely recommend Immigration Hub to students planning their Dubai education journey.",
       badge: "🇦🇪 Dubai Student Visa Approved",
       avatarText: "J",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-purple-600"
-    },
-    {
-      name: "Eldhose",
-      location: "Kollam, Kerala",
-      destination: "New Zealand",
-      program: "Visa Approved",
-      rating: 5,
-      review: "Had a wonderful experience with the Immigration Hub team throughout my New Zealand student visa process. I’m extremely happy with their professional support and guidance. They also assisted me with my PTE preparation and post-landing services, which made the entire journey much smoother. A big thank you to the whole team for the continuous support and care!",
-      badge: "🇳🇿 New Zealand Student Visa Approved",
-      avatarText: "E",
-      avatarColor: "bg-gradient-to-tr from-emerald-600 to-teal-500",
-      institute: "New Zealand Student Visa"
-    },
-    {
-      name: "Ganesh Krishnan",
-      location: "Trivandrum, Kerala",
-      destination: "New Zealand",
-      program: "Visa Approved",
-      rating: 5,
-      review: "My New Zealand student visa dream became a reality through Immigration Hub. From the initial consultation to my visa approval, the team provided exceptional support, clear guidance, and constant encouragement throughout the entire journey. Their professionalism, dedication, and genuine care made the process smooth and stress-free. I’m truly thankful to the entire team for helping me take this big step towards my future.",
-      badge: "🇳🇿 New Zealand Student Visa Approved",
-      avatarText: "GK",
-      avatarColor: "bg-gradient-to-tr from-blue-600 to-indigo-500",
-      institute: "New Zealand Student Visa"
     }
   ];
 

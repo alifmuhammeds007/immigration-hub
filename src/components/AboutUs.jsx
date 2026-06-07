@@ -5,7 +5,7 @@ export const AboutUs = () => {
   const steps = [
     {
       title: "Background Assessment",
-      desc: "Carefully evaluating your academic, work, family background, and financial details."
+      desc: "Carefully evaluating your academic, work, family background, as well as financial details."
     },
     {
       title: "Best-Fit Institute Matching",
@@ -36,7 +36,7 @@ export const AboutUs = () => {
           <p className="text-slate-600 dark:text-slate-300 mt-6 text-sm sm:text-base font-light leading-relaxed max-w-4xl mx-auto text-left sm:text-center">
             We are a New Zealand-based study and immigration consultancy operating in New Zealand  and India . At Immigration Hub, we specialize in guiding applicants towards the best career and migration pathways with the support of our dynamic and enthusiastic education and migration consultants. With our CEO’s decade-long experience living, working, and studying in New Zealand, along with guidance from our Director, a Licensed Immigration Adviser (LIA), we offer expert knowledge and trusted guidance in both the education and migration sectors.
             <br /><br />
-            Our client centric approach carefully assesses each applicant’s educational and professional background, career goals, settlement plans, family background, financial considerations, and socioeconomic circumstances to evaluate and recommend the bestfit study abroad options. We assist clients in selecting the right institution and course, provide expert guidance for a hasslefree pre and poststudy journey, support with documentation and visa application processes, and also offer reliable postlanding services.
+            Our client-centric approach carefully assesses each applicant’s educational and professional background, career goals, settlement plans, family background, financial considerations, and socio-economic circumstances to evaluate and recommend the best fit study abroad options. We assist clients in selecting the right institution and course, provide expert guidance for a hassle-free pre and post-study journey, support with documentation and visa application processes, and also offer reliable post-landing services.
           </p>
         </div>
 
@@ -86,13 +86,24 @@ export const AboutUs = () => {
 
               {/* Profile Card 2: CEO Profile */}
               <div className="rounded-3xl glassmorphism border border-slate-100 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-lg flex flex-col sm:flex-row overflow-hidden hover:border-primary/30 transition-all duration-300 premium-card-hover">
-                {/* Left Column (Profile Details) */}
-                <div className="w-full sm:w-48 bg-slate-950/5 dark:bg-slate-950/20 flex flex-col items-center justify-center text-center p-6 border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-800/80 shrink-0">
-                  <h4 className="font-heading font-extrabold text-[15px] sm:text-base text-slate-900 dark:text-white leading-tight">
-                    Manu
-                  </h4>
-                  <div className="mt-3 px-5 py-1.5 rounded-xl bg-gradient-to-tr from-primary via-[#D31F3C] to-[#E51937] text-white font-black text-xs sm:text-sm tracking-widest shadow-lg shadow-primary/20 border border-primary/20 uppercase inline-block hover:scale-105 transition-transform duration-300">
-                    CEO
+                {/* Left Column (Full Height Photo & Profile Details) */}
+                <div className="w-full sm:w-48 bg-slate-950/5 dark:bg-slate-950/20 flex flex-col border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-800/80 shrink-0">
+                  {/* Photo at the top of the column */}
+                  <div className="w-full h-48 shrink-0 relative overflow-hidden">
+                    <img 
+                      src="/manu.jpg" 
+                      alt="Manu" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Name and CEO under the picture */}
+                  <div className="p-4 flex-1 flex flex-col items-center justify-center text-center">
+                    <h4 className="font-heading font-extrabold text-[15px] sm:text-base text-slate-900 dark:text-white leading-tight">
+                      Manu
+                    </h4>
+                    <div className="mt-3 px-5 py-1.5 rounded-xl bg-gradient-to-tr from-primary via-[#B6414F] to-[#D34E5E] text-white font-black text-xs sm:text-sm tracking-widest shadow-lg shadow-primary/20 border border-primary/20 uppercase inline-block hover:scale-105 transition-transform duration-300">
+                      CEO
+                    </div>
                   </div>
                 </div>
 

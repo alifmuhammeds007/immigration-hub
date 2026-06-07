@@ -107,7 +107,7 @@ export const StudyAbroad = () => {
                 </div>
                 
                 {/* Subtle visual link indicator that appears on hover */}
-                <div className="h-0.5 w-0 bg-gradient-to-r from-brand-red to-primary transition-all duration-500 group-hover:w-20 mt-3 rounded-full shadow-[0_0_8px_#E51937]" />
+                <div className="h-0.5 w-0 bg-gradient-to-r from-brand-red to-primary transition-all duration-500 group-hover:w-20 mt-3 rounded-full shadow-[0_0_8px_#D34E5E]" />
                 
                 <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wider mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 flex items-center gap-1">
                   Select Destination <ArrowUpRight className="w-3.5 h-3.5 text-brand-red" />

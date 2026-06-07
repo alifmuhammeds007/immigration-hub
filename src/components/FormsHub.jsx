@@ -418,7 +418,7 @@ export const FormsHub = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-xl bg-[#D34E5E] hover:bg-[#A63543] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
@@ -613,7 +613,7 @@ export const FormsHub = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-xl bg-[#D34E5E] hover:bg-[#A63543] text-white font-extrabold text-sm tracking-widest uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 hover:scale-101 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>

@@ -28,7 +28,7 @@ export const Hero = () => {
     },
     {
       icon: <GraduationCap className="w-6 h-6 text-primary" />,
-      value: "10 Years",
+      value: "10 Years Experience",
       label: "CEO's New Zealand experience",
       desc: "Direct guidance based on studying & working in New Zealand"
     },
@@ -42,7 +42,7 @@ export const Hero = () => {
       icon: <Compass className="w-6 h-6 text-indigo-500" />,
       value: "End-to-end",
       label: "Pre & Post landing support",
-      desc: " Kerala & Christchurch offices for continuous student support"
+      desc: "New Zealand and India offices for continuous student support"
     }
   ];
 
@@ -89,19 +89,19 @@ export const Hero = () => {
             {/* Glowing Headline with Pure White-to-Red Gradient */}
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.1] [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">
               Studying and Settling Abroad Made Easy by{' '}
-              <span className="bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-[#D34E5E] bg-clip-text text-transparent">
                 IMMIGRATION HUB
               </span>
             </h1>
 
             {/* Dynamic, supportive context paragraph with White-to-Red gradients */}
             <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl font-medium [text-shadow:0_2px_5px_rgba(0,0,0,0.4)]">
-              Explore genuine New Zealand visa and study pathways with the expert guidance of a{' '}
-              <strong className="font-extrabold bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent whitespace-nowrap">
+              Explore genuine New Zealand visas and study pathways with the expert guidance of a{' '}
+              <strong className="font-extrabold bg-gradient-to-r from-white to-[#D34E5E] bg-clip-text text-transparent whitespace-nowrap">
                 Licensed Immigration Adviser (LIA)
               </strong>{' '}
               in New Zealand, while also unlocking exciting study abroad opportunities in destinations like the{' '}
-              <strong className="font-extrabold bg-gradient-to-r from-white to-[#E51937] bg-clip-text text-transparent">
+              <strong className="font-extrabold bg-gradient-to-r from-white to-[#D34E5E] bg-clip-text text-transparent">
                 UK, Dubai, France, Malta, Spain
               </strong>{' '}
               and more.
@@ -141,7 +141,7 @@ export const Hero = () => {
                   window.dispatchEvent(new CustomEvent('setFormsHubTab', { detail: 'counselling' }));
                   document.getElementById('forms-hub')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 rounded-xl bg-[#E51937] hover:bg-[#b81026] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 flex items-center gap-2 group hover:scale-[1.02]"
+                className="px-6 py-3.5 rounded-xl bg-[#D34E5E] hover:bg-[#A63543] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/30 flex items-center gap-2 group hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book 1:1 Free Counselling</span>
@@ -155,7 +155,7 @@ export const Hero = () => {
                   window.dispatchEvent(new CustomEvent('setFormsHubTab', { detail: 'assessment' }));
                   document.getElementById('forms-hub')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E51937] to-[#C11027] hover:from-[#FF1E3D] hover:to-[#E51937] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.02] flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D34E5E] to-[#A63543] hover:from-[#E36A78] hover:to-[#D34E5E] text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-brand-red/20 hover:shadow-brand-red/35 hover:-translate-y-0.5 active:translate-y-0 hover:scale-[1.02] flex items-center gap-2"
               >
                 <span>Visa Assessment</span>
               </a>
@@ -175,10 +175,10 @@ export const Hero = () => {
             {/* Micro assurance */}
             <div className="flex items-center gap-6 text-xs text-slate-200 font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
               <div className="flex items-center gap-1.5">
-                <span className="text-emerald-400 font-bold">✔</span> Zero Consultation Fee for Students
+                <span className="text-emerald-400 font-bold">✔</span> Zero consultation fee for students
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="text-emerald-400 font-bold">✔</span> 100% Transparency Guaranteed
+                <span className="text-emerald-400 font-bold">✔</span> 100% transparency guaranteed
               </div>
             </div>
           </div>

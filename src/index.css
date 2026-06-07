@@ -11,15 +11,15 @@
   --color-primary: #1B365D; /* Corporate Deep Navy */
   --color-primary-dark: #0F2240;
   --color-primary-light: #E6EEFA;
-  --color-accent: #E51937; /* Match dynamic brand red */
+  --color-accent: #D34E5E; /* Match dynamic brand red */
   
   --animate-plane-orbit: plane-orbit 11s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-gradient: gradient 15s ease infinite;
 
-  --color-brand-red: #E51937;
-  --color-brand-red-dark: #b81026;
+  --color-brand-red: #D34E5E;
+  --color-brand-red-dark: #A63543;
   --color-dark-bg: #0A0F1D;
   --color-dark-card: #121829;
   --color-dark-border: #1E293B;
@@ -116,29 +116,29 @@
    ========================================= */
 .electric-glow { box-shadow: 0 0 45px -10px rgba(59, 130, 246, 0.45); }
 .electric-glow-lg { box-shadow: 0 0 65px -15px rgba(59, 130, 246, 0.6); }
-.red-glow { box-shadow: 0 0 40px -10px rgba(229, 25, 55, 0.2); }
-.red-glow-lg { box-shadow: 0 0 60px -15px rgba(229, 25, 55, 0.45); }
+.red-glow { box-shadow: 0 0 40px -10px rgba(211, 78, 94, 0.2); }
+.red-glow-lg { box-shadow: 0 0 60px -15px rgba(211, 78, 94, 0.45); }
 
 .bg-gradient-brand {
-  background: linear-gradient(135deg, #1B365D 0%, #E51937 100%);
+  background: linear-gradient(135deg, #1B365D 0%, #D34E5E 100%);
 }
 
 .text-gradient-primary {
-  background: linear-gradient(135deg, #3B82F6 0%, #E51937 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #D34E5E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #60A5FA 35%, #E51937 100%);
+  background: linear-gradient(135deg, #60A5FA 35%, #D34E5E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-hero-brand {
-  background: linear-gradient(135deg, #FFFFFF 15%, #E51937 100%);
+  background: linear-gradient(135deg, #FFFFFF 15%, #D34E5E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

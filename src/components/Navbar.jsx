@@ -56,7 +56,7 @@ export const Navbar = () => {
                   className="relative group font-sans font-semibold text-sm text-slate-200 hover:text-white transition-colors duration-300 py-1.5"
                 >
                   <span>{link.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#E51937] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#E51937]" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#D34E5E] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#D34E5E]" />
                 </a>
               ))}
             </div>
@@ -66,7 +66,7 @@ export const Navbar = () => {
               {/* LIA Badge */}
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:border-emerald-400/40 hover:bg-emerald-500/20 text-xs font-bold transition-colors duration-300 cursor-help">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Licensed Immigration Adviser guidance</span>
+                <span>Licensed Immigration Adviser Guidance</span>
               </div>
             </div>
 
@@ -130,14 +130,14 @@ export const Navbar = () => {
               className="py-3 px-4 font-semibold text-base rounded-xl hover:bg-white/5 text-slate-200 hover:text-white border border-transparent hover:border-white/5 transition-colors duration-200 flex items-center justify-between group"
             >
               <span>{link.name}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E51937] scale-0 group-hover:scale-100 transition-transform duration-200 shadow-[0_0_8px_#E51937]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D34E5E] scale-0 group-hover:scale-100 transition-transform duration-200 shadow-[0_0_8px_#D34E5E]" />
             </a>
           ))}
 
           <div className="pt-6 border-t border-white/10 space-y-4 mt-auto">
             <div className="flex items-center gap-2.5 px-4 py-3.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold shadow-sm">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span>Licensed Immigration Adviser guidance</span>
+              <span>Licensed Immigration Adviser Guidance</span>
             </div>
           </div>
         </div>
