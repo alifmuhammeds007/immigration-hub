@@ -100,7 +100,7 @@ function App() {
 
           {/* DESKTOP (WINDOWS) IMAGE: object-cover with reduced opacity */}
           <img 
-            src="/world-map-desktop.png" 
+            src="/world-map-desktop.jpg" 
             alt="World Map Desktop Background"
             className="hidden md:block w-full h-full object-cover object-bottom opacity-10 mix-blend-screen"
           />

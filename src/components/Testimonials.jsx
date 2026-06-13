@@ -1,10 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, ShieldCheck, GraduationCap, Quote, MapPin } from 'lucide-react';
 
 export const Testimonials = () => {
   const [filter, setFilter] = useState('all');
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    const elements = document.querySelectorAll('#testimonials .reveal-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [filter]);
+
   const testimonials = [
+    {
+      name: "Teena Agnes",
+      location: "United Arab Emirates",
+      destination: "Dubai",
+      program: "Visa Approved",
+      institute: "Dubai Student Visa",
+      rating: 5,
+      review: "I would like to express my sincere gratitude to my legal advisor, Ms. Priyanka, for the exceptional support and guidance she provided throughout my immigration visa process. From the very beginning, she demonstrated outstanding professionalism, expertise, and dedication. To be honest, there were moments when I felt frustrated because of the large number of documents she requested. However, I now fully understand that her attention to detail and thorough preparation were the key reasons my visa process was completed so quickly and efficiently. Thanks to her hard work and prompt handling of my application, my visa was approved within just one day, which exceeded my expectations. Her commitment, responsiveness, and knowledge made the entire process smooth and stress-free. I highly recommend Ms. Priyanka to anyone seeking reliable and professional immigration assistance. Thank you for your excellent work, dedication, and support throughout this journey. Thank you so much, Ms. Priyanka.",
+      badge: "🇦🇪 Dubai Visa Approved",
+      avatarText: "TA",
+      avatarColor: "bg-gradient-to-tr from-[#1B365D] to-indigo-600"
+    },
     {
       name: "Silpa Thomas",
       location: "Kozhikode, Kerala",
@@ -76,7 +112,8 @@ export const Testimonials = () => {
       badge: "🇦🇪 Dubai Student Visa Approved",
       avatarText: "J",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-purple-600"
-    }
+    },
+    
   ];
 
   const filteredTestimonials = filter === 'all'

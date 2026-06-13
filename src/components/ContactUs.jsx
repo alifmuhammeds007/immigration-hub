@@ -15,7 +15,7 @@ export const ContactUs = () => {
     {
       city: "New Zealand",
       address: "",
-      phones: ["+64 204369699"],
+      phones: ["+64 2043699699"],
       email: "info@immigrationhub.nz",
       hours: ""
     }

@@ -24,7 +24,7 @@ export const AboutUs = () => {
   return (
     <section id="about" className="py-12 md:py-16 bg-transparent transition-colors duration-300 relative">
       {/* Background graphic */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/5 blur-[150px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(27,54,93,0.05)_0%,transparent_70%)] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Block */}
@@ -126,7 +126,7 @@ export const AboutUs = () => {
             {/* Visual Scenic Backdrop Card */}
             <div className="relative h-64 rounded-3xl overflow-hidden shadow-xl border border-white/10 group">
               <img 
-                src="/hero_nz.png" 
+                src="/hero_nz.jpg" 
                 alt="Christchurch, New Zealand" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

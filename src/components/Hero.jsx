@@ -3,10 +3,37 @@ import { ArrowRight, Calendar, Compass, GraduationCap, ShieldCheck, Landmark } f
 
 // OPTIMIZATION: Moved static data outside the component to prevent memory reallocation every 6 seconds
 const slides = [
-  { url: '/hero_nz.png', alt: 'Queenstown, New Zealand' },
-  { url: '/hero_uk.png', alt: 'London, United Kingdom' },
-  { url: '/hero_france.png', alt: 'Paris, France' },
-  { url: '/hero_dubai.png', alt: 'Dubai, United Arab Emirates' }
+  { url: '/hero_nz.jpg', alt: 'Queenstown, New Zealand' },
+  { url: '/hero_uk.jpg', alt: 'London, United Kingdom' },
+  { url: '/hero_france.jpg', alt: 'Paris, France' },
+  { url: '/hero_dubai.jpg', alt: 'Dubai, United Arab Emirates' }
+];
+
+const stats = [
+  {
+    icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+    value: "LIA Support",
+    label: "Director-led New Zealand visa counselling",
+    desc: "Licensed Immigration Adviser expert support"
+  },
+  {
+    icon: <GraduationCap className="w-6 h-6 text-primary" />,
+    value: "10 Years Experience",
+    label: "CEO's New Zealand experience",
+    desc: "Direct guidance based on studying & working in New Zealand"
+  },
+  {
+    icon: <Landmark className="w-6 h-6 text-accent" />,
+    value: "Global Study Destination",
+    label: "6+ Destinations",
+    desc: "Study options in New Zealand, UK, Dubai, France, Malta, Spain"
+  },
+  {
+    icon: <Compass className="w-6 h-6 text-indigo-500" />,
+    value: "End-to-end",
+    label: "Pre & Post landing support",
+    desc: "New Zealand and India offices for continuous student support"
+  }
 ];
 
 export const Hero = () => {
@@ -18,33 +45,6 @@ export const Hero = () => {
     }, 6000);
     return () => clearInterval(timer);
   }, []);
-
-  const stats = [
-    {
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
-      value: "LIA Support",
-      label: "Director-led New Zealand visa counselling",
-      desc: "Licensed Immigration Adviser expert support"
-    },
-    {
-      icon: <GraduationCap className="w-6 h-6 text-primary" />,
-      value: "10 Years Experience",
-      label: "CEO's New Zealand experience",
-      desc: "Direct guidance based on studying & working in New Zealand"
-    },
-    {
-      icon: <Landmark className="w-6 h-6 text-accent" />,
-      value: "Global Study Destination",
-      label: "6+ Destinations",
-      desc: "Study options in New Zealand, UK, Dubai, France, Malta, Spain"
-    },
-    {
-      icon: <Compass className="w-6 h-6 text-indigo-500" />,
-      value: "End-to-end",
-      label: "Pre & Post landing support",
-      desc: "New Zealand and India offices for continuous student support"
-    }
-  ];
 
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-10 md:pb-16 flex items-center overflow-hidden bg-transparent transition-colors duration-300">
@@ -63,10 +63,7 @@ export const Hero = () => {
               // OPTIMIZATION: Eager load the first image, lazy load the rest.
               loading={idx === 0 ? "eager" : "lazy"}
               fetchPriority={idx === 0 ? "high" : "auto"}
-              className="w-full h-full object-cover object-center transform transition-transform duration-[6000ms] ease-out will-change-transform"
-              style={{
-                transform: currentSlide === idx ? 'scale(1.05)' : 'scale(1.02)'
-              }}
+              className="w-full h-full object-cover object-center"
             />
           </div>
         ))}
@@ -74,9 +71,9 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1B365D]/95 via-[#1B365D]/80 to-[#1B365D]/40 md:from-[#1B365D]/95 md:via-[#1B365D]/75 md:to-transparent"></div>
       </div>
 
-      {/* Dynamic Ambient Background Blobs (OPTIMIZATION: Removed heavy pulse animation from large blurs) */}
-      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-red/8 blur-[100px] pointer-events-none"></div>
+      {/* Dynamic Ambient Background Blobs (OPTIMIZATION: Replaced heavy blurs with high-performance radial gradients) */}
+      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(27,54,93,0.1)_0%,transparent_70%)] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-[radial-gradient(circle,rgba(211,78,94,0.08)_0%,transparent_70%)] pointer-events-none"></div>
 
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] pointer-events-none"></div>

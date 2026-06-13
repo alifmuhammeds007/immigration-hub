@@ -100,14 +100,14 @@
 @media (min-width: 768px) {
   .glassmorphism {
     background: rgba(10, 15, 30, 0.75) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   
   .dark .glassmorphism {
     background: rgba(18, 24, 41, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 }
 
@@ -275,8 +275,8 @@
   .dark .bg-sky-50\/60, .dark .bg-sky-50\/50, .dark .bg-sky-50, .dark .bg-slate-50,
   .dark .bg-slate-900\/60, .dark .bg-white, .dark .bg-white\/50, .dark .bg-white\/80 {
     background-color: rgba(10, 15, 30, 0.75) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 }
 

@@ -6,27 +6,27 @@ export const StudyAbroad = () => {
     {
       name: "New Zealand",
       flag: "🇳🇿",
-      image: "/hero_nz.png"
+      image: "/hero_nz.jpg"
     },
     {
       name: "United Kingdom",
       flag: "🇬🇧",
-      image: "/hero_uk.png"
+      image: "/hero_uk.jpg"
     },
     {
       name: "Dubai (UAE)",
       flag: "🇦🇪",
-      image: "/hero_dubai.png"
+      image: "/hero_dubai.jpg"
     },
     {
       name: "France",
       flag: "🇫🇷",
-      image: "/hero_france.png"
+      image: "/hero_france.jpg"
     },
     {
       name: "Malta",
       flag: "🇲🇹",
-      image: "/hero_malta.png"
+      image: "/hero_malta.jpg"
     },
     {
       name: "Spain",
