@@ -1,6 +1,80 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ShieldCheck, GraduationCap, Quote, MapPin } from 'lucide-react';
 
+const TestimonialCard = ({ item, idx }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLong = item.review && item.review.length > 220;
+
+  return (
+    <div
+      className={`group relative p-6 sm:p-8 rounded-3xl bg-sky-50/50 dark:bg-dark-card border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-xl dark:hover:bg-slate-900/60 transition-all duration-300 text-left flex flex-col justify-between electric-glow reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
+    >
+      {/* Top Section */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          {/* Rating */}
+          <div className="flex items-center gap-0.5">
+            {[...Array(item.rating)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+            ))}
+          </div>
+          <Quote className="w-8 h-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
+        </div>
+
+        {/* Review Message */}
+        <div>
+          <p className={`text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light transition-all duration-300 ${isExpanded ? '' : 'line-clamp-[6]'}`}>
+            "{item.review}"
+          </p>
+          {isLong && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-2 text-[11px] font-semibold text-primary dark:text-accent hover:underline focus:outline-none flex items-center gap-0.5"
+            >
+              {isExpanded ? 'Show less' : 'more...'}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Student Profile Info */}
+      <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-6">
+        <div className="flex items-center gap-3">
+          {/* Avatar */}
+          <div className={`w-11 h-11 rounded-full ${item.avatarColor} text-white flex items-center justify-center font-heading font-extrabold text-sm shadow-md`}>
+            {item.avatarText}
+          </div>
+          <div>
+            <h4 className="font-heading font-bold text-sm text-slate-900 dark:text-white">
+              {item.name}
+            </h4>
+            <p className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1 font-medium mt-0.5">
+              <MapPin className="w-3 h-3 text-primary shrink-0" />
+              <span>{item.location}</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Study Destination Details */}
+        <div className="mt-3.5 space-y-1 bg-slate-50 dark:bg-slate-900/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800/50">
+          <div className="text-[10px] font-bold text-primary dark:text-accent uppercase tracking-wider flex items-center gap-1">
+            <GraduationCap className="w-3.5 h-3.5" />
+            <span>{item.institute}</span>
+          </div>
+          <div className="text-[10px] text-slate-600 dark:text-slate-400 leading-normal font-light">
+            {item.program}
+          </div>
+        </div>
+
+        {/* Approved Badge */}
+        <div className="mt-3.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">
+          <ShieldCheck className="w-3 h-3" /> {item.badge}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const Testimonials = () => {
   const [filter, setFilter] = useState('all');
 
@@ -32,12 +106,12 @@ export const Testimonials = () => {
     {
       name: "Teena Agnes",
       location: "United Arab Emirates",
-      destination: "Dubai",
+      destination: "New Zealand",
       program: "Visa Approved",
-      institute: "Dubai Student Visa",
+      institute: "New Zealand Visitor Visa",
       rating: 5,
       review: "I would like to express my sincere gratitude to my legal advisor, Ms. Priyanka, for the exceptional support and guidance she provided throughout my immigration visa process. From the very beginning, she demonstrated outstanding professionalism, expertise, and dedication. To be honest, there were moments when I felt frustrated because of the large number of documents she requested. However, I now fully understand that her attention to detail and thorough preparation were the key reasons my visa process was completed so quickly and efficiently. Thanks to her hard work and prompt handling of my application, my visa was approved within just one day, which exceeded my expectations. Her commitment, responsiveness, and knowledge made the entire process smooth and stress-free. I highly recommend Ms. Priyanka to anyone seeking reliable and professional immigration assistance. Thank you for your excellent work, dedication, and support throughout this journey. Thank you so much, Ms. Priyanka.",
-      badge: "🇦🇪 Dubai Visa Approved",
+      badge: "🇳🇿 New Zealand Visitor Visa Approved",
       avatarText: "TA",
       avatarColor: "bg-gradient-to-tr from-[#1B365D] to-indigo-600"
     },
@@ -160,63 +234,7 @@ export const Testimonials = () => {
         {/* Testimonials Masonry Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredTestimonials.map((item, idx) => (
-            <div
-              key={idx}
-              className={`group relative p-6 sm:p-8 rounded-3xl bg-sky-50/50 dark:bg-dark-card border border-slate-100 dark:border-slate-800 hover:border-primary/20 hover:shadow-xl dark:hover:bg-slate-900/60 transition-all duration-300 text-left flex flex-col justify-between electric-glow reveal-on-scroll premium-card-hover reveal-delay-${(idx % 3 + 1) * 100}`}
-            >
-              {/* Top Section */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  {/* Rating */}
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <Quote className="w-8 h-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
-                </div>
-
-                {/* Review Message */}
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light line-clamp-[7] group-hover:line-clamp-none transition-all duration-500">
-                  "{item.review}"
-                </p>
-              </div>
-
-              {/* Student Profile Info */}
-              <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-6">
-                <div className="flex items-center gap-3">
-                  {/* Avatar */}
-                  <div className={`w-11 h-11 rounded-full ${item.avatarColor} text-white flex items-center justify-center font-heading font-extrabold text-sm shadow-md`}>
-                    {item.avatarText}
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-sm text-slate-900 dark:text-white">
-                      {item.name}
-                    </h4>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1 font-medium mt-0.5">
-                      <MapPin className="w-3 h-3 text-primary shrink-0" />
-                      <span>{item.location}</span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* Study Destination Details */}
-                <div className="mt-3.5 space-y-1 bg-slate-50 dark:bg-slate-900/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800/50">
-                  <div className="text-[10px] font-bold text-primary dark:text-accent uppercase tracking-wider flex items-center gap-1">
-                    <GraduationCap className="w-3.5 h-3.5" />
-                    <span>{item.institute}</span>
-                  </div>
-                  <div className="text-[10px] text-slate-600 dark:text-slate-400 leading-normal font-light">
-                    {item.program}
-                  </div>
-                </div>
-
-                {/* Approved Badge */}
-                <div className="mt-3.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-3 h-3" /> {item.badge}
-                </div>
-              </div>
-            </div>
+            <TestimonialCard key={idx} item={item} idx={idx} />
           ))}
         </div>
       </div>
