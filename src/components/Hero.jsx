@@ -19,7 +19,7 @@ const stats = [
   {
     icon: <GraduationCap className="w-6 h-6 text-primary" />,
     value: "10 Years Experience",
-    label: "CEO's New Zealand experience",
+    label: "Decade of NZ Experience",
     desc: "Direct guidance based on studying & working in New Zealand"
   },
   {
@@ -217,7 +217,7 @@ export const Hero = () => {
                 ))}
               </div>
 
-              {/* CEO New Zealand Experience highlight */}
+              {/* New Zealand & India Office highlight */}
               <div className="mt-6 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 flex items-center gap-3">
                 <div className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
                   Our offices in <span className="font-bold text-primary dark:text-accent">New Zealand</span> and <span className="font-bold text-primary dark:text-accent">India</span> provide post-landing services like airport pickup & job hunting guidance!

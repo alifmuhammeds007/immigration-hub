@@ -158,7 +158,7 @@ export const Testimonials = () => {
       program: "Visa Approved",
       institute: "Malta Student Visa",
       rating: 5,
-      review: "My European study journey to Malta became much smoother with the excellent guidance from the CEO, Manu . The support provided throughout the admission and visa process was professional, transparent, and reassuring at every stage. I’m extremely satisfied with their service and truly appreciate their commitment towards students and their future goals.",
+      review: "My European study journey to Malta became much smoother with the excellent guidance from the Immigration Hub team. The support provided throughout the admission and visa process was professional, transparent, and reassuring at every stage. I’m extremely satisfied with their service and truly appreciate their commitment towards students and their future goals.",
       badge: "🇲🇹 Malta Student Visa Approved",
       avatarText: "BT",
       avatarColor: "bg-gradient-to-tr from-red-600 to-slate-500"
